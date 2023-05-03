@@ -20,6 +20,8 @@
 
 @end
 
+extern const NSInteger terminalIndex;
+
 #if !ISH_LINUX
 extern NSString *const ProcessExitedNotification;
 #else

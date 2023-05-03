@@ -5,6 +5,7 @@
 //  Created by Theodore Dubois on 10/26/19.
 //
 
+#import "AppDelegate.h"
 #import "SceneDelegate.h"
 #import "AboutViewController.h"
 
@@ -28,8 +29,10 @@ static NSString *const TerminalUUID = @"TerminalUUID";
         self.window.rootViewController = vc;
         return;
     }
+    
+    UITabBarController *tbc = (UITabBarController *) self.window.rootViewController;
+    TerminalViewController *vc = (TerminalViewController *)tbc.viewControllers[terminalIndex];
 
-    TerminalViewController *vc = (TerminalViewController *) self.window.rootViewController;
     vc.sceneSession = session;
     if (session.stateRestorationActivity == nil) {
         [vc startNewSession];
@@ -42,7 +45,8 @@ static NSString *const TerminalUUID = @"TerminalUUID";
 
 - (NSUserActivity *)stateRestorationActivityForScene:(UIScene *)scene {
     NSUserActivity *activity = [[NSUserActivity alloc] initWithActivityType:@"app.ish.scene"];
-    TerminalViewController *vc = (TerminalViewController *) self.window.rootViewController;
+    UITabBarController *tbc = (UITabBarController *) self.window.rootViewController;
+    TerminalViewController *vc = (TerminalViewController *)tbc.viewControllers[terminalIndex];
     if ([vc isKindOfClass:TerminalViewController.class]) {
         self.terminalUUID = vc.sessionTerminalUUID.UUIDString;
         if (self.terminalUUID != nil) {
@@ -53,13 +57,14 @@ static NSString *const TerminalUUID = @"TerminalUUID";
 }
 
 - (void)sceneDidBecomeActive:(UIScene *)scene {
-    TerminalViewController *terminalViewController = (TerminalViewController *) self.window.rootViewController;;
+    UITabBarController *tbc = (UITabBarController *) self.window.rootViewController;
+    TerminalViewController *terminalViewController = (TerminalViewController *)tbc.viewControllers[terminalIndex];
     currentTerminalViewController = terminalViewController;
 }
 
 - (void)sceneWillResignActive:(UIScene *)scene {
-    TerminalViewController *terminalViewController = (TerminalViewController *) self.window.rootViewController;
-
+    UITabBarController *tbc = (UITabBarController *) self.window.rootViewController;
+    TerminalViewController *terminalViewController = (TerminalViewController *)tbc.viewControllers[terminalIndex];
     if (currentTerminalViewController == terminalViewController) {
         currentTerminalViewController = NULL;
     }
