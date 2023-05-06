@@ -234,7 +234,6 @@
         <!--Settings-->
         <scene sceneID="4RI-73-Dce">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="X7W-mO-AeA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="qob-qK-b9B" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aNc-pb-93k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -244,6 +243,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" id="wOg-Ae-bXr"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X7W-mO-AeA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2426" y="833"/>
         </scene>
@@ -291,10 +291,10 @@
             </objects>
             <point key="canvasLocation" x="-271" y="833"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="gZP-xQ-ghi">
             <objects>
-                <tabBarController storyboardIdentifier="tab_bar_controller" id="tmq-na-4Hg" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tab_bar_controller" id="tmq-na-4Hg" customClass="MainTabBarController" customModule="iCode" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="fill" id="mzn-P3-stV">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

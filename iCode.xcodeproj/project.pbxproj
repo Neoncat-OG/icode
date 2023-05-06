@@ -104,6 +104,8 @@
 		497F6D3D254E5EA600C82F46 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = BB7D93822087C2890008DA78 /* main.c */; };
 		497F6D5C254E609700C82F46 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = BB7D93822087C2890008DA78 /* main.c */; };
 		497F6D87254E62E100C82F46 /* libish.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB13F7DC200AD81D003D1C4D /* libish.a */; };
+		A365D6F62A065D7500EB24CB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EE49D2A0659C600049353 /* MainTabBarController.swift */; };
+		A37EE49E2A0659C600049353 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EE49D2A0659C600049353 /* MainTabBarController.swift */; };
 		A3F92D9D29FCE4FA0002C09F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F92D9C29FCE4FA0002C09F /* icon.png */; };
 		A3F92D9E29FCE4FA0002C09F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F92D9C29FCE4FA0002C09F /* icon.png */; };
 		BB0F552E239F8A790032A2A1 /* Icons.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB0F552D239F8A790032A2A1 /* Icons.plist */; };
@@ -583,6 +585,8 @@
 		8632A7BE219A59FB00F02325 /* UserPreferences.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserPreferences.m; sourceTree = "<group>"; };
 		9A28E4E8219A8B670073D200 /* AboutAppearanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutAppearanceViewController.h; sourceTree = "<group>"; };
 		9A28E4E9219A8B670073D200 /* AboutAppearanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutAppearanceViewController.m; sourceTree = "<group>"; };
+		A37EE49C2A0659C500049353 /* libiCodeApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libiCodeApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		A37EE49D2A0659C600049353 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A3F92D9C29FCE4FA0002C09F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../icon.png; sourceTree = "<group>"; };
 		BB0B848E2586A4CF00208600 /* XcodeDefault.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = XcodeDefault.xcconfig; sourceTree = "<group>"; };
 		BB0B859B2586F13200208600 /* XcodeDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = XcodeDebug.xcconfig; sourceTree = "<group>"; };
@@ -1042,6 +1046,7 @@
 				BBCC9D952365430800424C83 /* SceneDelegate.m */,
 				BB792B561F96D90D00FFB7A4 /* TerminalViewController.h */,
 				BB792B571F96D90D00FFB7A4 /* TerminalViewController.m */,
+				A37EE49D2A0659C600049353 /* MainTabBarController.swift */,
 				BB792B591F96D90D00FFB7A4 /* Terminal.storyboard */,
 				BBFB557D21587B2B00DFE6DE /* Bar */,
 				BB78AB291FAD22440013E782 /* TerminalView.h */,
@@ -1066,6 +1071,7 @@
 				BB88F4A4215476BA00A341FD /* iSH.entitlements */,
 				BB88F4912154760800A341FD /* FileProvider */,
 				BB41591D255EF9E300E0950C /* UITests */,
+				A37EE49C2A0659C500049353 /* libiCodeApp-Bridging-Header.h */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -1650,6 +1656,7 @@
 					};
 					BBEF191D26806364001225BD = {
 						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -2090,6 +2097,7 @@
 			files = (
 				BB28C7BB268975AE00BDC834 /* LocationDevice.m in Sources */,
 				BB28C7BA268975AA00BDC834 /* iOSFS.m in Sources */,
+				A365D6F62A065D7500EB24CB /* MainTabBarController.swift in Sources */,
 				BB28C7BC268975B000BDC834 /* PasteboardDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2135,6 +2143,7 @@
 			files = (
 				BB28C79226896B1F00BDC834 /* AboutAppearanceViewController.m in Sources */,
 				BB28C79326896B1F00BDC834 /* AltIconViewController.m in Sources */,
+				A37EE49E2A0659C600049353 /* MainTabBarController.swift in Sources */,
 				491B31E62883BF22008EEFB0 /* ThemeViewController.m in Sources */,
 				BB28C7B226896C4600BDC834 /* main.m in Sources */,
 				496C7AB227CC697E005D7613 /* Theme.m in Sources */,
@@ -2386,6 +2395,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BB0B86D52587009D00208600 /* iOS.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = app/UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2405,6 +2415,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BB0B86D52587009D00208600 /* iOS.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = app/UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2436,6 +2447,7 @@
 			baseConfigurationReference = BB0B85A42586F1CB00208600 /* ProjectDebug.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 478;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 			};
 			name = "Debug-ApplePleaseFixFB19282108";
@@ -2445,6 +2457,7 @@
 			baseConfigurationReference = BB0B85A52586F1E100208600 /* ProjectRelease.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 478;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 			};
 			name = Release;
@@ -2457,6 +2470,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 0.1;
 				PRODUCT_NAME = iCode;
+				SWIFT_VERSION = 5.0;
 			};
 			name = "Debug-ApplePleaseFixFB19282108";
 		};
@@ -2468,6 +2482,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 0.1;
 				PRODUCT_NAME = iCode;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -2476,6 +2491,7 @@
 			baseConfigurationReference = BB28C7532689522C00BDC834 /* ProjectDebugLinux.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 478;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 			};
 			name = DebugLinux;
@@ -2488,6 +2504,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 0.1;
 				PRODUCT_NAME = iCode;
+				SWIFT_VERSION = 5.0;
 			};
 			name = DebugLinux;
 		};
@@ -2506,7 +2523,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BBEF192C26806546001225BD /* AppLib.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				PRODUCT_NAME = libiCodeApp;
+				SWIFT_OBJC_BRIDGING_HEADER = "app/libiCodeApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = DebugLinux;
 		};
@@ -2527,6 +2548,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BB0B86D52587009D00208600 /* iOS.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = app/UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2680,7 +2702,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BBEF192C26806546001225BD /* AppLib.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				PRODUCT_NAME = libiCodeApp;
+				SWIFT_OBJC_BRIDGING_HEADER = "app/libiCodeApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = "Debug-ApplePleaseFixFB19282108";
 		};
@@ -2688,7 +2714,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BBEF192C26806546001225BD /* AppLib.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				PRODUCT_NAME = libiCodeApp;
+				SWIFT_OBJC_BRIDGING_HEADER = "app/libiCodeApp-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -2719,6 +2748,7 @@
 			baseConfigurationReference = BB28C7522689522700BDC834 /* ProjectReleaseLinux.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 478;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 			};
 			name = ReleaseLinux;
@@ -2731,6 +2761,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 0.1;
 				PRODUCT_NAME = iCode;
+				SWIFT_VERSION = 5.0;
 			};
 			name = ReleaseLinux;
 		};
@@ -2749,7 +2780,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BBEF192C26806546001225BD /* AppLib.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				PRODUCT_NAME = libiCodeApp;
+				SWIFT_OBJC_BRIDGING_HEADER = "app/libiCodeApp-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = ReleaseLinux;
 		};
@@ -2770,6 +2804,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BB0B86D52587009D00208600 /* iOS.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = app/UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

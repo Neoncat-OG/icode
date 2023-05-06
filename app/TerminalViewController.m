@@ -7,6 +7,7 @@
 
 #import "TerminalViewController.h"
 #import "AppDelegate.h"
+#import "SceneDelegate.h"
 #import "TerminalView.h"
 #import "BarButton.h"
 #import "ArrowBarButton.h"
@@ -19,6 +20,8 @@
 #include "kernel/task.h"
 #include "kernel/calls.h"
 #include "fs/devices.h"
+
+#import "libiCodeApp-Swift.h"
 
 @interface TerminalViewController () <UIGestureRecognizerDelegate>
 
@@ -348,7 +351,9 @@
         pad = MAX(self.view.safeAreaInsets.bottom, self.termView.inputAccessoryView.frame.size.height);
     }
     // NSLog(@"pad %f", pad);
-    self.bottomConstraint.constant = pad;
+    MainTabBarController *tbc = (MainTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    CGFloat tabBarHeight = [tbc getTabBarHeight];
+    self.bottomConstraint.constant = MAX(pad, tabBarHeight + 10);
 
     BOOL initialLayout = self.termView.needsUpdateConstraints;
     [self.view setNeedsUpdateConstraints];
@@ -369,6 +374,15 @@
 - (void)setHasExternalKeyboard:(BOOL)hasExternalKeyboard {
     _hasExternalKeyboard = hasExternalKeyboard;
     [self _updateStyleFromPreferences:YES];
+}
+
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
+    [coordinator animateAlongsideTransition:^(id context) {
+    } completion:^(id context){
+        MainTabBarController *tbc = (MainTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+        CGFloat tabBarHeight = [tbc getTabBarHeight];
+        self.bottomConstraint.constant = tabBarHeight + 5;
+    }];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
