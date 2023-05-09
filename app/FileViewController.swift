@@ -11,16 +11,12 @@ class FileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let button = UIButton()
-        button.frame = CGRect(x: 0, y:0, width: 100 , height: 100)
-        button.backgroundColor = .orange
-        button.center = self.view.center
-        button.addTarget(self, action: #selector(createFile), for: .touchUpInside)
-        self.view.addSubview(button)
+    
+        let addItemButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(createFile(_:)))
+        self.navigationItem.rightBarButtonItem = addItemButton
     }
     
-    @objc func createFile() {
+    @objc func createFile(_ sender: UIBarButtonItem) {
         let x = create_file("/root/hello")
         let y = create_directory("/root/hellodir")
         print("create :", x, y)
