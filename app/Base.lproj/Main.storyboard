@@ -250,7 +250,7 @@
         <!--iCode-->
         <scene sceneID="2gi-L5-Ks6">
             <objects>
-                <viewController id="FIW-wz-INB" sceneMemberID="viewController">
+                <viewController id="FIW-wz-INB" customClass="FileViewController" customModule="iCode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wvm-rq-4tI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

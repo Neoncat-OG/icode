@@ -2196,6 +2196,7 @@
 			baseConfigurationReference = BB0B86D52587009D00208600 /* iOS.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = "Debug-ApplePleaseFixFB19282108";
 		};
@@ -2204,6 +2205,7 @@
 			baseConfigurationReference = BB0B86D52587009D00208600 /* iOS.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Release;
 		};
@@ -2296,6 +2298,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = app/UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2316,6 +2319,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = app/UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2347,6 +2351,7 @@
 				CURRENT_PROJECT_VERSION = 478;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = "Debug-ApplePleaseFixFB19282108";
 		};
@@ -2357,6 +2362,7 @@
 				CURRENT_PROJECT_VERSION = 478;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Release;
 		};
@@ -2394,6 +2400,7 @@
 				CURRENT_PROJECT_VERSION = 478;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = DebugLinux;
 		};
@@ -2441,6 +2448,7 @@
 				CODE_SIGN_ENTITLEMENTS = app/FileProvider/iSHFileProvider.entitlements;
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				INFOPLIST_FILE = app/FileProvider/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER).FileProvider";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2454,6 +2462,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = app/UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2504,6 +2513,7 @@
 			baseConfigurationReference = BB0B86D52587009D00208600 /* iOS.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = DebugLinux;
 		};
@@ -2522,6 +2532,7 @@
 				CODE_SIGN_ENTITLEMENTS = app/FileProvider/iSHFileProvider.entitlements;
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				INFOPLIST_FILE = app/FileProvider/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER).FileProvider";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2535,6 +2546,7 @@
 				CODE_SIGN_ENTITLEMENTS = app/FileProvider/iSHFileProvider.entitlements;
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				INFOPLIST_FILE = app/FileProvider/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER).FileProvider";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2653,6 +2665,7 @@
 				CURRENT_PROJECT_VERSION = 478;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = ReleaseLinux;
 		};
@@ -2698,6 +2711,7 @@
 				CODE_SIGN_ENTITLEMENTS = app/FileProvider/iSHFileProvider.entitlements;
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				INFOPLIST_FILE = app/FileProvider/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER).FileProvider";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2711,6 +2725,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = app/UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2760,6 +2775,7 @@
 			baseConfigurationReference = BB0B86D52587009D00208600 /* iOS.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = ReleaseLinux;
 		};
