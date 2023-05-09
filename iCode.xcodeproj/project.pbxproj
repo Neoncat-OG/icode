@@ -104,8 +104,13 @@
 		497F6D3D254E5EA600C82F46 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = BB7D93822087C2890008DA78 /* main.c */; };
 		497F6D5C254E609700C82F46 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = BB7D93822087C2890008DA78 /* main.c */; };
 		497F6D87254E62E100C82F46 /* libish.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB13F7DC200AD81D003D1C4D /* libish.a */; };
-		A365D6F62A065D7500EB24CB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EE49D2A0659C600049353 /* MainTabBarController.swift */; };
+		A30C50222A0A28830047E87E /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30C50202A0A28830047E87E /* FileViewController.swift */; };
+		A30C50302A0A3B090047E87E /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A30C502E2A0A3B090047E87E /* FileManager.m */; };
+		A30C50372A0A41C20047E87E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EE49D2A0659C600049353 /* MainTabBarController.swift */; };
 		A37EE49E2A0659C600049353 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EE49D2A0659C600049353 /* MainTabBarController.swift */; };
+		A384E1882A0A44A800CECFCA /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30C50202A0A28830047E87E /* FileViewController.swift */; };
+		A384E1892A0A44B000CECFCA /* CurrentRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = BB565EA32734F1FB00C93EAE /* CurrentRoot.m */; };
+		A384E18A2A0A44B400CECFCA /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A30C502E2A0A3B090047E87E /* FileManager.m */; };
 		A3F92D9D29FCE4FA0002C09F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F92D9C29FCE4FA0002C09F /* icon.png */; };
 		A3F92D9E29FCE4FA0002C09F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F92D9C29FCE4FA0002C09F /* icon.png */; };
 		BB0F552E239F8A790032A2A1 /* Icons.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB0F552D239F8A790032A2A1 /* Icons.plist */; };
@@ -545,6 +550,10 @@
 		8632A7BE219A59FB00F02325 /* UserPreferences.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserPreferences.m; sourceTree = "<group>"; };
 		9A28E4E8219A8B670073D200 /* AboutAppearanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutAppearanceViewController.h; sourceTree = "<group>"; };
 		9A28E4E9219A8B670073D200 /* AboutAppearanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutAppearanceViewController.m; sourceTree = "<group>"; };
+		A30C50202A0A28830047E87E /* FileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewController.swift; sourceTree = "<group>"; };
+		A30C502B2A0A3A7D0047E87E /* iCode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iCode-Bridging-Header.h"; sourceTree = "<group>"; };
+		A30C502D2A0A3AF30047E87E /* FileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
+		A30C502E2A0A3B090047E87E /* FileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
 		A37EE49C2A0659C500049353 /* libiCodeApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libiCodeApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		A37EE49D2A0659C600049353 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A3F92D9C29FCE4FA0002C09F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../icon.png; sourceTree = "<group>"; };
@@ -968,6 +977,9 @@
 				BB792B571F96D90D00FFB7A4 /* TerminalViewController.m */,
 				A37EE49D2A0659C600049353 /* MainTabBarController.swift */,
 				BB792B591F96D90D00FFB7A4 /* Main.storyboard */,
+				A30C50202A0A28830047E87E /* FileViewController.swift */,
+				A30C502D2A0A3AF30047E87E /* FileManager.h */,
+				A30C502E2A0A3B090047E87E /* FileManager.m */,
 				BBFB557D21587B2B00DFE6DE /* Bar */,
 				BB78AB291FAD22440013E782 /* TerminalView.h */,
 				BB78AB2A1FAD22440013E782 /* TerminalView.m */,
@@ -992,6 +1004,7 @@
 				BB88F4912154760800A341FD /* FileProvider */,
 				BB41591D255EF9E300E0950C /* UITests */,
 				A37EE49C2A0659C500049353 /* libiCodeApp-Bridging-Header.h */,
+				A30C502B2A0A3A7D0047E87E /* iCode-Bridging-Header.h */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -1976,8 +1989,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB28C7BB268975AE00BDC834 /* LocationDevice.m in Sources */,
+				A384E1882A0A44A800CECFCA /* FileViewController.swift in Sources */,
+				A30C50372A0A41C20047E87E /* MainTabBarController.swift in Sources */,
+				A384E1892A0A44B000CECFCA /* CurrentRoot.m in Sources */,
 				BB28C7BA268975AA00BDC834 /* iOSFS.m in Sources */,
-				A365D6F62A065D7500EB24CB /* MainTabBarController.swift in Sources */,
+				A384E18A2A0A44B400CECFCA /* FileManager.m in Sources */,
 				BB28C7BC268975B000BDC834 /* PasteboardDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2023,6 +2039,7 @@
 			files = (
 				BB28C79226896B1F00BDC834 /* AboutAppearanceViewController.m in Sources */,
 				BB28C79326896B1F00BDC834 /* AltIconViewController.m in Sources */,
+				A30C50302A0A3B090047E87E /* FileManager.m in Sources */,
 				A37EE49E2A0659C600049353 /* MainTabBarController.swift in Sources */,
 				491B31E62883BF22008EEFB0 /* ThemeViewController.m in Sources */,
 				BB28C7B226896C4600BDC834 /* main.m in Sources */,
@@ -2055,6 +2072,7 @@
 				BB28C7A726896B1F00BDC834 /* UIViewController+Extras.m in Sources */,
 				BB28C7A826896B1F00BDC834 /* NSObject+SaneKVO.m in Sources */,
 				496C7AB327CC734D005D7613 /* ThemesViewController.m in Sources */,
+				A30C50222A0A28830047E87E /* FileViewController.swift in Sources */,
 				BB77636726E486A7008DB44A /* fakefs.c in Sources */,
 				BB28C7B826896CE600BDC834 /* ArrowBarButton.m in Sources */,
 			);
@@ -2349,7 +2367,9 @@
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 0.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = iCode;
+				SWIFT_OBJC_BRIDGING_HEADER = "app/iCode-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = "Debug-ApplePleaseFixFB19282108";
@@ -2362,6 +2382,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 0.1;
 				PRODUCT_NAME = iCode;
+				SWIFT_OBJC_BRIDGING_HEADER = "app/iCode-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -2383,7 +2404,9 @@
 				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 0.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = iCode;
+				SWIFT_OBJC_BRIDGING_HEADER = "app/iCode-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = DebugLinux;
@@ -2641,6 +2664,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 0.1;
 				PRODUCT_NAME = iCode;
+				SWIFT_OBJC_BRIDGING_HEADER = "app/iCode-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = ReleaseLinux;

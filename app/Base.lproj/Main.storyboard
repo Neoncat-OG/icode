@@ -266,7 +266,7 @@
         <!--Files-->
         <scene sceneID="aSg-LC-Qh1">
             <objects>
-                <viewController id="xWN-CA-2C3" sceneMemberID="viewController">
+                <viewController id="xWN-CA-2C3" customClass="FileViewController" customModule="iCode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xZl-1W-Mca">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
