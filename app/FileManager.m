@@ -7,6 +7,7 @@
 
 #import "FileManager.h"
 
+#if !ISH_LINUX
 static ssize_t read_file(const char *path, char *buf, size_t size) {
     struct fd *fd = generic_open(path, O_RDONLY_, 0);
     if (IS_ERR(fd))
@@ -27,11 +28,19 @@ static ssize_t write_file(const char *path, const char *buf, size_t size) {
     return n;
 }
 
+int create_directory(const char *path) {
+    return generic_mkdirat(AT_PWD, path, 0644);
+}
+
 static int remove_directory(const char *path) {
     return generic_rmdirat(AT_PWD, path);
 }
+#else
+#define read_file linux_read_file
+#define write_file linux_write_file
+#define remove_directory linux_remove_directory
+#endif
 
 ssize_t create_file(const char *path) {
-    ssize_t res = write_file(path, "", 0);
-    return res;
+    return write_file(path, "", 0);
 }

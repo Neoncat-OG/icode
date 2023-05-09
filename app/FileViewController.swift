@@ -20,8 +20,9 @@ class FileViewController: UIViewController {
         self.view.addSubview(button)
     }
     
-    @objc  func createFile() {
-        var x = create_file("/root/hello")
-        print("create :", x)
+    @objc func createFile() {
+        let x = create_file("/root/hello")
+        let y = create_directory("/root/hellodir")
+        print("create :", x, y)
     }
 }
