@@ -14,15 +14,22 @@ class FileViewController: UIViewController {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let addItemButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        let nextNavigationController = storyboard.instantiateViewController(withIdentifier: "create-file") as! UINavigationController
+        let nextView = nextNavigationController.topViewController as! CreateFileViewController
         
         var addActions = [UIMenuElement]()
         addActions.append(UIAction(title: "New Folder", image: UIImage(systemName: "folder.badge.plus") ,handler: { _ in
-            create_directory("/root/hellodir")
+            nextView.setIsFile(isFile: false)
+            nextView.setPath(path: "/")
+            nextNavigationController.modalPresentationStyle = .formSheet
+            self.present(nextNavigationController, animated: true, completion: nil)
         }))
+        
         addActions.append(UIAction(title: "New File", image: UIImage(systemName: "doc.badge.plus"), handler: { _ in
-            let nextView = storyboard.instantiateViewController(withIdentifier: "create-file")
-            nextView.modalPresentationStyle = .formSheet
-            self.present(nextView, animated: true, completion: nil)
+            nextView.setIsFile(isFile: true)
+            nextView.setPath(path: "/")
+            nextNavigationController.modalPresentationStyle = .formSheet
+            self.present(nextNavigationController, animated: true, completion: nil)
         }))
 
         addItemButton.menu = UIMenu(title: "", options: .displayInline, children: addActions)
