@@ -11,7 +11,8 @@ class FileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let addItemButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
         
         var addActions = [UIMenuElement]()
@@ -19,16 +20,12 @@ class FileViewController: UIViewController {
             create_directory("/root/hellodir")
         }))
         addActions.append(UIAction(title: "New File", image: UIImage(systemName: "doc.badge.plus"), handler: { _ in
-            create_file("/root/hello")
+            let nextView = storyboard.instantiateViewController(withIdentifier: "create-file")
+            nextView.modalPresentationStyle = .formSheet
+            self.present(nextView, animated: true, completion: nil)
         }))
 
         addItemButton.menu = UIMenu(title: "", options: .displayInline, children: addActions)
         self.navigationItem.rightBarButtonItem = addItemButton
-    }
-    
-    @objc func createFile(_ sender: UIBarButtonItem) {
-        let x = create_file("/root/hello")
-        let y = create_directory("/root/hellodir")
-        print("create :", x, y)
     }
 }

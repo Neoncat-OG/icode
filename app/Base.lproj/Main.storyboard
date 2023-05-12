@@ -231,6 +231,38 @@
             </objects>
             <point key="canvasLocation" x="1495" y="833"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xgz-NV-UXe">
+            <objects>
+                <navigationController storyboardIdentifier="create-file" useStoryboardIdentifierAsRestorationIdentifier="YES" id="F2f-jR-x0s" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YCr-cb-U4L">
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fda-bB-DMi" kind="relationship" relationship="rootViewController" id="V57-B6-v8B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OeO-e2-SKA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="574" y="1629"/>
+        </scene>
+        <!--New File-->
+        <scene sceneID="Ue2-YE-xEa">
+            <objects>
+                <viewController id="fda-bB-DMi" customClass="CreateFileViewController" customModule="iCode" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EWx-cx-jTh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5ar-cY-ctE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New File" id="na0-o3-57c"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qoS-hK-Ode" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1462" y="1629"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="4RI-73-Dce">
             <objects>
@@ -344,7 +376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zu6-3R-krC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-287" y="1600"/>
+            <point key="canvasLocation" x="-287" y="1630"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.32944842340000002" green="0.69086088099999998" blue="0.3657545539" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
