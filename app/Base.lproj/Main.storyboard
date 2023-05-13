@@ -240,28 +240,47 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="fda-bB-DMi" kind="relationship" relationship="rootViewController" id="V57-B6-v8B"/>
+                        <segue destination="dNX-uZ-Z71" kind="relationship" relationship="rootViewController" id="hOk-Wa-Agj"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OeO-e2-SKA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="574" y="1629"/>
         </scene>
-        <!--New File-->
-        <scene sceneID="Ue2-YE-xEa">
+        <!--Create File View Controller-->
+        <scene sceneID="Nut-xg-Bxn">
             <objects>
-                <viewController id="fda-bB-DMi" customClass="CreateFileViewController" customModule="iCode" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EWx-cx-jTh">
+                <viewController id="dNX-uZ-Z71" customClass="CreateFileViewController" customModule="iCode" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9kO-Ld-w3A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="5ar-cY-ctE"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New File Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a2P-Ed-PoH">
+                                <rect key="frame" x="20" y="124" width="335" height="42"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="flz-Ig-PCy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2wK-1e-By9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="a2P-Ed-PoH" firstAttribute="leading" secondItem="2wK-1e-By9" secondAttribute="leading" constant="20" id="Ls4-Hr-5no"/>
+                            <constraint firstItem="a2P-Ed-PoH" firstAttribute="top" secondItem="2wK-1e-By9" secondAttribute="top" constant="30" id="g0x-pH-mTq"/>
+                            <constraint firstItem="2wK-1e-By9" firstAttribute="trailing" secondItem="a2P-Ed-PoH" secondAttribute="trailing" constant="20" id="pqm-pr-zR8"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New File" id="na0-o3-57c"/>
+                    <navigationItem key="navigationItem" id="qma-ol-Eid"/>
+                    <connections>
+                        <outlet property="inputField" destination="a2P-Ed-PoH" id="lgd-BW-w3z"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qoS-hK-Ode" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kPq-BG-Exf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1462" y="1629"/>
+            <point key="canvasLocation" x="1382" y="1629"/>
         </scene>
         <!--Settings-->
         <scene sceneID="4RI-73-Dce">
@@ -389,6 +408,9 @@
         <image name="terminal" catalog="system" width="128" height="93"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
