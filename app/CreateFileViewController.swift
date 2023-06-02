@@ -58,7 +58,9 @@ class CreateFileViewController: UIViewController {
     }
     
     @objc func createFile(_ sender: UIBarButtonItem) {
-        create_file(self.path + inputField.text!)
+        if let newFileName = inputField.text {
+            create_file(self.path + newFileName)
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -66,15 +68,19 @@ class CreateFileViewController: UIViewController {
         if (inputField.text!.isEmpty) {
             return;
         }
-        create_directory(self.path + inputField.text!)
+        if let newFolderName = inputField.text {
+            create_directory(self.path + newFolderName)
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        if (self.inputField.text!.isEmpty) {
-            self.navigationItem.rightBarButtonItem?.isEnabled = false
-        } else {
-            self.navigationItem.rightBarButtonItem?.isEnabled = true
+        if let text = self.inputField.text {
+            if (text.isEmpty) {
+                self.navigationItem.rightBarButtonItem?.isEnabled = false
+            } else {
+                self.navigationItem.rightBarButtonItem?.isEnabled = true
+            }
         }
     }
 }
