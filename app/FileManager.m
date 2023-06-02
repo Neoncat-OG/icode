@@ -55,20 +55,24 @@ char *get_all_path(const char *path) {
 }
 
 
-char *get_file_list (const char *path) {
+int get_file_list(const char *path, struct filecontent *contents) {
     DIR *dir = opendir(get_all_path(path));
     if (dir == NULL)
-        return NULL;
+        return -1;
     struct dirent *dp;
+    int count = 0;
     for (dp = readdir(dir); dp != NULL; dp = readdir(dir)) {
-        char *tmp = dp->d_name;
-        if (tmp == NULL)
+        if (count >= MAX_CONTENTS)
+            return -1;
+        char *name = dp->d_name;
+        if (name == NULL)
             continue;
-        if (tmp[0] == '.')
+        if (name[0] == '.')
             continue;
-        printf("%s\n", tmp);
+        contents[count].name = name;
+        contents[count].kind = 0;
+        count++;
     }
     closedir(dir);
-    
-    return "";
+    return count;
 }
