@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 struct FileContent {
     var name: String;
@@ -13,7 +14,9 @@ struct FileContent {
 }
 
 class FileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
+
+    let DT_DIR = 4
+    let DT_REG = 8
     var currentPath = "/root"
     var contents: [FileContent]? = nil
     var contentsSize = 0
@@ -34,6 +37,12 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
         addItemButton.menu = UIMenu(title: "", options: .displayInline, children: addActions)
         self.navigationItem.rightBarButtonItem = addItemButton
+        let pathElement:[String] = currentPath.components(separatedBy: "/")
+        if pathElement.last == "" {
+            self.navigationItem.title = "/"
+        } else {
+            self.navigationItem.title = pathElement.last
+        }
     }
     
     
@@ -48,10 +57,22 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if contents == nil  {
             setContents()
         }
+        
         let cell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        let label = cell.contentView.viewWithTag(1) as! UILabel
         if let con = contents {
-            label.text = con[indexPath.row].name
+            let content = con[indexPath.row]
+            let button = cell.contentView.viewWithTag(1) as! UIButton
+            let label = cell.contentView.viewWithTag(2) as! UILabel
+            label.text = content.name
+            switch content.kind {
+            case DT_DIR:
+                cell.backgroundColor = .orange
+                
+            case DT_REG:
+                cell.backgroundColor = .blue
+            default:
+                cell.backgroundColor = .gray
+            }
         }
         return cell
     }
@@ -77,7 +98,7 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.contents = []
         for i in 0 ..< size {
             if let name = String(cString: tmp[Int(i)].name, encoding: .utf8) {
-                self.contents! += [FileContent(name: name, kind: 0)]
+                self.contents! += [FileContent(name: name, kind: Int(tmp[Int(i)].kind))]
             }
         }
         self.contentsSize = Int(size)

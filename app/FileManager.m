@@ -70,7 +70,7 @@ int get_file_list(const char *path, struct filecontent *contents) {
         if (name[0] == '.')
             continue;
         contents[count].name = name;
-        contents[count].kind = 0;
+        contents[count].kind = dp->d_type;
         count++;
     }
     closedir(dir);
