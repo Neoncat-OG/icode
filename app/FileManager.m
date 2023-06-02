@@ -47,7 +47,7 @@ ssize_t create_file(const char *path) {
     return write_file(path, "", 0);
 }
 
-char *get_all_path(char *path) {
+char *get_all_path(const char *path) {
     struct fd *fd = generic_open(path, O_RDONLY_, 0);
     char all_path[MAX_PATH];
     sprintf(all_path, "%s%s", fd->mount->source, path);
