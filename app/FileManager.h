@@ -12,5 +12,13 @@
 #import "LinuxInterop.h"
 #endif
 
+#define MAX_CONTENTS 65536
+
+struct filecontent {
+    char *name;
+    int kind;
+};
+
 ssize_t create_file(const char *path);
 int create_directory(const char *path);
+int get_file_list(const char *path, struct filecontent *contents);
