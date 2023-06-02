@@ -7,10 +7,15 @@
 
 import UIKit
 
+struct FileContent {
+    var name: String;
+    var kind: Int;
+}
+
 class FileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var currentPath = "/root"
-    var contents: [filecontent]? = nil
+    var contents: [FileContent]? = nil
     var contentsSize = 0
     
     override func viewDidLoad() {
@@ -46,7 +51,7 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         let label = cell.contentView.viewWithTag(1) as! UILabel
         if let con = contents {
-            label.text = String(cString: UnsafePointer<CChar>(con[indexPath.row].name)!)
+            label.text = con[indexPath.row].name
         }
         return cell
     }
@@ -69,7 +74,13 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func setContents() {
         var tmp = [filecontent](repeating: filecontent(name: nil, kind: 0), count: Int(MAX_CONTENTS))
         let size = get_file_list(currentPath.cString(using: .utf8), &tmp)
-        self.contents = tmp
+        self.contents = []
+        for i in 0 ..< size {
+            if let name = String(cString: tmp[Int(i)].name, encoding: .utf8) {
+                self.contents! += [FileContent(name: name, kind: 0)]
+            }
+        }
         self.contentsSize = Int(size)
+        print(size)
     }
 }
