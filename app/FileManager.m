@@ -6,6 +6,7 @@
 //
 
 #import "FileManager.h"
+#include <string.h>
 
 #if !ISH_LINUX
 static ssize_t read_file(const char *path, char *buf, size_t size) {
@@ -35,6 +36,7 @@ int create_directory(const char *path) {
 static int remove_directory(const char *path) {
     return generic_rmdirat(AT_PWD, path);
 }
+
 #else
 #define read_file linux_read_file
 #define write_file linux_write_file
@@ -43,4 +45,30 @@ static int remove_directory(const char *path) {
 
 ssize_t create_file(const char *path) {
     return write_file(path, "", 0);
+}
+
+char *get_all_path(char *path) {
+    struct fd *fd = generic_open(path, O_RDONLY_, 0);
+    char all_path[MAX_PATH];
+    sprintf(all_path, "%s%s", fd->mount->source, path);
+    return all_path;
+}
+
+
+char *get_file_list (const char *path) {
+    DIR *dir = opendir(get_all_path(path));
+    if (dir == NULL)
+        return NULL;
+    struct dirent *dp;
+    for (dp = readdir(dir); dp != NULL; dp = readdir(dir)) {
+        char *tmp = dp->d_name;
+        if (tmp == NULL)
+            continue;
+        if (tmp[0] == '.')
+            continue;
+        printf("%s\n", tmp);
+    }
+    closedir(dir);
+    
+    return "";
 }

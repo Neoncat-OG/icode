@@ -54,6 +54,9 @@ class CreateFileViewController: UIViewController {
     }
 
     @objc func cancelCreateItem(_ sender: UIBarButtonItem) {
+        let path = "/"
+        let name = get_file_list(path.cString(using: .utf8))
+        print(String(cString: UnsafePointer<CChar>(name)!))
         self.dismiss(animated: true, completion: nil)
     }
     

@@ -14,3 +14,4 @@
 
 ssize_t create_file(const char *path);
 int create_directory(const char *path);
+char *get_file_list (const char *path);
