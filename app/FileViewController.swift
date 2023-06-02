@@ -17,7 +17,7 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     let DT_DIR = 4
     let DT_REG = 8
-    var currentPath = "/root"
+    var currentPath = "/"
     var contents: [FileContent]? = nil
     var contentsSize = 0
     
@@ -62,16 +62,21 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if let con = contents {
             let content = con[indexPath.row]
             let button = cell.contentView.viewWithTag(1) as! UIButton
+            button.setTitle(content.name, for: .normal)
+            
             let label = cell.contentView.viewWithTag(2) as! UILabel
             label.text = content.name
             switch content.kind {
             case DT_DIR:
                 cell.backgroundColor = .orange
-                
+                button.addTarget(self, action: #selector(changeDirectory(_ :)), for: .touchUpInside)
+                break
             case DT_REG:
                 cell.backgroundColor = .blue
+                break
             default:
                 cell.backgroundColor = .gray
+                break
             }
         }
         return cell
@@ -103,5 +108,13 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         self.contentsSize = Int(size)
         print(size)
+    }
+    
+    
+    @objc func changeDirectory(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "file-view") as! FileViewController
+        nextViewController.setValue(currentPath: currentPath + "/" + (sender.titleLabel?.text ?? ""))
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
