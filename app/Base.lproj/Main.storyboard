@@ -515,6 +515,9 @@
                                     <accessibility key="accessibilityConfiguration" label="Hide Keyboard"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" image="Hide Keyboard"/>
+                                    <connections>
+                                        <action selector="pressHideButton:" destination="MBz-lp-ini" eventType="touchUpInside" id="bQI-J3-tbP"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
@@ -531,6 +534,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="allowsSelfSizing" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="hideButton" destination="tgc-Vb-JFM" id="bzX-nt-I8F"/>
                         <outlet property="tabKey" destination="WRR-4o-qRE" id="rqW-Bp-izA"/>
                     </connections>
                 </view>
