@@ -29,7 +29,6 @@
 @property (weak, nonatomic) IBOutlet TerminalView *termView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
-@property (weak, nonatomic) IBOutlet UIButton *tabKey;
 @property (weak, nonatomic) IBOutlet UIButton *controlKey;
 @property (weak, nonatomic) IBOutlet UIButton *escapeKey;
 @property (strong, nonatomic) IBOutletCollection(id) NSArray *barButtons;
@@ -109,9 +108,6 @@
         [self.infoButton setImage:[UIImage systemImageNamed:@"gear"] forState:UIControlStateNormal];
         [self.pasteButton setImage:[UIImage systemImageNamed:@"doc.on.clipboard"] forState:UIControlStateNormal];
         [self.hideKeyboardButton setImage:[UIImage systemImageNamed:@"keyboard.chevron.compact.down"] forState:UIControlStateNormal];
-        
-        [self.tabKey setTitle:nil forState:UIControlStateNormal];
-        [self.tabKey setImage:[UIImage systemImageNamed:@"arrow.right.to.line.alt"] forState:UIControlStateNormal];
         [self.controlKey setTitle:nil forState:UIControlStateNormal];
         [self.controlKey setImage:[UIImage systemImageNamed:@"control"] forState:UIControlStateNormal];
         [self.escapeKey setTitle:nil forState:UIControlStateNormal];

@@ -113,6 +113,8 @@
 		A384E18A2A0A44B400CECFCA /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A30C502E2A0A3B090047E87E /* FileManager.m */; };
 		A3C53C5A2A0E0AC700736764 /* CreateFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */; };
 		A3C53C5B2A0E0AC700736764 /* CreateFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */; };
+		A3D857412A3313B800165EA7 /* KeyboardBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D857402A3313B800165EA7 /* KeyboardBar.swift */; };
+		A3D857422A3313B800165EA7 /* KeyboardBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D857402A3313B800165EA7 /* KeyboardBar.swift */; };
 		A3F92D9D29FCE4FA0002C09F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F92D9C29FCE4FA0002C09F /* icon.png */; };
 		A3F92D9E29FCE4FA0002C09F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F92D9C29FCE4FA0002C09F /* icon.png */; };
 		BB0F552E239F8A790032A2A1 /* Icons.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB0F552D239F8A790032A2A1 /* Icons.plist */; };
@@ -559,6 +561,7 @@
 		A37EE49C2A0659C500049353 /* libiCodeApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libiCodeApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		A37EE49D2A0659C600049353 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFileViewController.swift; sourceTree = "<group>"; };
+		A3D857402A3313B800165EA7 /* KeyboardBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardBar.swift; sourceTree = "<group>"; };
 		A3F92D9C29FCE4FA0002C09F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../icon.png; sourceTree = "<group>"; };
 		BB0B848E2586A4CF00208600 /* XcodeDefault.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = XcodeDefault.xcconfig; sourceTree = "<group>"; };
 		BB0B859B2586F13200208600 /* XcodeDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = XcodeDebug.xcconfig; sourceTree = "<group>"; };
@@ -979,6 +982,7 @@
 				BB792B561F96D90D00FFB7A4 /* TerminalViewController.h */,
 				BB792B571F96D90D00FFB7A4 /* TerminalViewController.m */,
 				A37EE49D2A0659C600049353 /* MainTabBarController.swift */,
+				A3D857402A3313B800165EA7 /* KeyboardBar.swift */,
 				BB792B591F96D90D00FFB7A4 /* Main.storyboard */,
 				A30C50202A0A28830047E87E /* FileViewController.swift */,
 				A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */,
@@ -1997,6 +2001,7 @@
 				A30C50372A0A41C20047E87E /* MainTabBarController.swift in Sources */,
 				A384E1892A0A44B000CECFCA /* CurrentRoot.m in Sources */,
 				A3C53C5A2A0E0AC700736764 /* CreateFileViewController.swift in Sources */,
+				A3D857412A3313B800165EA7 /* KeyboardBar.swift in Sources */,
 				BB28C7BA268975AA00BDC834 /* iOSFS.m in Sources */,
 				A384E18A2A0A44B400CECFCA /* FileManager.m in Sources */,
 				BB28C7BC268975B000BDC834 /* PasteboardDevice.m in Sources */,
@@ -2044,6 +2049,7 @@
 			files = (
 				BB28C79226896B1F00BDC834 /* AboutAppearanceViewController.m in Sources */,
 				BB28C79326896B1F00BDC834 /* AltIconViewController.m in Sources */,
+				A3D857422A3313B800165EA7 /* KeyboardBar.swift in Sources */,
 				A30C50302A0A3B090047E87E /* FileManager.m in Sources */,
 				A37EE49E2A0659C600049353 /* MainTabBarController.swift in Sources */,
 				491B31E62883BF22008EEFB0 /* ThemeViewController.m in Sources */,
