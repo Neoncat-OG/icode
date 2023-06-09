@@ -100,6 +100,9 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func setContents() {
         var tmp = [filecontent](repeating: filecontent(name: nil, kind: 0), count: Int(MAX_CONTENTS))
         let size = get_file_list(currentPath.cString(using: .utf8), &tmp)
+        if (size < 0) {
+            return
+        }
         self.contents = []
         for i in 0 ..< size {
             if let name = String(cString: tmp[Int(i)].name, encoding: .utf8) {
@@ -107,7 +110,6 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
         }
         self.contentsSize = Int(size)
-        print(size)
     }
     
     
