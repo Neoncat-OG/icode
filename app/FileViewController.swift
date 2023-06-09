@@ -45,7 +45,6 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if contents == nil  {
             setContents()

@@ -7,8 +7,21 @@
 
 import UIKit
 
-@objc
-public class MainTabBarController: UITabBarController {
+class MainTabBarController: UITabBarController {
+    
+    @IBOutlet var barView: KeyboardBar!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        barView.initBar()
+        
+    }
+    
+    override var inputAccessoryView: UIView? {
+        get {
+            return barView
+        }
+    }
 
     @objc public func getTabBarHeight() -> CGFloat {
         return self.tabBar.frame.size.height;
