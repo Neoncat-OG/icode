@@ -388,7 +388,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" allowsEditingTextAttributes="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfb-F9-ef5">
-                                <rect key="frame" x="10" y="60" width="355" height="659"/>
+                                <rect key="frame" x="10" y="60" width="365" height="659"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <attributedString key="attributedText">
                                     <fragment content="int x = 0;">
@@ -405,7 +405,7 @@
                         <viewLayoutGuide key="safeArea" id="QIg-bd-QgT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="QIg-bd-QgT" firstAttribute="trailing" secondItem="yfb-F9-ef5" secondAttribute="trailing" constant="10" id="BHZ-z2-vUs"/>
+                            <constraint firstItem="QIg-bd-QgT" firstAttribute="trailing" secondItem="yfb-F9-ef5" secondAttribute="trailing" id="BHZ-z2-vUs"/>
                             <constraint firstItem="yfb-F9-ef5" firstAttribute="leading" secondItem="QIg-bd-QgT" secondAttribute="leading" constant="10" id="HgW-HQ-gzJ"/>
                             <constraint firstItem="QIg-bd-QgT" firstAttribute="bottom" secondItem="yfb-F9-ef5" secondAttribute="bottom" constant="10" id="ZEg-d9-NNz"/>
                             <constraint firstItem="yfb-F9-ef5" firstAttribute="top" secondItem="QIg-bd-QgT" secondAttribute="top" constant="10" id="aC9-iq-loh"/>
