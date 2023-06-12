@@ -16,6 +16,9 @@ class CodeViewController: UIViewController {
         addCodeEditView()
     }
     
+    func openFile(filePath: String) {
+        create_file(filePath)
+    }
     
     func addCodeEditView() {
         let textStorage = CodeAttributedString()

@@ -71,7 +71,8 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 button.addTarget(self, action: #selector(changeDirectory(_ :)), for: .touchUpInside)
                 break
             case DT_REG:
-                cell.backgroundColor = .blue
+                cell.backgroundColor = .cyan
+                button.addTarget(self, action: #selector(passCodeEditor(_ :)), for: .touchUpInside)
                 break
             default:
                 cell.backgroundColor = .gray
@@ -117,5 +118,11 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "file-view") as! FileViewController
         nextViewController.setValue(currentPath: currentPath + "/" + (sender.titleLabel?.text ?? ""))
         self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    @objc func passCodeEditor(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let codeViewController = storyboard.instantiateViewController(withIdentifier: "code-view-controller") as! CodeViewController
+        codeViewController.openFile(filePath: currentPath + "/" + (sender.titleLabel?.text ?? ""))
     }
 }

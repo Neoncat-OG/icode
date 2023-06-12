@@ -382,7 +382,7 @@
         <!--Code-->
         <scene sceneID="pGj-pN-hxl">
             <objects>
-                <viewController id="xeH-XP-rFI" customClass="CodeViewController" customModule="iCode" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="code-view-controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xeH-XP-rFI" customClass="CodeViewController" customModule="iCode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jff-LR-QaA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
