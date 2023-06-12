@@ -12,15 +12,18 @@ class CodeViewController: UIViewController {
     
     @IBOutlet weak var emptyView: UIView!
     
-    override func viewDidAppear(_ animated: Bool) {
-        addCodeEditView()
-    }
-    
     func openFile(filePath: String) {
-        create_file(filePath)
+        var buf = [CChar](repeating: 0, count: 1000000000)
+        read_file(filePath, &buf, 1000000000)
+        if let text = String(cString: buf, encoding: .utf8) {
+            if text == "ELF" {
+                return;
+            }
+            addCodeEditView(text: text)
+        }
     }
     
-    func addCodeEditView() {
+    func addCodeEditView(text: String) {
         let textStorage = CodeAttributedString()
         textStorage.language = "Cpp"
         textStorage.highlightr.setTheme(to: "vs")
@@ -35,6 +38,7 @@ class CodeViewController: UIViewController {
         let textView = UITextView(frame: emptyView.frame, textContainer: textContainer)
         textView.font = UIFont(name: "Menlo-Regular", size: 13)
         textView.autocorrectionType = .no
+        textView.text = text
         self.view.addSubview(textView)
     }
 }
