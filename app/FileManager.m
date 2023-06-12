@@ -9,7 +9,7 @@
 #include <string.h>
 
 #if !ISH_LINUX
-static ssize_t read_file(const char *path, char *buf, size_t size) {
+ssize_t read_file(const char *path, char *buf, size_t size) {
     struct fd *fd = generic_open(path, O_RDONLY_, 0);
     if (IS_ERR(fd))
         return PTR_ERR(fd);
@@ -20,7 +20,7 @@ static ssize_t read_file(const char *path, char *buf, size_t size) {
     return n;
 }
 
-static ssize_t write_file(const char *path, const char *buf, size_t size) {
+ssize_t write_file(const char *path, const char *buf, size_t size) {
     struct fd *fd = generic_open(path, O_WRONLY_|O_CREAT_|O_TRUNC_, 0644);
     if (IS_ERR(fd))
         return PTR_ERR(fd);
