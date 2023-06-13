@@ -11,6 +11,8 @@ import Highlightr
 class CodeViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var emptyView: UIView!
+    var filenames = [String](repeating: "", count: 100)
+    var tabCount = 0
     
     func openFile(filePath: String) {
         var buf = [CChar](repeating: 0, count: 1000000000)
@@ -19,11 +21,11 @@ class CodeViewController: UIViewController, UITextViewDelegate {
             if text == "ELF" {
                 return;
             }
-            addCodeEditView(text: text)
+            addCodeEditView(filePath: filePath, text: text)
         }
     }
     
-    func addCodeEditView(text: String) {
+    func addCodeEditView(filePath: String, text: String) {
         let textStorage = CodeAttributedString()
         textStorage.language = "Cpp"
         textStorage.highlightr.setTheme(to: "vs")
@@ -39,13 +41,17 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         textView.font = UIFont(name: "Menlo-Regular", size: 13)
         textView.autocorrectionType = .no
         textView.text = text
+        textView.tag = tabCount
+        filenames[tabCount] = filePath
+        tabCount += 1
         textView.delegate = self
         self.view.addSubview(textView)
     }
     
     func textViewDidChange(_ textView: UITextView) {
         if let text = textView.text {
-            print(text)
+            var index = textView.tag
+            write_file(filenames[index], text, text.count)
         }
     }
 }
