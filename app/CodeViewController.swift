@@ -37,7 +37,7 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     
     func addCodeEditView(filePath: String, text: String) {
         let textStorage = CodeAttributedString()
-        textStorage.language = "Cpp"
+        textStorage.language = getLanguage(filePath: filePath)
         textStorage.highlightr.setTheme(to: "vs")
         textStorage.highlightr.theme.codeFont = UIFont(name: "Menlo-Regular", size: 13)
         
@@ -58,9 +58,16 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         self.view.addSubview(textView)
     }
     
+    func getLanguage(filePath: String) -> String {
+        if let ext = filePath.split(separator: ".").last {
+            return String(ext)
+        }
+        return ""
+    }
+    
     func textViewDidChange(_ textView: UITextView) {
         if let text = textView.text {
-            var index = textView.tag
+            let index = textView.tag
             write_file(filenames[index], text, text.count)
         }
     }
