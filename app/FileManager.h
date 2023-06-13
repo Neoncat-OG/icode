@@ -20,6 +20,7 @@ struct filecontent {
 };
 
 ssize_t read_file(const char *path, char *buf, size_t size);
+ssize_t write_file(const char *path, const char *buf, size_t size);
 ssize_t create_file(const char *path);
 int create_directory(const char *path);
 int get_file_list(const char *path, struct filecontent *contents);
