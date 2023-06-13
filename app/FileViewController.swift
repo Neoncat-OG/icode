@@ -71,7 +71,8 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 button.addTarget(self, action: #selector(changeDirectory(_ :)), for: .touchUpInside)
                 break
             case DT_REG:
-                cell.backgroundColor = .blue
+                cell.backgroundColor = .cyan
+                button.addTarget(self, action: #selector(passCodeEditor(_ :)), for: .touchUpInside)
                 break
             default:
                 cell.backgroundColor = .gray
@@ -86,7 +87,7 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextNavigationController = storyboard.instantiateViewController(withIdentifier: "create-file") as! UINavigationController
         let nextView = nextNavigationController.topViewController as! CreateFileViewController
-        nextView.setValue(isFile: isFile, path: path)
+        nextView.setValue(prevVC: self, isFile: isFile, path: path)
         nextNavigationController.modalPresentationStyle = .formSheet
         self.present(nextNavigationController, animated: true, completion: nil)
     }
@@ -117,5 +118,13 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "file-view") as! FileViewController
         nextViewController.setValue(currentPath: currentPath + "/" + (sender.titleLabel?.text ?? ""))
         self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    @objc func passCodeEditor(_ sender: UIButton) {
+        let root = UIApplication.shared.windows.first?.rootViewController as! UITabBarController
+        let codeViewController = root.children[1] as! CodeViewController
+        root.selectedIndex = 1
+        root.selectedViewController = codeViewController;
+        codeViewController.openFile(filePath: currentPath + "/" + (sender.titleLabel?.text ?? ""))
     }
 }

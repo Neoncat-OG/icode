@@ -241,7 +241,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OeO-e2-SKA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="574" y="1629"/>
+            <point key="canvasLocation" x="-1084" y="1550"/>
         </scene>
         <!--Create File View Controller-->
         <scene sceneID="Nut-xg-Bxn">
@@ -258,7 +258,7 @@
                                     <constraint firstAttribute="height" constant="42" id="flz-Ig-PCy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2wK-1e-By9"/>
@@ -276,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kPq-BG-Exf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1382" y="1629"/>
+            <point key="canvasLocation" x="-276" y="1550"/>
         </scene>
         <!--Settings-->
         <scene sceneID="4RI-73-Dce">
@@ -382,36 +382,29 @@
         <!--Code-->
         <scene sceneID="pGj-pN-hxl">
             <objects>
-                <viewController id="xeH-XP-rFI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="code-view-controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xeH-XP-rFI" customClass="CodeViewController" customModule="iCode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jff-LR-QaA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" allowsEditingTextAttributes="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfb-F9-ef5">
-                                <rect key="frame" x="10" y="60" width="355" height="659"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bho-9d-Ned" userLabel="EmptyView">
+                                <rect key="frame" x="10" y="60" width="365" height="659"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="int x = 0;">
-                                        <attributes>
-                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <font key="NSFont" size="13" name="Menlo-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QIg-bd-QgT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="QIg-bd-QgT" firstAttribute="trailing" secondItem="yfb-F9-ef5" secondAttribute="trailing" constant="10" id="BHZ-z2-vUs"/>
-                            <constraint firstItem="yfb-F9-ef5" firstAttribute="leading" secondItem="QIg-bd-QgT" secondAttribute="leading" constant="10" id="HgW-HQ-gzJ"/>
-                            <constraint firstItem="QIg-bd-QgT" firstAttribute="bottom" secondItem="yfb-F9-ef5" secondAttribute="bottom" constant="10" id="ZEg-d9-NNz"/>
-                            <constraint firstItem="yfb-F9-ef5" firstAttribute="top" secondItem="QIg-bd-QgT" secondAttribute="top" constant="10" id="aC9-iq-loh"/>
+                            <constraint firstItem="QIg-bd-QgT" firstAttribute="bottom" secondItem="bho-9d-Ned" secondAttribute="bottom" constant="10" id="XeK-tE-Hvk"/>
+                            <constraint firstItem="QIg-bd-QgT" firstAttribute="trailing" secondItem="bho-9d-Ned" secondAttribute="trailing" id="YY6-uj-9uO"/>
+                            <constraint firstItem="bho-9d-Ned" firstAttribute="leading" secondItem="QIg-bd-QgT" secondAttribute="leading" constant="10" id="Zyz-3W-cw2"/>
+                            <constraint firstItem="bho-9d-Ned" firstAttribute="top" secondItem="QIg-bd-QgT" secondAttribute="top" constant="10" id="aTA-N2-eeA"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Code" image="doc.plaintext" catalog="system" id="Yv1-Hd-Fao"/>
+                    <connections>
+                        <outlet property="emptyView" destination="bho-9d-Ned" id="Ktc-CB-TMN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPa-DS-Lkj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

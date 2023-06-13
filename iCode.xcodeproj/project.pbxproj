@@ -106,17 +106,19 @@
 		497F6D87254E62E100C82F46 /* libish.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB13F7DC200AD81D003D1C4D /* libish.a */; };
 		A30C50222A0A28830047E87E /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30C50202A0A28830047E87E /* FileViewController.swift */; };
 		A30C50302A0A3B090047E87E /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A30C502E2A0A3B090047E87E /* FileManager.m */; };
-		A30C50372A0A41C20047E87E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EE49D2A0659C600049353 /* MainTabBarController.swift */; };
 		A37EE49E2A0659C600049353 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EE49D2A0659C600049353 /* MainTabBarController.swift */; };
-		A384E1882A0A44A800CECFCA /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30C50202A0A28830047E87E /* FileViewController.swift */; };
-		A384E1892A0A44B000CECFCA /* CurrentRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = BB565EA32734F1FB00C93EAE /* CurrentRoot.m */; };
-		A384E18A2A0A44B400CECFCA /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A30C502E2A0A3B090047E87E /* FileManager.m */; };
-		A3C53C5A2A0E0AC700736764 /* CreateFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */; };
 		A3C53C5B2A0E0AC700736764 /* CreateFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */; };
 		A3D857412A3313B800165EA7 /* KeyboardBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D857402A3313B800165EA7 /* KeyboardBar.swift */; };
 		A3D857422A3313B800165EA7 /* KeyboardBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D857402A3313B800165EA7 /* KeyboardBar.swift */; };
 		A3D857482A334CC200165EA7 /* UIView+parentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D857472A334CC200165EA7 /* UIView+parentViewController.swift */; };
 		A3D857492A334CC200165EA7 /* UIView+parentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D857472A334CC200165EA7 /* UIView+parentViewController.swift */; };
+		A3D857552A36FCC800165EA7 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D857532A36FCC800165EA7 /* CodeViewController.swift */; };
+		A3D857592A37015000165EA7 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30C50202A0A28830047E87E /* FileViewController.swift */; };
+		A3D8575A2A37015400165EA7 /* CreateFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */; };
+		A3D8575B2A37015900165EA7 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A30C502E2A0A3B090047E87E /* FileManager.m */; };
+		A3D8575D2A37016300165EA7 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D857532A36FCC800165EA7 /* CodeViewController.swift */; };
+		A3D8575E2A37016900165EA7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EE49D2A0659C600049353 /* MainTabBarController.swift */; };
+		A3D857652A37022A00165EA7 /* Highlightr in Frameworks */ = {isa = PBXBuildFile; productRef = A3D857642A37022A00165EA7 /* Highlightr */; };
 		A3F92D9D29FCE4FA0002C09F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F92D9C29FCE4FA0002C09F /* icon.png */; };
 		A3F92D9E29FCE4FA0002C09F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F92D9C29FCE4FA0002C09F /* icon.png */; };
 		BB0F552E239F8A790032A2A1 /* Icons.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB0F552D239F8A790032A2A1 /* Icons.plist */; };
@@ -565,6 +567,7 @@
 		A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFileViewController.swift; sourceTree = "<group>"; };
 		A3D857402A3313B800165EA7 /* KeyboardBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardBar.swift; sourceTree = "<group>"; };
 		A3D857472A334CC200165EA7 /* UIView+parentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+parentViewController.swift"; sourceTree = "<group>"; };
+		A3D857532A36FCC800165EA7 /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
 		A3F92D9C29FCE4FA0002C09F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../icon.png; sourceTree = "<group>"; };
 		BB0B848E2586A4CF00208600 /* XcodeDefault.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = XcodeDefault.xcconfig; sourceTree = "<group>"; };
 		BB0B859B2586F13200208600 /* XcodeDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = XcodeDebug.xcconfig; sourceTree = "<group>"; };
@@ -726,6 +729,7 @@
 				BB235537235D49B300139E00 /* CoreLocation.framework in Frameworks */,
 				BBA8E2C1236FF5EA00515F76 /* SystemConfiguration.framework in Frameworks */,
 				BBAEE339249B58E80069EBB5 /* libbz2.tbd in Frameworks */,
+				A3D857652A37022A00165EA7 /* Highlightr in Frameworks */,
 				BB6DB261216435340047A611 /* libiconv.tbd in Frameworks */,
 				BBFB55662158644C00DFE6DE /* libresolv.tbd in Frameworks */,
 			);
@@ -995,6 +999,7 @@
 				BB792B571F96D90D00FFB7A4 /* TerminalViewController.m */,
 				A37EE49D2A0659C600049353 /* MainTabBarController.swift */,
 				BB792B591F96D90D00FFB7A4 /* Main.storyboard */,
+				A3D857532A36FCC800165EA7 /* CodeViewController.swift */,
 				A30C50202A0A28830047E87E /* FileViewController.swift */,
 				A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */,
 				A30C502D2A0A3AF30047E87E /* FileManager.h */,
@@ -1439,6 +1444,9 @@
 				BB88F49E2154760800A341FD /* PBXTargetDependency */,
 			);
 			name = iCode;
+			packageProductDependencies = (
+				A3D857642A37022A00165EA7 /* Highlightr */,
+			);
 			productName = iSH;
 			productReference = BB792B501F96D90D00FFB7A4 /* iCode.app */;
 			productType = "com.apple.product-type.application";
@@ -1504,6 +1512,9 @@
 			dependencies = (
 			);
 			name = libiCodeApp;
+			packageProductDependencies = (
+				A3D857632A37021800165EA7 /* Highlightr */,
+			);
 			productName = libiSH;
 			productReference = BBEF191E26806364001225BD /* libiCodeApp.a */;
 			productType = "com.apple.product-type.library.static";
@@ -1622,6 +1633,9 @@
 				Base,
 			);
 			mainGroup = BB792B451F96D8E000FFB7A4;
+			packageReferences = (
+				A3D857622A37021800165EA7 /* XCRemoteSwiftPackageReference "Highlightr" */,
+			);
 			productRefGroup = BB792B511F96D90D00FFB7A4 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -2008,14 +2022,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3D857592A37015000165EA7 /* FileViewController.swift in Sources */,
 				BB28C7BB268975AE00BDC834 /* LocationDevice.m in Sources */,
-				A384E1882A0A44A800CECFCA /* FileViewController.swift in Sources */,
-				A30C50372A0A41C20047E87E /* MainTabBarController.swift in Sources */,
-				A384E1892A0A44B000CECFCA /* CurrentRoot.m in Sources */,
-				A3C53C5A2A0E0AC700736764 /* CreateFileViewController.swift in Sources */,
+				A3D8575E2A37016900165EA7 /* MainTabBarController.swift in Sources */,
+				A3D8575A2A37015400165EA7 /* CreateFileViewController.swift in Sources */,
+				A3D8575D2A37016300165EA7 /* CodeViewController.swift in Sources */,
+				A3D8575B2A37015900165EA7 /* FileManager.m in Sources */,
 				A3D857412A3313B800165EA7 /* KeyboardBar.swift in Sources */,
 				BB28C7BA268975AA00BDC834 /* iOSFS.m in Sources */,
-				A384E18A2A0A44B400CECFCA /* FileManager.m in Sources */,
 				BB28C7BC268975B000BDC834 /* PasteboardDevice.m in Sources */,
 				A3D857482A334CC200165EA7 /* UIView+parentViewController.swift in Sources */,
 			);
@@ -2074,6 +2088,7 @@
 				BBC3863F276817AD00CC8C2E /* CurrentRoot.m in Sources */,
 				BB28C79626896B1F00BDC834 /* ProgressReportViewController.m in Sources */,
 				BB28C79726896B1F00BDC834 /* TerminalView.m in Sources */,
+				A3D857552A36FCC800165EA7 /* CodeViewController.swift in Sources */,
 				497A08BF29633FF400B323CF /* mach_exc.defs in Sources */,
 				BB28C79826896B1F00BDC834 /* ScrollbarView.m in Sources */,
 				BB28C79926896B1F00BDC834 /* DelayedUITask.m in Sources */,
@@ -3007,6 +3022,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A3D857622A37021800165EA7 /* XCRemoteSwiftPackageReference "Highlightr" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raspu/Highlightr.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A3D857632A37021800165EA7 /* Highlightr */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3D857622A37021800165EA7 /* XCRemoteSwiftPackageReference "Highlightr" */;
+			productName = Highlightr;
+		};
+		A3D857642A37022A00165EA7 /* Highlightr */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3D857622A37021800165EA7 /* XCRemoteSwiftPackageReference "Highlightr" */;
+			productName = Highlightr;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BB792B461F96D8E000FFB7A4 /* Project object */;
 }
