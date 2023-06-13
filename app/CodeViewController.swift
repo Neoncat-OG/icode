@@ -17,10 +17,20 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     func openFile(filePath: String) {
         var buf = [CChar](repeating: 0, count: 1000000000)
         read_file(filePath, &buf, 1000000000)
+//        if (buf[0] == 127) {
+//            let alert = UIAlertController(
+//                        title: "File cannot be opened",
+//                        message: "This file is a binary or uses unsupported text encoding.",
+//                        preferredStyle: UIAlertController.Style.alert)
+//            alert.addAction(
+//                        UIAlertAction(
+//                            title: "OK",
+//                            style: UIAlertAction.Style.default)
+//                    )
+//            self.present(alert, animated: true, completion: nil)
+//            return;
+//        }
         if let text = String(cString: buf, encoding: .utf8) {
-            if text == "ELF" {
-                return;
-            }
             addCodeEditView(filePath: filePath, text: text)
         }
     }
