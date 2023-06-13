@@ -121,8 +121,10 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     @objc func passCodeEditor(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let codeViewController = storyboard.instantiateViewController(withIdentifier: "code-view-controller") as! CodeViewController
+        let root = UIApplication.shared.windows.first?.rootViewController as! UITabBarController
+        let codeViewController = root.children[1] as! CodeViewController
+        root.selectedIndex = 1
+        root.selectedViewController = codeViewController;
         codeViewController.openFile(filePath: currentPath + "/" + (sender.titleLabel?.text ?? ""))
     }
 }

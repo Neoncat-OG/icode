@@ -8,7 +8,7 @@
 import UIKit
 import Highlightr
 
-class CodeViewController: UIViewController {
+class CodeViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var emptyView: UIView!
     
@@ -39,6 +39,13 @@ class CodeViewController: UIViewController {
         textView.font = UIFont(name: "Menlo-Regular", size: 13)
         textView.autocorrectionType = .no
         textView.text = text
+        textView.delegate = self
         self.view.addSubview(textView)
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if let text = textView.text {
+            print(text)
+        }
     }
 }
