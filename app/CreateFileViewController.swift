@@ -12,6 +12,7 @@ class CreateFileViewController: UIViewController {
     @IBOutlet weak var inputField: UITextField!
     var isFile: Bool = true
     var path: String = ""
+    var prevVC: FileViewController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,8 @@ class CreateFileViewController: UIViewController {
         self.inputField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
     }
     
-    @objc func setValue(isFile: Bool, path: String) {
+    @objc func setValue(prevVC: FileViewController, isFile: Bool, path: String) {
+        self.prevVC = prevVC
         self.isFile = isFile
         self.path = path
     }
@@ -64,7 +66,7 @@ class CreateFileViewController: UIViewController {
         if let newFileName = inputField.text {
             create_file(self.path + "/" + newFileName)
         }
-        self.dismiss(animated: true, completion: nil)
+        removeSheet()
     }
     
     @objc func createFolder(_ sender: UIBarButtonItem) {
@@ -73,6 +75,15 @@ class CreateFileViewController: UIViewController {
         }
         if let newFolderName = inputField.text {
             create_directory(self.path + "/" + newFolderName)
+        }
+        removeSheet()
+    }
+    
+    func removeSheet() {
+        if let vc = prevVC {
+            vc.setContents()
+            vc.loadView()
+            vc.viewDidLoad()
         }
         self.dismiss(animated: true, completion: nil)
     }

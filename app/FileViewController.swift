@@ -87,7 +87,7 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextNavigationController = storyboard.instantiateViewController(withIdentifier: "create-file") as! UINavigationController
         let nextView = nextNavigationController.topViewController as! CreateFileViewController
-        nextView.setValue(isFile: isFile, path: path)
+        nextView.setValue(prevVC: self, isFile: isFile, path: path)
         nextNavigationController.modalPresentationStyle = .formSheet
         self.present(nextNavigationController, animated: true, completion: nil)
     }
