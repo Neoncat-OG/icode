@@ -10,16 +10,18 @@ import UIKit
 class CodeNumTextView: UITextView {
 
     var width: NSLayoutConstraint?
+    let paragraphStyle = NSMutableParagraphStyle()
+    let numFont = UIFont(name: "Menlo-Regular", size: 13)!
+    let numColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
     
-    override init(frame: CGRect, textContainer: NSTextContainer?) {
+    init(frame: CGRect, textContainer: NSTextContainer?, lineHeight: CGFloat) {
         super.init(frame: frame, textContainer: textContainer)
-        self.font = UIFont(name: "Menlo-Regular", size: 13)
         self.isEditable = false
         self.isSelectable = false
         self.isScrollEnabled = false
         self.textAlignment = NSTextAlignment.right
-        self.textColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
-        // self.
+        paragraphStyle.lineSpacing = lineHeight
+        paragraphStyle.alignment = .right
     }
     
     required init?(coder: NSCoder) {
@@ -41,6 +43,10 @@ class CodeNumTextView: UITextView {
         for i in 1..<lineNum + 2 {
             text += String(i) + "\n"
         }
-        self.text = text
+        
+        let attrString = NSMutableAttributedString(string: text, attributes: [NSAttributedString.Key.font: self.numFont,
+             NSAttributedString.Key.foregroundColor: self.numColor,
+             NSAttributedString.Key.paragraphStyle: self.paragraphStyle])
+        self.attributedText = attrString
     }
 }

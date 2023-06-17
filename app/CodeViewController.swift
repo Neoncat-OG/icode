@@ -16,23 +16,22 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var innerHeight: NSLayoutConstraint!
     
     func addCodeEditView(filePath: String) {
-        let textStorage = CodeAttributedString()
+        let textStorage = CodeAttributedString(lineHeight: 2.4)
         textStorage.language = getLanguage(filePath: filePath)
         textStorage.highlightr.setTheme(to: "vs")
         textStorage.highlightr.theme.codeFont = UIFont(name: "Menlo-Regular", size: 13)
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 10
         
         let layoutManager = NSLayoutManager()
         textStorage.addLayoutManager(layoutManager)
 
         let textContainer = NSTextContainer(size: view.bounds.size)
-        textContainer.lineFragmentPadding = 10
+        textContainer.lineFragmentPadding = 14
         layoutManager.addTextContainer(textContainer)
         
-        let numView = CodeNumTextView(frame: self.innerView.frame, textContainer: nil)
+        let numView = CodeNumTextView(frame: self.innerView.frame, textContainer: nil, lineHeight: 2.4)
         let codeView = CodeTextView(frame: self.innerView.frame, textContainer: textContainer, numView: numView, filePath: filePath, viewHeight: innerHeight)
         
+        codeView.layoutManager.usesFontLeading = false
         if (codeView.setText() != 0) {
             showAlert()
             return;

@@ -3,10 +3,10 @@
     {
       "identity" : "highlightr",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/raspu/Highlightr.git",
+      "location" : "https://github.com/morinoyu8/Highlightr.git",
       "state" : {
-        "revision" : "93199b9e434f04bda956a613af8f571933f9f037",
-        "version" : "2.1.2"
+        "branch" : "master",
+        "revision" : "db2ba565f05d9172f87dc3d534bc2ea6acfe6449"
       }
     }
   ],
