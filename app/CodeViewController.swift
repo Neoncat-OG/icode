@@ -15,6 +15,9 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var innerView: UIView!
     @IBOutlet weak var innerHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var codeInnerView: UIView!
+    @IBOutlet weak var codeInnerWidth: NSLayoutConstraint!
+    
     func addCodeEditView(filePath: String) {
         let textStorage = CodeAttributedString(lineHeight: 2.4)
         textStorage.language = getLanguage(filePath: filePath)
@@ -29,9 +32,8 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         layoutManager.addTextContainer(textContainer)
         
         let numView = CodeNumTextView(frame: self.innerView.frame, textContainer: nil, lineHeight: 2.4)
-        let codeView = CodeTextView(frame: self.innerView.frame, textContainer: textContainer, numView: numView, filePath: filePath, viewHeight: innerHeight)
+        let codeView = CodeTextView(frame: self.innerView.frame, textContainer: textContainer, numView: numView, filePath: filePath, viewHeight: innerHeight, viewWidth: codeInnerWidth)
         
-        codeView.layoutManager.usesFontLeading = false
         if (codeView.setText() != 0) {
             showAlert()
             return;
@@ -42,9 +44,9 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         
         codeView.delegate = self
         
-        innerView.addSubview(codeView)
+        codeInnerView.addSubview(codeView)
         innerView.addSubview(numView)
-        codeView.setConstraint(parent: innerView)
+        codeView.setConstraint(parent: codeInnerView)
         numView.setConstraint(parent: innerView)
     }
     

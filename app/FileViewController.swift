@@ -121,7 +121,6 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     @objc func passCodeEditor(_ sender: UIButton) {
-        print("Open code editor")
         let root = UIApplication.shared.windows.first?.rootViewController as! UITabBarController
         let codeViewController = root.children[1] as! CodeViewController
         root.selectedIndex = 1
