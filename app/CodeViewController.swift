@@ -28,7 +28,6 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         textStorage.addLayoutManager(layoutManager)
 
         let textContainer = NSTextContainer(size: view.bounds.size)
-        textContainer.lineFragmentPadding = 14
         layoutManager.addTextContainer(textContainer)
         
         let numView = CodeNumTextView(frame: self.innerView.frame, textContainer: nil, lineHeight: 2.4)

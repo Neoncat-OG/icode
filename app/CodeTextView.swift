@@ -42,13 +42,12 @@ class CodeTextView: UITextView {
         if let text = String(cString: buf, encoding: .utf8) {
             self.text = text
             
-            let fixedWidth = self.frame.size.width
             let newSize = self.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
             if let height = viewHeight {
                 height.constant = newSize.height
             }
             if let width = viewWidth {
-                width.constant = max(newSize.width, fixedWidth)
+                width.constant = newSize.width
             }
             
             if let numView = self.codeLineView {
@@ -61,13 +60,12 @@ class CodeTextView: UITextView {
     
     func textViewDidChange() {
         if let text = self.text {
-            let fixedWidth = self.frame.size.width
             let newSize = self.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
             if let height = viewHeight {
                 height.constant = newSize.height
             }
             if let width = viewWidth {
-                width.constant = max(newSize.width, fixedWidth)
+                width.constant = newSize.width
             }
             
             let newLineNum = getLineNumber()
