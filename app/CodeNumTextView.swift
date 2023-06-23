@@ -49,4 +49,21 @@ class CodeNumTextView: UITextView {
              NSAttributedString.Key.paragraphStyle: self.paragraphStyle])
         self.attributedText = attrString
     }
+    
+    func setWidth(digit :Int) {
+        if let width = self.width {
+            switch (digit) {
+            case 1, 2:
+                width.constant = 28
+                break
+            case 3:
+                width.constant = 35
+                break
+            case 4:
+                width.constant = 42
+            default:
+                width.constant = 49
+            }
+        }
+    }
 }

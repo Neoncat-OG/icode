@@ -15,9 +15,10 @@ class CodeTextView: UITextView {
     var viewWidth: NSLayoutConstraint?
     var leading: NSLayoutConstraint?
     var lineNum: Int = 0
+    var digit: Int = 1
     var codeLineView: CodeNumTextView?
     
-    init(frame: CGRect, textContainer: NSTextContainer?, numView: CodeNumTextView, filePath: String, viewHeight: NSLayoutConstraint, viewWidth: NSLayoutConstraint) {
+    init(frame: CGRect, textContainer: NSTextContainer?, numView: CodeNumTextView, filePath: String, viewHeight: NSLayoutConstraint, viewWidth: NSLayoutConstraint, leading: NSLayoutConstraint) {
         super.init(frame: frame, textContainer: textContainer)
         self.font = UIFont(name: "Menlo-Regular", size: 13)
         self.autocorrectionType = .no
@@ -25,6 +26,7 @@ class CodeTextView: UITextView {
         self.filePath = filePath
         self.viewHeight = viewHeight
         self.viewWidth = viewWidth
+        self.leading = leading
         self.codeLineView = numView
         self.layoutManager.usesFontLeading = false
     }
@@ -72,6 +74,12 @@ class CodeTextView: UITextView {
             if (self.lineNum != newLineNum) {
                 self.lineNum = newLineNum
                 if let numView = self.codeLineView {
+                    let digit_s = String(self.lineNum)
+                    if digit_s.count != self.digit {
+                        self.digit = digit_s.count
+                        numView.setWidth(digit: self.digit)
+                        setLeading(digit: self.digit)
+                    }
                     numView.setLineNum(lineNum: newLineNum)
                 }
             }
@@ -91,7 +99,25 @@ class CodeTextView: UITextView {
         let trailing = self.trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: 0)
         let top = self.topAnchor.constraint(equalTo:  parent.topAnchor, constant: 0)
         let bottom = self.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: 0)
-        self.leading = leading
         NSLayoutConstraint.activate([leading, trailing, top, bottom])
+    }
+    
+    func setLeading(digit :Int) {
+        if let leading = self.leading {
+            switch (digit) {
+            case 1, 2:
+                leading.constant = 30
+                break
+            case 3:
+                leading.constant = 37
+                break
+            case 4:
+                leading.constant = 44
+                break
+            default:
+                leading.constant = 51
+                break
+            }
+        }
     }
 }

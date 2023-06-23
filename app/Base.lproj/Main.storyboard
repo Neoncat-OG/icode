@@ -451,6 +451,7 @@
                         <outlet property="codeInnerView" destination="bbY-it-aAR" id="aqe-Aj-znA"/>
                         <outlet property="codeInnerWidth" destination="QHO-PD-3PQ" id="faA-VW-7BK"/>
                         <outlet property="innerHeight" destination="9YP-6c-dyu" id="xwY-L6-KQe"/>
+                        <outlet property="innerScrollViewLeading" destination="Cmj-Gs-8i1" id="vPS-nY-agb"/>
                         <outlet property="innerView" destination="QNM-SP-yBX" id="TZj-44-2C1"/>
                     </connections>
                 </viewController>

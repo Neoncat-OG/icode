@@ -18,10 +18,12 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var codeInnerView: UIView!
     @IBOutlet weak var codeInnerWidth: NSLayoutConstraint!
     
+    @IBOutlet weak var innerScrollViewLeading: NSLayoutConstraint!
+    
     func addCodeEditView(filePath: String) {
         let textStorage = CodeAttributedString(lineHeight: 2.4)
         textStorage.language = getLanguage(filePath: filePath)
-        textStorage.highlightr.setTheme(to: "vs")
+        textStorage.highlightr.setTheme(to: "xcode")
         textStorage.highlightr.theme.codeFont = UIFont(name: "Menlo-Regular", size: 13)
         
         let layoutManager = NSLayoutManager()
@@ -31,7 +33,7 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         layoutManager.addTextContainer(textContainer)
         
         let numView = CodeNumTextView(frame: self.innerView.frame, textContainer: nil, lineHeight: 2.4)
-        let codeView = CodeTextView(frame: self.innerView.frame, textContainer: textContainer, numView: numView, filePath: filePath, viewHeight: innerHeight, viewWidth: codeInnerWidth)
+        let codeView = CodeTextView(frame: self.innerView.frame, textContainer: textContainer, numView: numView, filePath: filePath, viewHeight: innerHeight, viewWidth: codeInnerWidth, leading: innerScrollViewLeading)
         
         if (codeView.setText() != 0) {
             showAlert()
