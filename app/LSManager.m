@@ -13,7 +13,7 @@ int run_language_server(void) {
     become_new_init_child();
     int pid = current_pid();
     generic_mknodat(AT_PWD, "/dev/tty8", S_IFCHR|0666, dev_make(4, 8));
-    char *stdioFile = "/dev/tty";
+    char *stdioFile = "/dev/tty8";
     create_stdio(stdioFile, 136, 0);
     printf("clangd pid: %d\n", pid);
     do_execve("/usr/bin/clangd", 1, "/usr/bin/clangd\0", "");

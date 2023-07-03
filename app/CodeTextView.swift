@@ -80,7 +80,11 @@ class CodeTextView: UITextView {
                 }
             }
 
-            write_file(filePath, text, text.count)
+            do {
+                try text.write(toFile: self.filePath, atomically: true, encoding: .utf8)
+            } catch {
+                print("Fail write file")
+            }
         }
     }
     
