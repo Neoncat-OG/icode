@@ -64,8 +64,8 @@ class CreateFileViewController: UIViewController {
             if (newFileName.isEmpty) {
                 return;
             }
-            let fileManager = FileManager.default
-            let result = fileManager.createFile(atPath: self.path + "/" + newFileName, contents: nil, attributes: nil)
+            print(self.path + "/" + newFileName)
+            create_file(self.path + "/" + newFileName)
         }
         removeSheet()
     }
@@ -75,12 +75,7 @@ class CreateFileViewController: UIViewController {
             if (newFolderName.isEmpty) {
                 return;
             }
-            let fileManager = FileManager.default
-            do {
-                try fileManager.createDirectory(atPath: self.path + "/" + newFolderName, withIntermediateDirectories: true, attributes: nil)
-            } catch {
-                print("Fail creating folder")
-            }
+            create_directory(self.path + "/" + newFolderName)
         }
         removeSheet()
     }

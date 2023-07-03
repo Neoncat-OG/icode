@@ -21,6 +21,7 @@ enum Kind: Int {
 
 class FileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    var allPath = "/"
     var currentPath = "/"
     var contents: [FileContent] = []
     
@@ -28,7 +29,7 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         
         if (self.currentPath == "/") {
-            self.currentPath = String(cString: get_all_path(currentPath.cString(using: .utf8)))
+            self.allPath = String(cString: get_all_path(currentPath.cString(using: .utf8)))
             setContents()
         }
 
@@ -94,7 +95,8 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.present(nextNavigationController, animated: true, completion: nil)
     }
     
-    func setValue(currentPath: String) {
+    func setValue(allPath: String, currentPath: String) {
+        self.allPath = allPath
         self.currentPath = currentPath
         setContents()
     }
@@ -103,7 +105,7 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let fileManager = FileManager.default
         var files: [String] = []
         do {
-            files = try fileManager.contentsOfDirectory(atPath: self.currentPath)
+            files = try fileManager.contentsOfDirectory(atPath: self.allPath)
         } catch {
             print(files)
         }
@@ -114,7 +116,7 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if (file.prefix(1) == ".") {
                 continue
             }
-            if fileManager.fileExists(atPath: self.currentPath + "/" + file, isDirectory: &isDir) {
+            if fileManager.fileExists(atPath: self.allPath + "/" + file, isDirectory: &isDir) {
                 if isDir.boolValue {
                     contents.append(FileContent(name: file, kind: Kind.dir))
                 } else {
@@ -129,7 +131,7 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @objc func changeDirectory(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "file-view") as! FileViewController
-        nextViewController.setValue(currentPath: currentPath + "/" + (sender.titleLabel?.text ?? ""))
+        nextViewController.setValue(allPath: allPath + "/" + (sender.titleLabel?.text ?? ""), currentPath: currentPath + "/" + (sender.titleLabel?.text ?? ""))
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
@@ -138,6 +140,6 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let codeViewController = root.children[1] as! CodeViewController
         root.selectedIndex = 1
         root.selectedViewController = codeViewController;
-        codeViewController.addCodeEditView(filePath: currentPath + "/" + (sender.titleLabel?.text ?? ""))
+        codeViewController.addCodeEditView(filePath: allPath + "/" + (sender.titleLabel?.text ?? ""))
     }
 }
