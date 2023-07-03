@@ -42,18 +42,10 @@ int run_language_server(void) {
     return pid;
 }
 
-char *get_all_path2(const char *path) {
-    struct fd *fd = generic_open(path, O_RDONLY_, 0);
-    char all_path[MAX_PATH];
-    sprintf(all_path, "%s%s", fd->mount->source, path);
-    return all_path;
-}
-
 void run(int pid) {
     char buf[10];
     char name[100];
     sprintf(name, "/proc/%d/fd/0", pid);
     ssize_t x = write_file(name, "Hello", 10);
     // printf("%s: %zd\n%s\n", name, x, buf);
-    printf("hello: %s\n", get_all_path2(name));
 }

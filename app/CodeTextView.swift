@@ -36,28 +36,24 @@ class CodeTextView: UITextView {
     }
     
     func setText() -> Int {
-        var buf = [CChar](repeating: 0, count: 1000000000)
-        read_file(self.filePath, &buf, 1000000000)
-        if (buf[0] == 127) {
+        guard let text = try? String(contentsOfFile: self.filePath) else {
             return 1
         }
-        if let text = String(cString: buf, encoding: .utf8) {
-            self.text = text
-            
-            let newSize = self.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
-            if let height = viewHeight {
-                height.constant = newSize.height
-            }
-            if let width = viewWidth {
-                width.constant = newSize.width
-            }
-            
-            if let numView = self.codeLineView {
-                numView.setLineNum(lineNum: getLineNumber())
-            }
-            return 0
+        
+        self.text = text
+        
+        let newSize = self.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
+        if let height = viewHeight {
+            height.constant = newSize.height
         }
-        return 1
+        if let width = viewWidth {
+            width.constant = newSize.width
+        }
+        
+        if let numView = self.codeLineView {
+            numView.setLineNum(lineNum: getLineNumber())
+        }
+        return 0
     }
     
     func textViewDidChange() {
