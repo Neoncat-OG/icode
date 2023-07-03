@@ -106,7 +106,11 @@
 		497F6D87254E62E100C82F46 /* libish.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB13F7DC200AD81D003D1C4D /* libish.a */; };
 		A30C50222A0A28830047E87E /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30C50202A0A28830047E87E /* FileViewController.swift */; };
 		A30C50302A0A3B090047E87E /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A30C502E2A0A3B090047E87E /* FileManager.m */; };
+		A3660AE52A46D6C500A755A4 /* LSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3660AE42A46D6C500A755A4 /* LSManager.m */; };
+		A3660AE62A46D6C500A755A4 /* LSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3660AE42A46D6C500A755A4 /* LSManager.m */; };
 		A377B9942A3C898F003A995B /* Highlightr in Frameworks */ = {isa = PBXBuildFile; productRef = A377B9932A3C898F003A995B /* Highlightr */; };
+		A377B9982A457B07003A995B /* LSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A377B9972A457B07003A995B /* LSClient.swift */; };
+		A377B9992A457B07003A995B /* LSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A377B9972A457B07003A995B /* LSClient.swift */; };
 		A37EE49E2A0659C600049353 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EE49D2A0659C600049353 /* MainTabBarController.swift */; };
 		A3C53C5B2A0E0AC700736764 /* CreateFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */; };
 		A3C547F82A3B9C5A003ABB2B /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C547F72A3B9C59003ABB2B /* CodeTextView.swift */; };
@@ -566,6 +570,9 @@
 		A30C502B2A0A3A7D0047E87E /* iCode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iCode-Bridging-Header.h"; sourceTree = "<group>"; };
 		A30C502D2A0A3AF30047E87E /* FileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		A30C502E2A0A3B090047E87E /* FileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
+		A3660AE42A46D6C500A755A4 /* LSManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSManager.m; sourceTree = "<group>"; };
+		A3660AE72A46F41E00A755A4 /* LSManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSManager.h; sourceTree = "<group>"; };
+		A377B9972A457B07003A995B /* LSClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSClient.swift; sourceTree = "<group>"; };
 		A37EE49C2A0659C500049353 /* libiCodeApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libiCodeApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		A37EE49D2A0659C600049353 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFileViewController.swift; sourceTree = "<group>"; };
@@ -1007,11 +1014,14 @@
 				BB792B591F96D90D00FFB7A4 /* Main.storyboard */,
 				A3D857532A36FCC800165EA7 /* CodeViewController.swift */,
 				A3C547F72A3B9C59003ABB2B /* CodeTextView.swift */,
+				A377B9972A457B07003A995B /* LSClient.swift */,
 				A3C547FD2A3B9C68003ABB2B /* CodeNumTextView.swift */,
 				A30C50202A0A28830047E87E /* FileViewController.swift */,
 				A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */,
 				A30C502D2A0A3AF30047E87E /* FileManager.h */,
 				A30C502E2A0A3B090047E87E /* FileManager.m */,
+				A3660AE72A46F41E00A755A4 /* LSManager.h */,
+				A3660AE42A46D6C500A755A4 /* LSManager.m */,
 				A3D857432A3344FD00165EA7 /* Keyboard */,
 				BBFB557D21587B2B00DFE6DE /* Bar */,
 				BB78AB291FAD22440013E782 /* TerminalView.h */,
@@ -2037,8 +2047,10 @@
 				A3D8575A2A37015400165EA7 /* CreateFileViewController.swift in Sources */,
 				A3D8575D2A37016300165EA7 /* CodeViewController.swift in Sources */,
 				A3D8575B2A37015900165EA7 /* FileManager.m in Sources */,
+				A377B9982A457B07003A995B /* LSClient.swift in Sources */,
 				A3D857412A3313B800165EA7 /* KeyboardBar.swift in Sources */,
 				BB28C7BA268975AA00BDC834 /* iOSFS.m in Sources */,
+				A3660AE52A46D6C500A755A4 /* LSManager.m in Sources */,
 				BB28C7BC268975B000BDC834 /* PasteboardDevice.m in Sources */,
 				A3D857482A334CC200165EA7 /* UIView+parentViewController.swift in Sources */,
 				A3C547F82A3B9C5A003ABB2B /* CodeTextView.swift in Sources */,
@@ -2096,6 +2108,7 @@
 				BB28C79426896B1F00BDC834 /* AboutNavigationController.m in Sources */,
 				BB28C79526896B1F00BDC834 /* TerminalViewController.m in Sources */,
 				BB123ACE26C9F13500419CDA /* IOSCalls.m in Sources */,
+				A3660AE62A46D6C500A755A4 /* LSManager.m in Sources */,
 				A3C547FF2A3B9C68003ABB2B /* CodeNumTextView.swift in Sources */,
 				BBC3863F276817AD00CC8C2E /* CurrentRoot.m in Sources */,
 				BB28C79626896B1F00BDC834 /* ProgressReportViewController.m in Sources */,
@@ -2126,6 +2139,7 @@
 				BB28C7A826896B1F00BDC834 /* NSObject+SaneKVO.m in Sources */,
 				496C7AB327CC734D005D7613 /* ThemesViewController.m in Sources */,
 				A30C50222A0A28830047E87E /* FileViewController.swift in Sources */,
+				A377B9992A457B07003A995B /* LSClient.swift in Sources */,
 				BB77636726E486A7008DB44A /* fakefs.c in Sources */,
 				BB28C7B826896CE600BDC834 /* ArrowBarButton.m in Sources */,
 			);

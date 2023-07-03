@@ -11,6 +11,7 @@ import Highlightr
 class CodeViewController: UIViewController, UITextViewDelegate {
     var filenames = [String](repeating: "", count: 100)
     var tabCount = 0
+    var pid = 0
     
     @IBOutlet weak var innerView: UIView!
     @IBOutlet weak var innerHeight: NSLayoutConstraint!
@@ -19,6 +20,11 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var codeInnerWidth: NSLayoutConstraint!
     
     @IBOutlet weak var innerScrollViewLeading: NSLayoutConstraint!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.pid = Int(run_language_server())
+    }
     
     func addCodeEditView(filePath: String) {
         let textStorage = CodeAttributedString(lineHeight: 2.4)
@@ -49,6 +55,7 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         innerView.addSubview(numView)
         codeView.setConstraint(parent: codeInnerView)
         numView.setConstraint(parent: innerView)
+        run(Int32(self.pid))
     }
     
     func showAlert() {

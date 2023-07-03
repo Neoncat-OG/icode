@@ -110,6 +110,15 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
         }
         self.contentsSize = Int(size)
+        
+//        let fileManager = FileManager.default
+//        var files: [String] = []
+//        do {
+//            files = try fileManager.contentsOfDirectory(atPath: currentPath)
+//        } catch {
+//            print(files)
+//        }
+//        print(files)
     }
     
     
