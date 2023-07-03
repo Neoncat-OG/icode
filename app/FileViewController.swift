@@ -10,29 +10,37 @@ import Foundation
 
 struct FileContent {
     var name: String;
-    var kind: Int;
+    var kind: Kind;
+}
+
+enum Kind: Int {
+    case file = 0
+    case dir = 1
+    case other = 2
 }
 
 class FileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    let DT_DIR = 4
-    let DT_REG = 8
     var currentPath = "/"
-    var contents: [FileContent]? = nil
-    var contentsSize = 0
+    var contents: [FileContent] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (self.currentPath == "/") {
+            self.currentPath = String(cString: get_all_path(currentPath.cString(using: .utf8)))
+            setContents()
+        }
 
         let addItemButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
         
         var addActions = [UIMenuElement]()
         addActions.append(UIAction(title: "New Folder", image: UIImage(systemName: "folder.badge.plus") ,handler: { _ in
-            self.setCreateView(isFile: false, path: self.currentPath)
+            self.setCreateView(isFile: false)
         }))
         
         addActions.append(UIAction(title: "New File", image: UIImage(systemName: "doc.badge.plus"), handler: { _ in
-            self.setCreateView(isFile: true, path: self.currentPath)
+            self.setCreateView(isFile: true)
         }))
 
         addItemButton.menu = UIMenu(title: "", options: .displayInline, children: addActions)
@@ -46,48 +54,42 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if contents == nil  {
-            setContents()
-        }
-        return contentsSize
+        return contents.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if contents == nil  {
-            setContents()
-        }
         
         let cell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        if let con = contents {
-            let content = con[indexPath.row]
-            let button = cell.contentView.viewWithTag(1) as! UIButton
-            button.setTitle(content.name, for: .normal)
-            
-            let label = cell.contentView.viewWithTag(2) as! UILabel
-            label.text = content.name
-            switch content.kind {
-            case DT_DIR:
-                cell.backgroundColor = .orange
-                button.addTarget(self, action: #selector(changeDirectory(_ :)), for: .touchUpInside)
-                break
-            case DT_REG:
-                cell.backgroundColor = .cyan
-                button.addTarget(self, action: #selector(passCodeEditor(_ :)), for: .touchUpInside)
-                break
-            default:
-                cell.backgroundColor = .gray
-                break
-            }
+        let content = contents[indexPath.row]
+        
+        let button = cell.contentView.viewWithTag(1) as! UIButton
+        button.setTitle(content.name, for: .normal)
+        
+        let label = cell.contentView.viewWithTag(2) as! UILabel
+        label.text = content.name
+        
+        switch content.kind {
+        case Kind.dir:
+            cell.backgroundColor = .orange
+            button.addTarget(self, action: #selector(changeDirectory(_ :)), for: .touchUpInside)
+            break
+        case Kind.file:
+            cell.backgroundColor = .cyan
+            button.addTarget(self, action: #selector(passCodeEditor(_ :)), for: .touchUpInside)
+            break
+        default:
+            cell.backgroundColor = .gray
+            break
         }
         return cell
     }
     
     
-    func setCreateView (isFile: Bool, path: String) {
+    func setCreateView (isFile: Bool) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextNavigationController = storyboard.instantiateViewController(withIdentifier: "create-file") as! UINavigationController
         let nextView = nextNavigationController.topViewController as! CreateFileViewController
-        nextView.setValue(prevVC: self, isFile: isFile, path: path)
+        nextView.setValue(prevVC: self, isFile: isFile, path: self.currentPath)
         nextNavigationController.modalPresentationStyle = .formSheet
         self.present(nextNavigationController, animated: true, completion: nil)
     }
@@ -98,27 +100,29 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func setContents() {
-        var tmp = [filecontent](repeating: filecontent(name: nil, kind: 0), count: Int(MAX_CONTENTS))
-        let size = get_file_list(currentPath.cString(using: .utf8), &tmp)
-        if (size < 0) {
-            return
+        let fileManager = FileManager.default
+        var files: [String] = []
+        do {
+            files = try fileManager.contentsOfDirectory(atPath: self.currentPath)
+        } catch {
+            print(files)
         }
+        
         self.contents = []
-        for i in 0 ..< size {
-            if let name = String(cString: tmp[Int(i)].name, encoding: .utf8) {
-                self.contents! += [FileContent(name: name, kind: Int(tmp[Int(i)].kind))]
+        var isDir: ObjCBool = false
+        for file in files {
+            if (file.prefix(1) == ".") {
+                continue
+            }
+            if fileManager.fileExists(atPath: self.currentPath + "/" + file, isDirectory: &isDir) {
+                if isDir.boolValue {
+                    contents.append(FileContent(name: file, kind: Kind.dir))
+                } else {
+                    contents.append(FileContent(name: file, kind: Kind.file))
+                }
             }
         }
-        self.contentsSize = Int(size)
         
-//        let fileManager = FileManager.default
-//        var files: [String] = []
-//        do {
-//            files = try fileManager.contentsOfDirectory(atPath: currentPath)
-//        } catch {
-//            print(files)
-//        }
-//        print(files)
     }
     
     

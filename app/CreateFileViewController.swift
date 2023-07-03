@@ -60,21 +60,27 @@ class CreateFileViewController: UIViewController {
     }
     
     @objc func createFile(_ sender: UIBarButtonItem) {
-        if (inputField.text!.isEmpty) {
-            return;
-        }
         if let newFileName = inputField.text {
-            create_file(self.path + "/" + newFileName)
+            if (newFileName.isEmpty) {
+                return;
+            }
+            let fileManager = FileManager.default
+            let result = fileManager.createFile(atPath: self.path + "/" + newFileName, contents: nil, attributes: nil)
         }
         removeSheet()
     }
     
     @objc func createFolder(_ sender: UIBarButtonItem) {
-        if (inputField.text!.isEmpty) {
-            return;
-        }
         if let newFolderName = inputField.text {
-            create_directory(self.path + "/" + newFolderName)
+            if (newFolderName.isEmpty) {
+                return;
+            }
+            let fileManager = FileManager.default
+            do {
+                try fileManager.createDirectory(atPath: self.path + "/" + newFolderName, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print("Fail creating folder")
+            }
         }
         removeSheet()
     }
