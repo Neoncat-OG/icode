@@ -9,43 +9,21 @@
 #import "LSManager.h"
 #import "FileManager.h"
 
+static struct fd *clangd_tty_fd;
+
 int run_language_server(void) {
     become_new_init_child();
     int pid = current_pid();
-    generic_mknodat(AT_PWD, "/dev/tty8", S_IFCHR|0666, dev_make(4, 8));
-    char *stdioFile = "/dev/tty8";
-    create_stdio(stdioFile, 136, 0);
-    printf("clangd pid: %d\n", pid);
+    generic_mknodat(AT_PWD, "/dev/tty8", S_IFCHR|0666, dev_make(TTY_CONSOLE_MAJOR, 8));
+    create_piped_stdio();
+    create_one_stdio("/dev/tty8", 0, TTY_PSEUDO_SLAVE_MAJOR, 8);
+    clangd_tty_fd = generic_open("/dev/tty8", O_RDWR_, 0);
     do_execve("/usr/bin/clangd", 1, "/usr/bin/clangd\0", "");
-    // create_piped_stdio();
     task_start(current);
-    
-    
-    
-    // printf("%d\n", x);
-//    printf("Hello Clang, pid = %d\n", pid);
-//    //FILE *f = fopen("",     )
-//    //fprintf(, "Content-Length: 47\r\n{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialized\"}");
-//
-//    // Content-Length: 47
-//    // {"jsonrpc":"2.0","id":1,"method":"initialized"}
-//    write_file("/dev/pts/0", "Content-Length: 47\r\n{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialized\"}\n\0", 68);
-//
-//
-//    char buf[1000];
-//    char name[100];
-//    sprintf(name, "/proc/%d/fd/1", pid);
-//    read_file(name, buf, 1000);
-//    printf("%s\n", buf);
-    // printf("%d\n", pid_get_task(pid)->files->files[0]->tty->num);
-    // printf("%d\n", pid_get_task(pid)->files->files[0]->refcount);
     return pid;
 }
 
 void run(int pid) {
-    char buf[10];
-    char name[100];
-    sprintf(name, "/proc/%d/fd/0", pid);
-    ssize_t x = write_file(name, "Hello", 10);
-    // printf("%s: %zd\n%s\n", name, x, buf);
+    tty_input(clangd_tty_fd->tty, "Content-Length: 47\r\n", 20, true);
+    tty_input(clangd_tty_fd->tty, "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialized\"}\n", 48, true);
 }

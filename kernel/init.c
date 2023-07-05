@@ -145,6 +145,26 @@ int create_stdio(const char *file, int major, int minor) {
     return 0;
 }
 
+int create_one_stdio(const char *file, int no, int major, int minor) {
+    if (no < 0 || 2 < no)
+        return -1;
+    struct fd *fd = generic_open(file, O_RDWR_, 0);
+    if (IS_ERR(fd)) {
+        // fallback to adhoc files for stdio
+        fd = adhoc_fd_create(NULL);
+        fd->stat.rdev = dev_make(major, minor);
+        fd->stat.mode = S_IFCHR | S_IRUSR;
+        fd->flags = O_RDWR_;
+        int err = dev_open(major, minor, DEV_CHAR, fd);
+        if (err < 0)
+            return err;
+    }
+
+    fd->refcount = 0;
+    current->files->files[no] = fd_retain(fd);
+    return 0;
+}
+
 static struct fd *open_fd_from_actual_fd(int fd_no) {
     struct fd *fd = adhoc_fd_create(&realfs_fdops);
     if (fd == NULL) {

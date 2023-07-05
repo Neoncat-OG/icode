@@ -8,7 +8,7 @@
 #include "kernel/calls.h"
 #include "kernel/task.h"
 #include "kernel/init.h"
-
+#include "fs/devices.h"
 
 int run_language_server(void);
 void run(int pid);
