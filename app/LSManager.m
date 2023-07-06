@@ -10,6 +10,7 @@
 #import "FileManager.h"
 
 static struct fd *clangd_tty_fd;
+static int clangdid;
 
 int run_language_server(void) {
     become_new_init_child();
@@ -20,10 +21,10 @@ int run_language_server(void) {
     clangd_tty_fd = generic_open("/dev/tty8", O_RDWR_, 0);
     do_execve("/usr/bin/clangd", 1, "/usr/bin/clangd\0", "");
     task_start(current);
+    clangdid = 1;
     return pid;
 }
 
-void run(int pid) {
-    tty_input(clangd_tty_fd->tty, "Content-Length: 47\r\n", 20, true);
-    tty_input(clangd_tty_fd->tty, "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialized\"}\n", 48, true);
+void send_server(const char *data, int length) {
+    tty_input(clangd_tty_fd->tty, data, length, true);
 }

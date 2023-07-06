@@ -11,4 +11,4 @@
 #include "fs/devices.h"
 
 int run_language_server(void);
-void run(int pid);
+void send_server(const char *data, int length);

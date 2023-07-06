@@ -11,7 +11,7 @@ import Highlightr
 class CodeViewController: UIViewController, UITextViewDelegate {
     var filenames = [String](repeating: "", count: 100)
     var tabCount = 0
-    var pid = 0
+    var rootUri: String = "file:///"
     
     @IBOutlet weak var innerView: UIView!
     @IBOutlet weak var innerHeight: NSLayoutConstraint!
@@ -23,7 +23,10 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.pid = Int(run_language_server())
+        let root = String(cString: get_all_path("/".cString(using: .utf8)))
+        self.rootUri = URL(fileURLWithPath: root).absoluteString
+        print(self.rootUri)
+        run_language_server()
     }
     
     func addCodeEditView(filePath: String) {
@@ -55,7 +58,7 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         innerView.addSubview(numView)
         codeView.setConstraint(parent: codeInnerView)
         numView.setConstraint(parent: innerView)
-        run(Int32(self.pid))
+        initializeLS()
     }
     
     func showAlert() {
@@ -84,5 +87,48 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         if let codeTextView = textView as? CodeTextView {
             codeTextView.textViewDidChange()
         }
+    }
+    
+    // Initialization
+    // {
+    //    "jsonrpc": "2.0",
+    //    "id": 1,
+    //    "method": "initialize"
+    //    "params": {
+    //      "processId": 1,
+    //      "rootUri": rootUri
+    //      "capabilities": {},
+    //    }
+    // }
+    func initializeLS() {
+        struct InitializeParams: Codable {
+            var processId: Int
+            var rootUri: String
+            var capabilities: [String]
+        }
+        
+        struct Initialize: Codable {
+            var jsonrpc: String
+            var id: Int
+            var method: String
+            var params: InitializeParams
+        }
+        
+        let initializeParams = InitializeParams(processId: 1, rootUri: self.rootUri, capabilities: [])
+        let initialize = Initialize(jsonrpc: "2.0", id: 1, method: "initialize", params: initializeParams)
+        let initializeData = try! JSONEncoder().encode(initialize)
+        var initializeString = String(data: initializeData, encoding: .utf8)!
+        
+        let del: Set<Character> = ["\\"]
+        initializeString.removeAll(where:{del.contains($0)})
+        
+        sendData(json: initializeString)
+    }
+    
+    func sendData(json: String) {
+        let contentLength = json.utf8.count
+        let sendData = "Content-Length: \(contentLength)\r\n\(json)\n"
+        let length = sendData.utf8.count
+        send_server(sendData, Int32(length))
     }
 }
