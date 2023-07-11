@@ -11,7 +11,7 @@ import Highlightr
 class CodeViewController: UIViewController, UITextViewDelegate {
     var filenames = [String](repeating: "", count: 100)
     var tabCount = 0
-    var rootUri: String = "file:///"
+    var lsClients: [String:LSClient] = [:]
     
     @IBOutlet weak var innerView: UIView!
     @IBOutlet weak var innerHeight: NSLayoutConstraint!
@@ -23,10 +23,9 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let root = String(cString: get_all_path("/".cString(using: .utf8)))
-        self.rootUri = URL(fileURLWithPath: root).absoluteString
-        print(self.rootUri)
-        run_language_server()
+        let clangd = LSClient()
+        lsClients["c"] = clangd
+        lsClients["c"]?.initialize()
     }
     
     func addCodeEditView(filePath: String) {
@@ -58,7 +57,7 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         innerView.addSubview(numView)
         codeView.setConstraint(parent: codeInnerView)
         numView.setConstraint(parent: innerView)
-        initializeLS()
+        lsClients["c"]?.textDocument_didOpen(allPath: filePath, text: codeView.text)
     }
     
     func showAlert() {
@@ -86,49 +85,28 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         if let codeTextView = textView as? CodeTextView {
             codeTextView.textViewDidChange()
+            lsClients["c"]?.textDocument_didChange(allPath: filenames[tabCount - 1], text: codeTextView.text)
+            guard let range = codeTextView.selectedTextRange else {return}
+            let cursorPosition = codeTextView.offset(from: codeTextView.beginningOfDocument, to: range.start)
+            let pre = String(codeTextView.text!.prefix(cursorPosition))
+            if (pre.last == ".") {
+                let arr: [String] = pre.components(separatedBy: "\n")
+                lsClients["c"]?.textDocument_completion(allPath: filenames[tabCount - 1], line: arr.count - 1, character: arr.last!.count)
+            }
         }
     }
-    
-    // Initialization
-    // {
-    //    "jsonrpc": "2.0",
-    //    "id": 1,
-    //    "method": "initialize"
-    //    "params": {
-    //      "processId": 1,
-    //      "rootUri": rootUri
-    //      "capabilities": {},
-    //    }
-    // }
-    func initializeLS() {
-        struct InitializeParams: Codable {
-            var processId: Int
-            var rootUri: String
-            var capabilities: [String]
-        }
-        
-        struct Initialize: Codable {
-            var jsonrpc: String
-            var id: Int
-            var method: String
-            var params: InitializeParams
-        }
-        
-        let initializeParams = InitializeParams(processId: 1, rootUri: self.rootUri, capabilities: [])
-        let initialize = Initialize(jsonrpc: "2.0", id: 1, method: "initialize", params: initializeParams)
-        let initializeData = try! JSONEncoder().encode(initialize)
-        var initializeString = String(data: initializeData, encoding: .utf8)!
-        
-        let del: Set<Character> = ["\\"]
-        initializeString.removeAll(where:{del.contains($0)})
-        
-        sendData(json: initializeString)
+}
+
+extension String {
+    subscript (index: Int) -> Character {
+        let charIndex = self.index(self.startIndex, offsetBy: index)
+        return self[charIndex]
     }
-    
-    func sendData(json: String) {
-        let contentLength = json.utf8.count
-        let sendData = "Content-Length: \(contentLength)\r\n\(json)\n"
-        let length = sendData.utf8.count
-        send_server(sendData, Int32(length))
+
+    subscript (range: Range<Int>) -> Substring {
+        let startIndex = self.index(self.startIndex, offsetBy: range.startIndex)
+        let stopIndex = self.index(self.startIndex, offsetBy: range.startIndex + range.count)
+        return self[startIndex..<stopIndex]
     }
+
 }

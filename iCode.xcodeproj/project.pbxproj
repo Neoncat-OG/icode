@@ -106,6 +106,10 @@
 		497F6D87254E62E100C82F46 /* libish.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB13F7DC200AD81D003D1C4D /* libish.a */; };
 		A30C50222A0A28830047E87E /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30C50202A0A28830047E87E /* FileViewController.swift */; };
 		A30C50302A0A3B090047E87E /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A30C502E2A0A3B090047E87E /* FileManager.m */; };
+		A319A3FF2A5D536000918762 /* LSMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A3FE2A5D536000918762 /* LSMethod.swift */; };
+		A319A4002A5D536000918762 /* LSMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A3FE2A5D536000918762 /* LSMethod.swift */; };
+		A319A4022A5D5F7700918762 /* LSStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4012A5D5F7700918762 /* LSStruct.swift */; };
+		A319A4032A5D5F7700918762 /* LSStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4012A5D5F7700918762 /* LSStruct.swift */; };
 		A3660AE52A46D6C500A755A4 /* LSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3660AE42A46D6C500A755A4 /* LSManager.m */; };
 		A3660AE62A46D6C500A755A4 /* LSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3660AE42A46D6C500A755A4 /* LSManager.m */; };
 		A377B9942A3C898F003A995B /* Highlightr in Frameworks */ = {isa = PBXBuildFile; productRef = A377B9932A3C898F003A995B /* Highlightr */; };
@@ -570,6 +574,8 @@
 		A30C502B2A0A3A7D0047E87E /* iCode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iCode-Bridging-Header.h"; sourceTree = "<group>"; };
 		A30C502D2A0A3AF30047E87E /* FileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		A30C502E2A0A3B090047E87E /* FileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
+		A319A3FE2A5D536000918762 /* LSMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSMethod.swift; sourceTree = "<group>"; };
+		A319A4012A5D5F7700918762 /* LSStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSStruct.swift; sourceTree = "<group>"; };
 		A3660AE42A46D6C500A755A4 /* LSManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSManager.m; sourceTree = "<group>"; };
 		A3660AE72A46F41E00A755A4 /* LSManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSManager.h; sourceTree = "<group>"; };
 		A377B9972A457B07003A995B /* LSClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSClient.swift; sourceTree = "<group>"; };
@@ -1015,6 +1021,8 @@
 				A3D857532A36FCC800165EA7 /* CodeViewController.swift */,
 				A3C547F72A3B9C59003ABB2B /* CodeTextView.swift */,
 				A377B9972A457B07003A995B /* LSClient.swift */,
+				A319A4012A5D5F7700918762 /* LSStruct.swift */,
+				A319A3FE2A5D536000918762 /* LSMethod.swift */,
 				A3C547FD2A3B9C68003ABB2B /* CodeNumTextView.swift */,
 				A30C50202A0A28830047E87E /* FileViewController.swift */,
 				A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */,
@@ -2040,6 +2048,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A319A3FF2A5D536000918762 /* LSMethod.swift in Sources */,
 				A3D857592A37015000165EA7 /* FileViewController.swift in Sources */,
 				BB28C7BB268975AE00BDC834 /* LocationDevice.m in Sources */,
 				A3C547FE2A3B9C68003ABB2B /* CodeNumTextView.swift in Sources */,
@@ -2052,6 +2061,7 @@
 				BB28C7BA268975AA00BDC834 /* iOSFS.m in Sources */,
 				A3660AE52A46D6C500A755A4 /* LSManager.m in Sources */,
 				BB28C7BC268975B000BDC834 /* PasteboardDevice.m in Sources */,
+				A319A4022A5D5F7700918762 /* LSStruct.swift in Sources */,
 				A3D857482A334CC200165EA7 /* UIView+parentViewController.swift in Sources */,
 				A3C547F82A3B9C5A003ABB2B /* CodeTextView.swift in Sources */,
 			);
@@ -2103,6 +2113,7 @@
 				A3C547F92A3B9C5A003ABB2B /* CodeTextView.swift in Sources */,
 				A37EE49E2A0659C600049353 /* MainTabBarController.swift in Sources */,
 				491B31E62883BF22008EEFB0 /* ThemeViewController.m in Sources */,
+				A319A4002A5D536000918762 /* LSMethod.swift in Sources */,
 				BB28C7B226896C4600BDC834 /* main.m in Sources */,
 				496C7AB227CC697E005D7613 /* Theme.m in Sources */,
 				BB28C79426896B1F00BDC834 /* AboutNavigationController.m in Sources */,
@@ -2140,6 +2151,7 @@
 				496C7AB327CC734D005D7613 /* ThemesViewController.m in Sources */,
 				A30C50222A0A28830047E87E /* FileViewController.swift in Sources */,
 				A377B9992A457B07003A995B /* LSClient.swift in Sources */,
+				A319A4032A5D5F7700918762 /* LSStruct.swift in Sources */,
 				BB77636726E486A7008DB44A /* fakefs.c in Sources */,
 				BB28C7B826896CE600BDC834 /* ArrowBarButton.m in Sources */,
 			);
