@@ -87,21 +87,6 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         return ""
     }
     
-    
-    func textViewDidChange(_ textView: UITextView) {
-        if let codeTextView = textView as? CodeTextView {
-            codeTextView.textViewDidChange()
-            lsClients["c"]?.textDocument_didChange(allPath: filenames[tabCount - 1], text: codeTextView.text)
-            guard let range = codeTextView.selectedTextRange else {return}
-            let cursorPosition = codeTextView.offset(from: codeTextView.beginningOfDocument, to: range.start)
-            let pre = String(codeTextView.text!.prefix(cursorPosition))
-            if (pre.last == ".") {
-                let arr: [String] = pre.components(separatedBy: "\n")
-                lsClients["c"]?.textDocument_completion(allPath: filenames[tabCount - 1], line: arr.count - 1, character: arr.last!.count)
-            }
-        }
-    }
-    
     func sizeFit(newSize: CGSize, digit: Int) {
         codeInnerWidth.constant = newSize.width
         innerHeight.constant = newSize.height
@@ -123,6 +108,34 @@ class CodeViewController: UIViewController, UITextViewDelegate {
             self.innerScrollViewLeading?.constant = 51
             break
         }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if let codeTextView = textView as? CodeTextView {
+            codeTextView.textViewDidChange()
+            lsClients["c"]?.textDocument_didChange(allPath: filenames[tabCount - 1], text: codeTextView.text)
+            guard let range = codeTextView.selectedTextRange else {return}
+            let cursorPosition = codeTextView.offset(from: codeTextView.beginningOfDocument, to: range.start)
+            let pre = String(codeTextView.text!.prefix(cursorPosition))
+            if (pre.last == ".") {
+                let arr: [String] = pre.components(separatedBy: "\n")
+                lsClients["c"]?.textDocument_completion(allPath: filenames[tabCount - 1], line: arr.count - 1, character: arr.last!.count)
+            }
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if let codeTextView = textView as? CodeTextView {
+            if range.length > 1 {
+                codeTextView.setLineNum()
+                return true
+            }
+            if text.count > 1 {
+                codeTextView.addLineNum(addText: text)
+                return true
+            }
+        }
+        return true
     }
 }
 

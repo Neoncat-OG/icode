@@ -110,6 +110,8 @@
 		A319A4002A5D536000918762 /* LSMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A3FE2A5D536000918762 /* LSMethod.swift */; };
 		A319A4022A5D5F7700918762 /* LSStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4012A5D5F7700918762 /* LSStruct.swift */; };
 		A319A4032A5D5F7700918762 /* LSStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4012A5D5F7700918762 /* LSStruct.swift */; };
+		A319A4072A5FBF3D00918762 /* UITextViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4062A5FBF3D00918762 /* UITextViewExt.swift */; };
+		A319A4082A5FBF3D00918762 /* UITextViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4062A5FBF3D00918762 /* UITextViewExt.swift */; };
 		A3660AE52A46D6C500A755A4 /* LSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3660AE42A46D6C500A755A4 /* LSManager.m */; };
 		A3660AE62A46D6C500A755A4 /* LSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3660AE42A46D6C500A755A4 /* LSManager.m */; };
 		A377B9942A3C898F003A995B /* Highlightr in Frameworks */ = {isa = PBXBuildFile; productRef = A377B9932A3C898F003A995B /* Highlightr */; };
@@ -576,6 +578,7 @@
 		A30C502E2A0A3B090047E87E /* FileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
 		A319A3FE2A5D536000918762 /* LSMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSMethod.swift; sourceTree = "<group>"; };
 		A319A4012A5D5F7700918762 /* LSStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSStruct.swift; sourceTree = "<group>"; };
+		A319A4062A5FBF3D00918762 /* UITextViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExt.swift; sourceTree = "<group>"; };
 		A3660AE42A46D6C500A755A4 /* LSManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSManager.m; sourceTree = "<group>"; };
 		A3660AE72A46F41E00A755A4 /* LSManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSManager.h; sourceTree = "<group>"; };
 		A377B9972A457B07003A995B /* LSClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSClient.swift; sourceTree = "<group>"; };
@@ -1026,6 +1029,7 @@
 				A3C547FD2A3B9C68003ABB2B /* CodeNumTextView.swift */,
 				A30C50202A0A28830047E87E /* FileViewController.swift */,
 				A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */,
+				A319A4062A5FBF3D00918762 /* UITextViewExt.swift */,
 				A30C502D2A0A3AF30047E87E /* FileManager.h */,
 				A30C502E2A0A3B090047E87E /* FileManager.m */,
 				A3660AE72A46F41E00A755A4 /* LSManager.h */,
@@ -2055,6 +2059,7 @@
 				A3D8575E2A37016900165EA7 /* MainTabBarController.swift in Sources */,
 				A3D8575A2A37015400165EA7 /* CreateFileViewController.swift in Sources */,
 				A3D8575D2A37016300165EA7 /* CodeViewController.swift in Sources */,
+				A319A4072A5FBF3D00918762 /* UITextViewExt.swift in Sources */,
 				A3D8575B2A37015900165EA7 /* FileManager.m in Sources */,
 				A377B9982A457B07003A995B /* LSClient.swift in Sources */,
 				A3D857412A3313B800165EA7 /* KeyboardBar.swift in Sources */,
@@ -2139,6 +2144,7 @@
 				BB28C79F26896B1F00BDC834 /* PassthroughView.m in Sources */,
 				BB28C7A026896B1F00BDC834 /* UserPreferences.m in Sources */,
 				BB28C7A126896B1F00BDC834 /* RootsTableViewController.m in Sources */,
+				A319A4082A5FBF3D00918762 /* UITextViewExt.swift in Sources */,
 				BB28C7A326896B1F00BDC834 /* BarButton.m in Sources */,
 				BB28C7A426896B1F00BDC834 /* AppGroup.m in Sources */,
 				BBECF3BC26913F1600DEC937 /* AppDelegate.m in Sources */,

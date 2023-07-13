@@ -12,8 +12,6 @@ class CodeTextView: UITextView {
     var filePath: String = ""
     let regex: NSRegularExpression = try! NSRegularExpression(pattern: "[\n]", options: [])
     var controller: CodeViewController?
-    var lineNum: Int = 0
-    var digit: Int = 1
     var codeLineView: CodeNumTextView?
     
     init(frame: CGRect, textContainer: NSTextContainer?, numView: CodeNumTextView, filePath: String, parent: CodeViewController) {
@@ -36,8 +34,7 @@ class CodeTextView: UITextView {
             return 1
         }
         self.text = text
-        self.lineNum = getLineNumber()
-        codeLineView?.setLineNum(lineNum: self.lineNum)
+        setLineNum()
         sizeFit()
         return 0
     }
@@ -53,9 +50,17 @@ class CodeTextView: UITextView {
         }
     }
     
-    func getLineNumber() -> Int {
+    private func getLineNumber(text: String) -> Int {
         let results = regex.matches(in: text, options: [], range: NSRange(0..<text.count))
         return results.count
+    }
+    
+    func setLineNum() {
+        codeLineView?.setLineNum(lineNum: getLineNumber(text: self.text))
+    }
+    
+    func addLineNum(addText: String) {
+        codeLineView?.addLineNum(add: getLineNumber(text: addText))
     }
     
     func setConstraint(parent: UIView) {
@@ -75,11 +80,22 @@ class CodeTextView: UITextView {
     }
     
     func getDigit() -> Int {
-        return String(self.lineNum).count
+        return String(codeLineView?.lineNum ?? 10000).count
     }
     
     override func insertText(_ text: String) {
         super.insertText(text)
-        print(text)
+        if text == "\n" || text == "\r" {
+            codeLineView?.incrementLineNum()
+        }
+    }
+    
+    override func deleteBackward() {
+        if let last = getSelectedOrLast() {
+            if last == "\n" {
+                codeLineView?.decrementLineNum()
+            }
+        }
+        super.deleteBackward()
     }
 }

@@ -14,6 +14,9 @@ class CodeNumTextView: UITextView {
     let numFont = UIFont(name: "Menlo-Regular", size: 13)!
     let numColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
     
+    var numText: String = ""
+    var lineNum: Int = 0
+    
     init(frame: CGRect, lineHeight: CGFloat) {
         super.init(frame: frame, textContainer: nil)
         self.isEditable = false
@@ -39,12 +42,40 @@ class CodeNumTextView: UITextView {
     }
     
     func setLineNum(lineNum: Int) {
-        var text = ""
-        for i in 1..<lineNum + 2 {
-            text += String(i) + "\n"
+        numText = ""
+        for i in 1...lineNum + 1 {
+            numText += String(i) + "\n"
         }
-        
-        let attrString = NSMutableAttributedString(string: text, attributes: [NSAttributedString.Key.font: self.numFont,
+        self.lineNum = lineNum + 1
+        setAttributeString()
+    }
+    
+    func incrementLineNum() {
+        lineNum += 1
+        numText += String(lineNum) + "\n"
+        setAttributeString()
+    }
+    
+    func addLineNum(add: Int) {
+        for i in lineNum + 1...lineNum + add {
+            numText += String(i) + "\n"
+        }
+        lineNum += add
+        setAttributeString()
+    }
+    
+    func decrementLineNum() {
+        if lineNum == 1 {
+            return
+        }
+        let count = String(lineNum).count + 1
+        lineNum -= 1
+        numText = String(self.numText.dropLast(count))
+        setAttributeString()
+    }
+    
+    private func setAttributeString() {
+        let attrString = NSMutableAttributedString(string: self.numText, attributes: [NSAttributedString.Key.font: self.numFont,
              NSAttributedString.Key.foregroundColor: self.numColor,
              NSAttributedString.Key.paragraphStyle: self.paragraphStyle])
         self.attributedText = attrString
