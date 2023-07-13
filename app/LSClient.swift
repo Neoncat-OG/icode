@@ -50,9 +50,11 @@ class LSClient {
             switch (method) {
             case LSMethod.Initialize:
                 recieveInitialize(json: jsonDict)
+                print("LS-initialize: \(jsonString)")
                 break
             case LSMethod.TextDocument_Completion:
-                print(jsonString)
+                print("LS-complation: \(jsonString)")
+                recieveCompletion(json: jsonDict)
                 break
             default:
                 return
@@ -74,6 +76,14 @@ class LSClient {
     
     private func recieveInitialize(json: [String: Any]?) {
         initialized()
+    }
+    
+    private func recieveCompletion(json: [String: Any]?) {
+        guard let result = json?["result"] as? String else { return }
+//        for elem in result {
+//            guard let label = elem["label"] as? String else { return }
+//            print(label)
+//        }
     }
     
     
