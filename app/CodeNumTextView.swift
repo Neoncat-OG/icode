@@ -14,8 +14,8 @@ class CodeNumTextView: UITextView {
     let numFont = UIFont(name: "Menlo-Regular", size: 13)!
     let numColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
     
-    init(frame: CGRect, textContainer: NSTextContainer?, lineHeight: CGFloat) {
-        super.init(frame: frame, textContainer: textContainer)
+    init(frame: CGRect, lineHeight: CGFloat) {
+        super.init(frame: frame, textContainer: nil)
         self.isEditable = false
         self.isSelectable = false
         self.isScrollEnabled = false

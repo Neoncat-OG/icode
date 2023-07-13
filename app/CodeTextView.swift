@@ -11,22 +11,18 @@ class CodeTextView: UITextView {
     
     var filePath: String = ""
     let regex: NSRegularExpression = try! NSRegularExpression(pattern: "[\n]", options: [])
-    var viewHeight: NSLayoutConstraint?
-    var viewWidth: NSLayoutConstraint?
-    var leading: NSLayoutConstraint?
+    var controller: CodeViewController?
     var lineNum: Int = 0
     var digit: Int = 1
     var codeLineView: CodeNumTextView?
     
-    init(frame: CGRect, textContainer: NSTextContainer?, numView: CodeNumTextView, filePath: String, viewHeight: NSLayoutConstraint, viewWidth: NSLayoutConstraint, leading: NSLayoutConstraint) {
+    init(frame: CGRect, textContainer: NSTextContainer?, numView: CodeNumTextView, filePath: String, parent: CodeViewController) {
         super.init(frame: frame, textContainer: textContainer)
         self.font = UIFont(name: "Menlo-Regular", size: 13)
         self.autocorrectionType = .no
         self.isScrollEnabled = false
         self.filePath = filePath
-        self.viewHeight = viewHeight
-        self.viewWidth = viewWidth
-        self.leading = leading
+        self.controller = parent
         self.codeLineView = numView
         self.layoutManager.usesFontLeading = false
     }
@@ -39,47 +35,16 @@ class CodeTextView: UITextView {
         guard let text = try? String(contentsOfFile: self.filePath) else {
             return 1
         }
-        
         self.text = text
-        
-        let newSize = self.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
-        if let height = viewHeight {
-            height.constant = newSize.height
-        }
-        if let width = viewWidth {
-            width.constant = newSize.width
-        }
-        
-        if let numView = self.codeLineView {
-            numView.setLineNum(lineNum: getLineNumber())
-        }
+        self.lineNum = getLineNumber()
+        codeLineView?.setLineNum(lineNum: self.lineNum)
+        sizeFit()
         return 0
     }
     
     func textViewDidChange() {
         if let text = self.text {
-            let newSize = self.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
-            if let height = viewHeight {
-                height.constant = newSize.height
-            }
-            if let width = viewWidth {
-                width.constant = newSize.width
-            }
-            
-            let newLineNum = getLineNumber()
-            if (self.lineNum != newLineNum) {
-                self.lineNum = newLineNum
-                if let numView = self.codeLineView {
-                    let digit_s = String(self.lineNum)
-                    if digit_s.count != self.digit {
-                        self.digit = digit_s.count
-                        numView.setWidth(digit: self.digit)
-                        setLeading(digit: self.digit)
-                    }
-                    numView.setLineNum(lineNum: newLineNum)
-                }
-            }
-
+            sizeFit()
             do {
                 try text.write(toFile: self.filePath, atomically: true, encoding: .utf8)
             } catch {
@@ -100,24 +65,21 @@ class CodeTextView: UITextView {
         let top = self.topAnchor.constraint(equalTo:  parent.topAnchor, constant: 0)
         let bottom = self.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: 0)
         NSLayoutConstraint.activate([leading, trailing, top, bottom])
+        sizeFit()
     }
     
-    func setLeading(digit :Int) {
-        if let leading = self.leading {
-            switch (digit) {
-            case 1, 2:
-                leading.constant = 30
-                break
-            case 3:
-                leading.constant = 37
-                break
-            case 4:
-                leading.constant = 44
-                break
-            default:
-                leading.constant = 51
-                break
-            }
-        }
+    func sizeFit() {
+        let newSize = self.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
+        controller?.sizeFit(newSize: newSize, digit: getDigit())
+        codeLineView?.setWidth(digit: getDigit())
+    }
+    
+    func getDigit() -> Int {
+        return String(self.lineNum).count
+    }
+    
+    override func insertText(_ text: String) {
+        super.insertText(text)
+        print(text)
     }
 }

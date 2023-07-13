@@ -29,19 +29,10 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     }
     
     func addCodeEditView(filePath: String) {
-        let textStorage = CodeAttributedString(lineHeight: 2.4)
-        textStorage.language = getLanguage(filePath: filePath)
-        textStorage.highlightr.setTheme(to: "xcode")
-        textStorage.highlightr.theme.codeFont = UIFont(name: "Menlo-Regular", size: 13)
-        
-        let layoutManager = NSLayoutManager()
-        textStorage.addLayoutManager(layoutManager)
-
-        let textContainer = NSTextContainer(size: view.bounds.size)
-        layoutManager.addTextContainer(textContainer)
-        
-        let numView = CodeNumTextView(frame: self.innerView.frame, textContainer: nil, lineHeight: 2.4)
-        let codeView = CodeTextView(frame: self.innerView.frame, textContainer: textContainer, numView: numView, filePath: filePath, viewHeight: innerHeight, viewWidth: codeInnerWidth, leading: innerScrollViewLeading)
+        let language = getLanguage(filePath: filePath)
+        let textContainer = setTextContainer(language: language, theme: "xcode")
+        let numView = CodeNumTextView(frame: self.innerView.frame, lineHeight: 2.4)
+        let codeView = CodeTextView(frame: self.innerView.frame, textContainer: textContainer, numView: numView, filePath: filePath, parent: self)
         
         if (codeView.setText() != 0) {
             showAlert()
@@ -55,9 +46,24 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         
         codeInnerView.addSubview(codeView)
         innerView.addSubview(numView)
-        codeView.setConstraint(parent: codeInnerView)
         numView.setConstraint(parent: innerView)
+        codeView.setConstraint(parent: codeInnerView)
         lsClients["c"]?.textDocument_didOpen(allPath: filePath, text: codeView.text)
+    }
+    
+    func setTextContainer(language: String, theme: String) -> NSTextContainer? {
+        let textStorage = CodeAttributedString(lineHeight: 2.4)
+        textStorage.language = language
+        textStorage.highlightr.setTheme(to: theme)
+        textStorage.highlightr.theme.codeFont = UIFont(name: "Menlo-Regular", size: 13)
+        
+        let layoutManager = NSLayoutManager()
+        textStorage.addLayoutManager(layoutManager)
+
+        let textContainer = NSTextContainer(size: view.bounds.size)
+        layoutManager.addTextContainer(textContainer)
+        
+        return textContainer
     }
     
     func showAlert() {
@@ -95,18 +101,29 @@ class CodeViewController: UIViewController, UITextViewDelegate {
             }
         }
     }
+    
+    func sizeFit(newSize: CGSize, digit: Int) {
+        codeInnerWidth.constant = newSize.width
+        innerHeight.constant = newSize.height
+        setLeading(digit: digit)
+    }
+    
+    func setLeading(digit :Int) {
+        switch (digit) {
+        case 1, 2:
+            self.innerScrollViewLeading?.constant = 30
+            break
+        case 3:
+            self.innerScrollViewLeading?.constant = 37
+            break
+        case 4:
+            self.innerScrollViewLeading?.constant = 44
+            break
+        default:
+            self.innerScrollViewLeading?.constant = 51
+            break
+        }
+    }
 }
 
-extension String {
-    subscript (index: Int) -> Character {
-        let charIndex = self.index(self.startIndex, offsetBy: index)
-        return self[charIndex]
-    }
 
-    subscript (range: Range<Int>) -> Substring {
-        let startIndex = self.index(self.startIndex, offsetBy: range.startIndex)
-        let stopIndex = self.index(self.startIndex, offsetBy: range.startIndex + range.count)
-        return self[startIndex..<stopIndex]
-    }
-
-}
