@@ -12,6 +12,7 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     var filenames = [String](repeating: "", count: 100)
     var tabCount = 0
     var lsClients: [String:LSClient] = [:]
+    var currentCodeView: CodeTextView? = nil
     
     @IBOutlet weak var innerView: UIView!
     @IBOutlet weak var innerHeight: NSLayoutConstraint!
@@ -34,6 +35,7 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         let numView = CodeNumTextView(frame: self.innerView.frame, lineHeight: 2.4)
         let codeView = CodeTextView(frame: self.innerView.frame, textContainer: textContainer, numView: numView, filePath: filePath, parent: self)
         
+        currentCodeView = codeView
         if (codeView.setText() != 0) {
             showAlert()
             return;
@@ -136,6 +138,11 @@ class CodeViewController: UIViewController, UITextViewDelegate {
             }
         }
         return true
+    }
+    
+    func insertTab() {
+        guard let codeView = currentCodeView else { return }
+        codeView.insertText("\t")
     }
 }
 

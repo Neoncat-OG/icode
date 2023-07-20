@@ -66,4 +66,11 @@ class KeyboardBar: UIInputView {
             }
         }
     }
+    
+    @IBAction func pushTabButton(_ sender: Any) {
+        guard let parent = self.parentViewController() else { return }
+        guard let top = topViewController(controller: parent) else { return }
+        guard let codeVC = top as? CodeViewController else { return }
+        codeVC.insertTab()
+    }
 }

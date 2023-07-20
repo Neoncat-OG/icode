@@ -498,6 +498,9 @@
                                     <state key="normal">
                                         <color key="titleColor" systemColor="darkTextColor"/>
                                     </state>
+                                    <connections>
+                                        <action selector="pushTabButton:" destination="MBz-lp-ini" eventType="touchUpInside" id="vas-Fa-BgX"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ovp-Zt-GbL" customClass="BarButton">
                                     <rect key="frame" x="36" y="0.0" width="30" height="43"/>
