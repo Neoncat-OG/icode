@@ -69,13 +69,15 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let label = cell.contentView.viewWithTag(2) as! UILabel
         label.text = content.name
         
+        let image = cell.contentView.viewWithTag(3) as! UIImageView
+        
         switch content.kind {
         case Kind.dir:
-            cell.backgroundColor = .orange
+            image.image = UIImage(named: "Folder")!
             button.addTarget(self, action: #selector(changeDirectory(_ :)), for: .touchUpInside)
             break
         case Kind.file:
-            cell.backgroundColor = .cyan
+            image.image = UIImage(named: "File")!
             button.addTarget(self, action: #selector(passCodeEditor(_ :)), for: .touchUpInside)
             break
         default:
