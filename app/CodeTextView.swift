@@ -106,7 +106,7 @@ class CodeTextView: UITextView {
             prefix += "\t"
         }
         
-        if let last = getSelectedOrLast() {
+        if let last = getLast() {
             if last == "{" || last == "(" {
                 super.insertText("\n\t" + prefix)
                 let prev = self.selectedRange

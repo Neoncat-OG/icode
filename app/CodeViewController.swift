@@ -14,6 +14,7 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     var lsClients: [String:LSClient] = [:]
     var currentCodeView: CodeTextView? = nil
     
+    @IBOutlet weak var scrollbarBottom: NSLayoutConstraint!
     @IBOutlet weak var innerView: UIView!
     @IBOutlet weak var innerHeight: NSLayoutConstraint!
     
@@ -27,6 +28,8 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         let clangd = LSClient()
         lsClients["c"] = clangd
         lsClients["c"]?.initialize()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func addCodeEditView(filePath: String) {
@@ -143,6 +146,17 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     func insertTab() {
         guard let codeView = currentCodeView else { return }
         codeView.insertText("\t")
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            scrollbarBottom.constant = keyboardSize.height - self.view.safeAreaInsets.bottom
+            print(keyboardSize)
+        }
+    }
+    
+    @objc func keyboardWillHide() {
+        scrollbarBottom.constant = 0
     }
 }
 

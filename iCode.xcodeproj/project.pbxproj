@@ -133,8 +133,6 @@
 		A3D8575B2A37015900165EA7 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A30C502E2A0A3B090047E87E /* FileManager.m */; };
 		A3D8575D2A37016300165EA7 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D857532A36FCC800165EA7 /* CodeViewController.swift */; };
 		A3D8575E2A37016900165EA7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EE49D2A0659C600049353 /* MainTabBarController.swift */; };
-		A3F92D9D29FCE4FA0002C09F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F92D9C29FCE4FA0002C09F /* icon.png */; };
-		A3F92D9E29FCE4FA0002C09F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F92D9C29FCE4FA0002C09F /* icon.png */; };
 		BB0F552E239F8A790032A2A1 /* Icons.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB0F552D239F8A790032A2A1 /* Icons.plist */; };
 		BB10E5C9248DBAAC009C7A74 /* libarchive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB10E5C8248DBAA1009C7A74 /* libarchive.a */; };
 		BB10E5D0248DC21D009C7A74 /* Roots.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB10E5CF248DC21D009C7A74 /* Roots.storyboard */; };
@@ -590,7 +588,6 @@
 		A3D857402A3313B800165EA7 /* KeyboardBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardBar.swift; sourceTree = "<group>"; };
 		A3D857472A334CC200165EA7 /* UIView+parentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+parentViewController.swift"; sourceTree = "<group>"; };
 		A3D857532A36FCC800165EA7 /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
-		A3F92D9C29FCE4FA0002C09F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../icon.png; sourceTree = "<group>"; };
 		BB0B848E2586A4CF00208600 /* XcodeDefault.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = XcodeDefault.xcconfig; sourceTree = "<group>"; };
 		BB0B859B2586F13200208600 /* XcodeDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = XcodeDebug.xcconfig; sourceTree = "<group>"; };
 		BB0B859C2586F19000208600 /* XcodeRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = XcodeRelease.xcconfig; sourceTree = "<group>"; };
@@ -906,7 +903,6 @@
 		BB1B9A4123A5E92A00414052 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				A3F92D9C29FCE4FA0002C09F /* icon.png */,
 				BB0F552D239F8A790032A2A1 /* Icons.plist */,
 			);
 			path = Icons;
@@ -1722,7 +1718,6 @@
 				BBBF7B5C2415CDBB00EC4C14 /* Settings.bundle in Resources */,
 				BBBCE7E321D2F02200CA00B3 /* About.storyboard in Resources */,
 				BB792B5B1F96D90D00FFB7A4 /* Main.storyboard in Resources */,
-				A3F92D9D29FCE4FA0002C09F /* icon.png in Resources */,
 				BB0F552E239F8A790032A2A1 /* Icons.plist in Resources */,
 				BB2B4DAF231D998300CB578B /* term.html in Resources */,
 				BB10E5D0248DC21D009C7A74 /* Roots.storyboard in Resources */,
@@ -1750,7 +1745,6 @@
 				BBEF1985268066D1001225BD /* Main.storyboard in Resources */,
 				BBEF1986268066D1001225BD /* Icons.plist in Resources */,
 				BBEF198B268066D1001225BD /* term.html in Resources */,
-				A3F92D9E29FCE4FA0002C09F /* icon.png in Resources */,
 				BBEF198E268066D1001225BD /* Roots.storyboard in Resources */,
 				BBEF1990268066D1001225BD /* hterm_all.js in Resources */,
 				BBEF1993268066D1001225BD /* term.css in Resources */,
