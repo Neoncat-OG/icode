@@ -14,6 +14,8 @@ class CodeTextView: UITextView {
     var controller: CodeViewController?
     var codeLineView: CodeNumTextView?
     
+    let cStyleAutoPairs = ["(": ")", "[": "]", "{": "}", "\"": "\"", "'": "'", "`": "`"]
+    
     init(frame: CGRect, textContainer: NSTextContainer?, numView: CodeNumTextView, filePath: String, parent: CodeViewController) {
         super.init(frame: frame, textContainer: textContainer)
         self.font = UIFont(name: "Menlo-Regular", size: 13)
@@ -84,10 +86,41 @@ class CodeTextView: UITextView {
     }
     
     override func insertText(_ text: String) {
-        super.insertText(text)
-        if text == "\n" || text == "\r" {
-            codeLineView?.incrementLineNum()
+        if text == "\n" {
+            insertNewLine()
+            return
         }
+        
+        if text == " " {
+            super.insertText(text)
+            insertSpace()
+            return
+        }
+        
+        super.insertText(text)
+        
+        guard let second = cStyleAutoPairs[text] else { return }
+        let prev = self.selectedRange
+        super.insertText(second)
+        self.selectedRange = prev
+    }
+    
+    func insertNewLine() {
+        codeLineView?.incrementLineNum()
+        if let last = getSelectedOrLast() {
+            if last == "{" || last == "(" {
+                super.insertText("\n\t")
+                let prev = self.selectedRange
+                super.insertText("\n")
+                self.selectedRange = prev
+                return
+            }
+            super.insertText("\n")
+        }
+    }
+    
+    func insertSpace() {
+        
     }
     
     override func deleteBackward() {

@@ -57,6 +57,9 @@ class CodeNumTextView: UITextView {
     }
     
     func addLineNum(add: Int) {
+        if add == 0 {
+            return
+        }
         for i in lineNum + 1...lineNum + add {
             numText += String(i) + "\n"
         }

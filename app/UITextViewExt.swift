@@ -25,4 +25,21 @@ extension UITextView {
         }
         return text(in: range)
     }
+    
+    func getLast(num: Int) -> String? {
+        guard let range = selectedTextRange else { return nil }
+        if !range.isEmpty {
+            return nil
+        }
+        let offset = offset(from: beginningOfDocument, to: range.start)
+        if offset < num {
+            return nil
+        }
+        var res = ""
+        for i in 1...num {
+            let index = text.index(text.startIndex, offsetBy: offset - i)
+            res += String(text[index])
+        }
+        return res
+    }
 }
