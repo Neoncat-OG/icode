@@ -91,12 +91,6 @@ class CodeTextView: UITextView {
             return
         }
         
-        if text == " " {
-            super.insertText(text)
-            insertSpace()
-            return
-        }
-        
         super.insertText(text)
         
         guard let second = cStyleAutoPairs[text] else { return }
@@ -124,9 +118,6 @@ class CodeTextView: UITextView {
         }
         super.insertText("\n" + prefix)
         codeLineView?.incrementLineNum()
-    }
-    
-    func insertSpace() {
     }
     
     override func deleteBackward() {
