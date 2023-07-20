@@ -133,7 +133,11 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @objc func changeDirectory(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "file-view") as! FileViewController
-        nextViewController.setValue(allPath: allPath + "/" + (sender.titleLabel?.text ?? ""), currentPath: currentPath + "/" + (sender.titleLabel?.text ?? ""))
+        if currentPath == "/" {
+            nextViewController.setValue(allPath: allPath + (sender.titleLabel?.text ?? ""), currentPath: currentPath + (sender.titleLabel?.text ?? ""))
+        } else {
+            nextViewController.setValue(allPath: allPath + "/" + (sender.titleLabel?.text ?? ""), currentPath: currentPath + "/" + (sender.titleLabel?.text ?? ""))
+        }
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     

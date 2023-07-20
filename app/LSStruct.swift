@@ -100,3 +100,30 @@ struct Completion: Codable {
     var method: String
     var params: CompletionParams
 }
+
+
+
+
+//
+// Recieve
+//
+
+struct Data_Recieve: Codable {
+    var jsonrpc: String
+    var id: Int?
+}
+
+struct Completion_Recieve: Codable {
+    var jsonrpc: String
+    var id: Int
+    var result: CompletionList
+}
+
+struct CompletionList: Codable {
+    var isIncomplete: Bool;
+    var items: [CompletionItem];
+}
+
+struct CompletionItem: Codable {
+    var insertText: String
+}

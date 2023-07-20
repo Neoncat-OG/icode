@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol CompletionDelegate {
+    func recieveCompletion(data: [String])
+}
+
 class LSClient {
     
     let rootUri: String
@@ -39,29 +43,30 @@ class LSClient {
             return
         }
         let newData = self.fileHandle.readDataToEndOfFile()
-        let string = String(data: newData, encoding: .utf8)!
+        guard let string = String(data: newData, encoding: .utf8) else { return }
         // print("clangd-stdout:\n\(string)")
         guard let jsonString = parseData(data: string) else { return }
+        print("LS-complation: \(jsonString)")
         do {
-            let jsonDict = try JSONSerialization.jsonObject(with: Data(jsonString.utf8)) as? [String: Any]
-            guard let id = jsonDict?["id"] as? Int else { return }
+            let jsonData = try JSONDecoder().decode(Data_Recieve.self, from: jsonString.data(using: .utf8)!)
+            guard let id = jsonData.id else { return }
             guard let method = id2Method[id] else { return }
             id2Method.removeValue(forKey: id)
             switch (method) {
             case LSMethod.Initialize:
-                recieveInitialize(json: jsonDict)
+                recieveInitialize(json: jsonString)
                 print("LS-initialize: \(jsonString)")
                 break
             case LSMethod.TextDocument_Completion:
                 print("LS-complation: \(jsonString)")
-                recieveCompletion(json: jsonDict)
+                recieveCompletion(json: jsonString)
                 break
             default:
                 return
             }
             
         } catch {
-            print("Unexpected error: \(error).")
+            print("Recieve Data error: \(error).")
             return
         }
     }
@@ -74,21 +79,27 @@ class LSClient {
         return components[2]
     }
     
-    private func recieveInitialize(json: [String: Any]?) {
+    private func recieveInitialize(json: String) {
         initialized()
     }
     
-    private func recieveCompletion(json: [String: Any]?) {
-        guard let result = json?["result"] as? String else { return }
-//        for elem in result {
-//            guard let label = elem["label"] as? String else { return }
-//            print(label)
-//        }
+    private func recieveCompletion(json: String) {
+        do {
+            let data = try JSONDecoder().decode(Completion_Recieve.self, from: json.data(using: .utf8)!)
+            var insertTexts: [String] = []
+            for item in data.result.items {
+                insertTexts.append(item.insertText)
+            }
+            print(insertTexts)
+        } catch {
+            print("RecieveCompletion error: \(error).")
+        }
+
     }
     
     
     private func sendData(json: String) {
-        // print(json)
+        print(json)
         self.id += 1
         let contentLength = json.utf8.count
         let sendData = "Content-Length: \(contentLength)\r\n\(json)\n"

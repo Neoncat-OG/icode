@@ -8,7 +8,7 @@
 import UIKit
 import Highlightr
 
-class CodeViewController: UIViewController, UITextViewDelegate {
+class CodeViewController: UIViewController, UITextViewDelegate, CompletionDelegate {
     var filenames = [String](repeating: "", count: 100)
     var tabCount = 0
     var lsClients: [String:LSClient] = [:]
@@ -157,6 +157,10 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     
     @objc func keyboardWillHide() {
         scrollbarBottom.constant = 0
+    }
+    
+    func recieveCompletion(data: [String]) {
+        
     }
 }
 
