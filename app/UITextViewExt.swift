@@ -42,4 +42,34 @@ extension UITextView {
         }
         return res
     }
+    
+    func getLineTabCount() -> Int {
+        guard let range = selectedTextRange else { return 0 }
+        var offset = offset(from: beginningOfDocument, to: range.start) - 1
+        var space = 0
+        var tab = 0
+        while (offset >= 0) {
+            let index = text.index(text.startIndex, offsetBy: offset)
+
+            if (text[index] == "\n") {
+                break;
+            }
+            
+            if (text[index] == " ") {
+                space += 1
+                if (space == 4) {
+                    tab += 1
+                    space = 0
+                }
+            } else if (text[index] == "\t") {
+                tab += 1
+            } else {
+                space = 0
+                tab = 0
+            }
+            offset -= 1
+        }
+        
+        return tab
+    }
 }

@@ -106,21 +106,27 @@ class CodeTextView: UITextView {
     }
     
     func insertNewLine() {
-        codeLineView?.incrementLineNum()
+        let tab = getLineTabCount()
+        var prefix = ""
+        for _ in 0..<tab {
+            prefix += "\t"
+        }
+        
         if let last = getSelectedOrLast() {
             if last == "{" || last == "(" {
-                super.insertText("\n\t")
+                super.insertText("\n\t" + prefix)
                 let prev = self.selectedRange
-                super.insertText("\n")
+                super.insertText("\n" + prefix)
                 self.selectedRange = prev
+                codeLineView?.addLineNum(add: 2)
                 return
             }
-            super.insertText("\n")
         }
+        super.insertText("\n" + prefix)
+        codeLineView?.incrementLineNum()
     }
     
     func insertSpace() {
-        
     }
     
     override func deleteBackward() {
