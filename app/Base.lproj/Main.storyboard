@@ -454,6 +454,7 @@
                         <outlet property="innerHeight" destination="9YP-6c-dyu" id="xwY-L6-KQe"/>
                         <outlet property="innerScrollViewLeading" destination="Cmj-Gs-8i1" id="vPS-nY-agb"/>
                         <outlet property="innerView" destination="QNM-SP-yBX" id="TZj-44-2C1"/>
+                        <outlet property="scrollView" destination="PMf-qY-m7j" id="NNJ-AS-Fcc"/>
                         <outlet property="scrollbarBottom" destination="9rU-4b-JSG" id="6zx-uM-1AF"/>
                     </connections>
                 </viewController>

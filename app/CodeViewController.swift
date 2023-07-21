@@ -21,9 +21,14 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var codeInnerView: UIView!
     @IBOutlet weak var codeInnerWidth: NSLayoutConstraint!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var innerScrollViewLeading: NSLayoutConstraint!
     
     var currentCompletionBox: CompletionBox? = nil
+    
+    let complationMaxHeight: Double = 120
+    let completionCellHeight:Double = 40
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,6 +123,7 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
+        fitCursorPosition()
         if let codeTextView = textView as? CodeTextView {
             codeTextView.textViewDidChange()
             lsClients["c"]?.textDocument_didChange(allPath: filenames[tabCount - 1], text: codeTextView.text)
@@ -157,7 +163,7 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             scrollbarBottom.constant = keyboardSize.height - self.view.safeAreaInsets.bottom
-            print(keyboardSize)
+            fitCursorPosition()
         }
     }
     
@@ -169,6 +175,10 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     func recieveCompletion(data: [CompletionItem]) {
         removeCompletionBox()
         
+        if data.count < 1 {
+            return
+        }
+        
         guard let start = currentCodeView?.selectedTextRange?.start else { return }
         guard let cursorFrame = currentCodeView?.caretRect(for: start) else { return }
         
@@ -176,29 +186,17 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         
         var buttons: [ComplationButton] = []
         for (i, completion) in data.enumerated() {
-            let button = ComplationButton(frame: CGRect(x: 0, y: 40 * i, width: 300, height: 40), main: completion.insertText, sub: completion.detail)
+            let button = ComplationButton(frame: CGRect(x: 0, y: completionCellHeight * Double(i), width: safeAreaSize().width, height: completionCellHeight), main: completion.insertText, sub: completion.detail)
             button.addTarget(self, action: #selector(insertCompletion(_ :)), for: .touchUpInside)
             buttons.append(button)
         }
-        var boxHeight: Double = 200
-        if data.count < 5 {
-            boxHeight = Double(40 * data.count)
-        }
         
-        var position_x = position.origin.x
-        if position_x > 200 {
-            position_x = position.origin.x - 200
-        }
-        
-        var position_y = position.origin.y + 30
-        if position_y > 300 {
-            position_y = position.origin.y - 10 - boxHeight
-        }
-        
-        let completionBox = CompletionBox(frame: CGRect(x: position_x, y: position_y, width: 300, height: boxHeight), buttons: buttons)
+        let boxRect = calculateBoxRect(cursorPosition: position, cellCount: data.count)
+        let completionBox = CompletionBox(frame: boxRect, buttons: buttons)
         self.view.addSubview(completionBox)
+        scrollbarBottom.constant += boxRect.height
+        fitCursorPosition()
         currentCompletionBox = completionBox
-        print(data)
     }
     
     @objc func insertCompletion(_ sender: ComplationButton) {
@@ -206,10 +204,47 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         currentCodeView?.insertText(sender.label)
     }
     
+    func calculateBoxRect(cursorPosition: CGRect, cellCount: Int) -> CGRect {
+        var boxHeight: Double = Double(complationMaxHeight)
+        if cellCount < Int(complationMaxHeight) / Int(completionCellHeight) {
+            boxHeight = completionCellHeight * Double(cellCount)
+        }
+        
+        let position_x = 0.0
+        let position_y = self.view.safeAreaInsets.top + safeAreaSize().height - scrollbarBottom.constant - boxHeight
+        
+        return CGRect(x: position_x, y: position_y, width: safeAreaSize().width, height: boxHeight)
+    }
+    
     func removeCompletionBox() {
         if let box = self.currentCompletionBox {
+            scrollbarBottom.constant -= box.frame.height
             box.removeFromSuperview()
             self.currentCompletionBox = nil
+        }
+    }
+    
+    func safeAreaSize() -> (width: CGFloat, height: CGFloat) {
+        let safeAreaWidth = self.view.bounds.width - self.view.safeAreaInsets.left - self.view.safeAreaInsets.right
+        let safeAreaHeight = self.view.bounds.height - self.view.safeAreaInsets.top - self.view.safeAreaInsets.bottom
+        return (width: safeAreaWidth, height: safeAreaHeight)
+    }
+    
+    func isPortrait() -> Bool {
+        return self.view.bounds.height - self.view.bounds.width > 0
+    }
+    
+    func fitCursorPosition() {
+        guard let start = currentCodeView?.selectedTextRange?.start else { return }
+        guard let cursorFrame = currentCodeView?.caretRect(for: start) else { return }
+        guard let position = currentCodeView?.convert(cursorFrame, to: self.view) else { return }
+        
+        if position.origin.y < self.view.safeAreaInsets.top {
+            scrollView.contentOffset.y -= self.view.safeAreaInsets.top - position.origin.y
+        }
+        
+        if position.origin.y + 10 > self.view.safeAreaInsets.top + safeAreaSize().height - scrollbarBottom.constant {
+            scrollView.contentOffset.y += position.origin.y - (self.view.safeAreaInsets.top + safeAreaSize().height - scrollbarBottom.constant) + cursorFrame.height
         }
     }
 }
