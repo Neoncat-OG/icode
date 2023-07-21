@@ -13,6 +13,7 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     var tabCount = 0
     var lsClients: [String:LSClient] = [:]
     var currentCodeView: CodeTextView? = nil
+    var rootAllPath: String = ""
     
     @IBOutlet weak var scrollbarBottom: NSLayoutConstraint!
     @IBOutlet weak var innerView: UIView!
@@ -32,6 +33,8 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.rootAllPath = String(cString: get_all_path("/".cString(using: .utf8)))
+        self.rootAllPath.removeLast()
         let clangd = LSClient(codeViewController: self)
         lsClients["c"] = clangd
         lsClients["c"]?.initialize()
@@ -43,8 +46,7 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         let language = getLanguage(filePath: filePath)
         let textContainer = setTextContainer(language: language, theme: "xcode")
         let numView = CodeNumTextView(frame: self.innerView.frame, lineHeight: 2.4)
-        let codeView = CodeTextView(frame: self.innerView.frame, textContainer: textContainer, numView: numView, filePath: filePath, parent: self)
-        
+        let codeView = CodeTextView(frame: self.innerView.frame, textContainer: textContainer, numView: numView, filePath: rootAllPath + filePath, parent: self)
         currentCodeView = codeView
         if (codeView.setText() != 0) {
             showAlert()
@@ -60,7 +62,7 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         innerView.addSubview(numView)
         numView.setConstraint(parent: innerView)
         codeView.setConstraint(parent: codeInnerView)
-        lsClients["c"]?.textDocument_didOpen(allPath: filePath, text: codeView.text)
+        lsClients["c"]?.textDocument_didOpen(path: filePath, text: codeView.text)
     }
     
     func setTextContainer(language: String, theme: String) -> NSTextContainer? {
@@ -126,17 +128,18 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         fitCursorPosition()
         if let codeTextView = textView as? CodeTextView {
             codeTextView.textViewDidChange()
+            lsClients["c"]?.textDocument_didChange(path: filenames[tabCount - 1], text: codeTextView.text)
         }
     }
     
     func sendCompletionRequest() {
         if let codeView = currentCodeView {
-            lsClients["c"]?.textDocument_didChange(allPath: filenames[tabCount - 1], text: codeView.text)
+            lsClients["c"]?.textDocument_didChange(path: filenames[tabCount - 1], text: codeView.text)
             guard let range = codeView.selectedTextRange else { return }
             let cursorPosition = codeView.offset(from: codeView.beginningOfDocument, to: range.start)
             let pre = String(codeView.text.prefix(cursorPosition))
             let arr: [String] = pre.components(separatedBy: "\n")
-            lsClients["c"]?.textDocument_completion(allPath: filenames[tabCount - 1], line: arr.count - 1, character: arr.last!.count)
+            lsClients["c"]?.textDocument_completion(path: filenames[tabCount - 1], line: arr.count - 1, character: arr.last!.count)
         }
     }
     

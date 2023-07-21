@@ -146,6 +146,10 @@ class FileViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let codeViewController = root.children[1] as! CodeViewController
         root.selectedIndex = 1
         root.selectedViewController = codeViewController;
-        codeViewController.addCodeEditView(filePath: allPath + "/" + (sender.titleLabel?.text ?? ""))
+        if currentPath == "/" {
+            codeViewController.addCodeEditView(filePath: currentPath + (sender.titleLabel?.text ?? ""))
+        } else {
+            codeViewController.addCodeEditView(filePath: currentPath + "/" + (sender.titleLabel?.text ?? ""))
+        }
     }
 }

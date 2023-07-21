@@ -42,7 +42,10 @@ class LSClient {
         }
         let newData = self.fileHandle.readDataToEndOfFile()
         guard let string = String(data: newData, encoding: .utf8) else { return }
-        guard let jsonString = parseData(data: string) else { return }
+        guard let data = parseData(data: string) else { return }
+        let length = data.0
+        let jsonString = data.1
+
         do {
             let jsonData = try JSONDecoder().decode(Data_Recieve.self, from: jsonString.data(using: .utf8)!)
             guard let id = jsonData.id else { return }
@@ -67,12 +70,13 @@ class LSClient {
         }
     }
     
-    private func parseData(data: String) -> String? {
+    private func parseData(data: String) -> (Int, String)? {
         let components = data.components(separatedBy: "\r\n")
         if (components.count < 3) {
             return nil
         }
-        return components[2]
+        guard let length = Int(components[0].components(separatedBy: " ")[1].components(separatedBy: ":")[0]) else { return nil }
+        return (length, components[2])
     }
     
     private func recieveInitialize(json: String) {
@@ -103,13 +107,11 @@ class LSClient {
     //  initialize
     //
     func initialize() {
-        let initializeParams = InitializeParams(processId: 1, rootUri: self.rootUri, capabilities: [])
+        let uri = URL(fileURLWithPath: "/").absoluteString
+        let initializeParams = InitializeParams(processId: 1, rootUri: uri, capabilities: [])
         let initialize = Initialize(id: self.id, method: "initialize", params: initializeParams)
         let initializeData = try! JSONEncoder().encode(initialize)
-        var initializeString = String(data: initializeData, encoding: .utf8)!
-        
-        let del: Set<Character> = ["\\"]
-        initializeString.removeAll(where:{del.contains($0)})
+        let initializeString = String(data: initializeData, encoding: .utf8)!
         self.id2Method.updateValue(LSMethod.Initialize, forKey: self.id)
         sendData(json: initializeString)
     }
@@ -128,8 +130,8 @@ class LSClient {
     //
     //  textDocument/didOpen
     //
-    func textDocument_didOpen(allPath: String, text: String) {
-        let uri = URL(fileURLWithPath: allPath).absoluteString
+    func textDocument_didOpen(path: String, text: String) {
+        let uri = URL(fileURLWithPath: path).absoluteString
         let textDocumentItem = TextDocumentItem(uri: uri, languageId: "cpp", version: 0, text: text)
         let didOpenTextDocumentParams = DidOpenTextDocumentParams(textDocument: textDocumentItem)
         let didOpen = DidOpen(method: "textDocument/didOpen", params: didOpenTextDocumentParams)
@@ -144,8 +146,8 @@ class LSClient {
     //
     //  textDocument/didChange
     //
-    func textDocument_didChange(allPath: String, text: String) {
-        let uri = URL(fileURLWithPath: allPath).absoluteString
+    func textDocument_didChange(path: String, text: String) {
+        let uri = URL(fileURLWithPath: path).absoluteString
         let versionedTextDocumentIdentifier = VersionedTextDocumentIdentifier(uri: uri, version: 1)
         let textDocumentContentChangeEvent = TextDocumentContentChangeEvent(text: text)
         let didChangeTextDocumentParams = DidChangeTextDocumentParams(textDocument: versionedTextDocumentIdentifier, contentChanges: [textDocumentContentChangeEvent])
@@ -159,8 +161,8 @@ class LSClient {
     //
     //  textDocument/completion
     //
-    func textDocument_completion(allPath: String, line: Int, character: Int) {
-        let uri = URL(fileURLWithPath: allPath).absoluteString
+    func textDocument_completion(path: String, line: Int, character: Int) {
+        let uri = URL(fileURLWithPath: path).absoluteString
         let textDocumentIdentifier = TextDocumentIdentifier(uri: uri)
         let position = Position(line: line, character: character)
         let completionParams = CompletionParams(textDocument: textDocumentIdentifier, position: position)
