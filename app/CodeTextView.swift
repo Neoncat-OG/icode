@@ -93,6 +93,10 @@ class CodeTextView: UITextView {
         
         super.insertText(text)
         
+        if text == "." {
+            controller?.sendCompletionRequest()
+        }
+        
         guard let second = cStyleAutoPairs[text] else { return }
         let prev = self.selectedRange
         super.insertText(second)

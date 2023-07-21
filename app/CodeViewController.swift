@@ -126,16 +126,20 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         fitCursorPosition()
         if let codeTextView = textView as? CodeTextView {
             codeTextView.textViewDidChange()
-            lsClients["c"]?.textDocument_didChange(allPath: filenames[tabCount - 1], text: codeTextView.text)
-            guard let range = codeTextView.selectedTextRange else {return}
-            let cursorPosition = codeTextView.offset(from: codeTextView.beginningOfDocument, to: range.start)
-            let pre = String(codeTextView.text!.prefix(cursorPosition))
-            if (pre.last == ".") {
-                let arr: [String] = pre.components(separatedBy: "\n")
-                lsClients["c"]?.textDocument_completion(allPath: filenames[tabCount - 1], line: arr.count - 1, character: arr.last!.count)
-            }
         }
     }
+    
+    func sendCompletionRequest() {
+        if let codeView = currentCodeView {
+            lsClients["c"]?.textDocument_didChange(allPath: filenames[tabCount - 1], text: codeView.text)
+            guard let range = codeView.selectedTextRange else { return }
+            let cursorPosition = codeView.offset(from: codeView.beginningOfDocument, to: range.start)
+            let pre = String(codeView.text.prefix(cursorPosition))
+            let arr: [String] = pre.components(separatedBy: "\n")
+            lsClients["c"]?.textDocument_completion(allPath: filenames[tabCount - 1], line: arr.count - 1, character: arr.last!.count)
+        }
+    }
+    
     
     func textViewDidChangeSelection(_ textView: UITextView) {
         removeCompletionBox()
