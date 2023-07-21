@@ -82,7 +82,7 @@ class LSClient {
     private func recieveCompletion(json: String) {
         do {
             let data = try JSONDecoder().decode(Completion_Recieve.self, from: json.data(using: .utf8)!)
-            var complationItems: [CompletionItem] = data.result.items
+            let complationItems: [CompletionItem] = data.result.items
             codeViewController.recieveCompletion(data: complationItems)
         } catch {
             print("RecieveCompletion error: \(error).")
@@ -134,7 +134,7 @@ class LSClient {
         let didOpenTextDocumentParams = DidOpenTextDocumentParams(textDocument: textDocumentItem)
         let didOpen = DidOpen(method: "textDocument/didOpen", params: didOpenTextDocumentParams)
         let didOpenData = try! JSONEncoder().encode(didOpen)
-        var didOpenString = String(data: didOpenData, encoding: .utf8)!
+        let didOpenString = String(data: didOpenData, encoding: .utf8)!
         //let del: Set<Character> = ["\\"]
         //didOpenString.removeAll(where:{del.contains($0)})
         self.id2Method.updateValue(LSMethod.TextDocument_DidOpen, forKey: self.id)
@@ -151,7 +151,7 @@ class LSClient {
         let didChangeTextDocumentParams = DidChangeTextDocumentParams(textDocument: versionedTextDocumentIdentifier, contentChanges: [textDocumentContentChangeEvent])
         let didChange = DidChange(method: "textDocument/didChange", params: didChangeTextDocumentParams)
         let didChangeData = try! JSONEncoder().encode(didChange)
-        var didChangeString = String(data: didChangeData, encoding: .utf8)!
+        let didChangeString = String(data: didChangeData, encoding: .utf8)!
         self.id2Method.updateValue(LSMethod.TextDocument_DidChange, forKey: self.id)
         sendData(json: didChangeString)
     }
@@ -166,7 +166,7 @@ class LSClient {
         let completionParams = CompletionParams(textDocument: textDocumentIdentifier, position: position)
         let completion = Completion(id: self.id, method: "textDocument/completion", params: completionParams)
         let completionData = try! JSONEncoder().encode(completion)
-        var completionString = String(data: completionData, encoding: .utf8)!
+        let completionString = String(data: completionData, encoding: .utf8)!
         self.id2Method.updateValue(LSMethod.TextDocument_Completion, forKey: self.id)
         sendData(json: completionString)
     }
