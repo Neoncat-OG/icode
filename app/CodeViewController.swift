@@ -8,7 +8,7 @@
 import UIKit
 import Highlightr
 
-class CodeViewController: UIViewController, UITextViewDelegate, CompletionDelegate {
+class CodeViewController: UIViewController, UITextViewDelegate {
     var filenames = [String](repeating: "", count: 100)
     var tabCount = 0
     var lsClients: [String:LSClient] = [:]
@@ -23,9 +23,11 @@ class CodeViewController: UIViewController, UITextViewDelegate, CompletionDelega
     
     @IBOutlet weak var innerScrollViewLeading: NSLayoutConstraint!
     
+    var currentCompletionBox: CompletionBox? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let clangd = LSClient()
+        let clangd = LSClient(codeViewController: self)
         lsClients["c"] = clangd
         lsClients["c"]?.initialize()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
@@ -129,6 +131,10 @@ class CodeViewController: UIViewController, UITextViewDelegate, CompletionDelega
         }
     }
     
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        removeCompletionBox()
+    }
+    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if let codeTextView = textView as? CodeTextView {
             if range.length > 1 {
@@ -156,12 +162,54 @@ class CodeViewController: UIViewController, UITextViewDelegate, CompletionDelega
     }
     
     @objc func keyboardWillHide() {
+        removeCompletionBox()
         scrollbarBottom.constant = 0
     }
     
-    func recieveCompletion(data: [String]) {
+    func recieveCompletion(data: [CompletionItem]) {
+        removeCompletionBox()
         
+        guard let start = currentCodeView?.selectedTextRange?.start else { return }
+        guard let cursorFrame = currentCodeView?.caretRect(for: start) else { return }
+        
+        guard let position = currentCodeView?.convert(cursorFrame, to: self.view) else { return }
+        
+        var buttons: [ComplationButton] = []
+        for (i, completion) in data.enumerated() {
+            let button = ComplationButton(frame: CGRect(x: 0, y: 40 * i, width: 300, height: 40), main: completion.insertText, sub: completion.detail)
+            button.addTarget(self, action: #selector(insertCompletion(_ :)), for: .touchUpInside)
+            buttons.append(button)
+        }
+        var boxHeight: Double = 200
+        if data.count < 5 {
+            boxHeight = Double(40 * data.count)
+        }
+        
+        var position_x = position.origin.x
+        if position_x > 200 {
+            position_x = position.origin.x - 200
+        }
+        
+        var position_y = position.origin.y + 30
+        if position_y > 300 {
+            position_y = position.origin.y - 10 - boxHeight
+        }
+        
+        let completionBox = CompletionBox(frame: CGRect(x: position_x, y: position_y, width: 300, height: boxHeight), buttons: buttons)
+        self.view.addSubview(completionBox)
+        currentCompletionBox = completionBox
+        print(data)
+    }
+    
+    @objc func insertCompletion(_ sender: ComplationButton) {
+        removeCompletionBox()
+        currentCodeView?.insertText(sender.label)
+    }
+    
+    func removeCompletionBox() {
+        if let box = self.currentCompletionBox {
+            box.removeFromSuperview()
+            self.currentCompletionBox = nil
+        }
     }
 }
-
-

@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol CompletionDelegate {
-    func recieveCompletion(data: [String])
-}
-
 class LSClient {
     
     let rootUri: String
@@ -19,8 +15,9 @@ class LSClient {
     var id2Method: [Int: LSMethod]
     let fileHandle: FileHandle
     let source: DispatchSourceFileSystemObject
+    let codeViewController: CodeViewController
     
-    init() {
+    init (codeViewController: CodeViewController) {
         let root = String(cString: get_all_path("/".cString(using: .utf8)))
         self.rootUri = URL(fileURLWithPath: root).absoluteString
         self.name = "Clangd"
@@ -29,6 +26,7 @@ class LSClient {
         run_language_server()
         self.fileHandle = FileHandle(forReadingAtPath: root + "var/log/clangd-stdout.txt")!
         self.source = DispatchSource.makeFileSystemObjectSource(fileDescriptor: fileHandle.fileDescriptor, eventMask: .write, queue: DispatchQueue.main)
+        self.codeViewController = codeViewController
         
         source.setEventHandler {
             self.recieveData(event: self.source.data)
@@ -44,9 +42,7 @@ class LSClient {
         }
         let newData = self.fileHandle.readDataToEndOfFile()
         guard let string = String(data: newData, encoding: .utf8) else { return }
-        // print("clangd-stdout:\n\(string)")
         guard let jsonString = parseData(data: string) else { return }
-        print("LS-complation: \(jsonString)")
         do {
             let jsonData = try JSONDecoder().decode(Data_Recieve.self, from: jsonString.data(using: .utf8)!)
             guard let id = jsonData.id else { return }
@@ -86,11 +82,8 @@ class LSClient {
     private func recieveCompletion(json: String) {
         do {
             let data = try JSONDecoder().decode(Completion_Recieve.self, from: json.data(using: .utf8)!)
-            var insertTexts: [String] = []
-            for item in data.result.items {
-                insertTexts.append(item.insertText)
-            }
-            print(insertTexts)
+            var complationItems: [CompletionItem] = data.result.items
+            codeViewController.recieveCompletion(data: complationItems)
         } catch {
             print("RecieveCompletion error: \(error).")
         }
@@ -99,7 +92,6 @@ class LSClient {
     
     
     private func sendData(json: String) {
-        print(json)
         self.id += 1
         let contentLength = json.utf8.count
         let sendData = "Content-Length: \(contentLength)\r\n\(json)\n"
