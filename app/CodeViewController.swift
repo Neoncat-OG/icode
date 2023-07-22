@@ -60,6 +60,7 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         
         codeInnerView.addSubview(codeView)
         innerView.addSubview(numView)
+        scrollView.contentOffset.y = 0
         numView.setConstraint(parent: innerView)
         codeView.setConstraint(parent: codeInnerView)
         lsClients["c"]?.textDocument_didOpen(path: filePath, text: codeView.text)
@@ -245,6 +246,9 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         guard let start = currentCodeView?.selectedTextRange?.start else { return }
         guard let cursorFrame = currentCodeView?.caretRect(for: start) else { return }
         guard let position = currentCodeView?.convert(cursorFrame, to: self.view) else { return }
+        if position.origin.y.isInfinite {
+            return
+        }
         
         if position.origin.y < self.view.safeAreaInsets.top {
             scrollView.contentOffset.y -= self.view.safeAreaInsets.top - position.origin.y

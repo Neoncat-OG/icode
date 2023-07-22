@@ -35,7 +35,6 @@ extension UITextView {
         var res: String? = nil
         while offset >= 0 {
             let index = text.index(text.startIndex, offsetBy: offset)
-            print(text[index])
             if text[index] != " " {
                 res = String(text[index])
                 break
