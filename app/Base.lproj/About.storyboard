@@ -591,7 +591,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wGQ-0K-Rcg">
-                                <rect key="frame" x="0.0" y="94" width="375" height="684"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="20" minimumInteritemSpacing="0.0" id="zz1-Bs-CFW">
                                     <size key="itemSize" width="120" height="120"/>
@@ -599,7 +599,7 @@
                                     <size key="footerReferenceSize" width="50" height="50"/>
                                     <inset key="sectionInset" minX="30" minY="30" maxX="30" maxY="30"/>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="sectionFootersPinToVisibleBounds" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="sectionFootersPinToVisibleBounds" value="NO"/>
                                     </userDefinedRuntimeAttributes>
                                 </collectionViewFlowLayout>
                                 <cells>
@@ -663,7 +663,7 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E9e-hb-zQw">
-                                                        <rect key="frame" x="8" y="8" width="359" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                                         <state key="normal" title="Submit your own icon!"/>
                                                         <connections>
                                                             <action selector="openSubmissions:" destination="cfv-rk-mN1" eventType="primaryActionTriggered" id="d9r-k6-6Vz"/>
@@ -671,10 +671,10 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="E9e-hb-zQw" firstAttribute="leading" secondItem="qL6-vf-qc3" secondAttribute="leading" constant="8" id="07g-r1-yQe"/>
-                                                    <constraint firstAttribute="bottom" secondItem="E9e-hb-zQw" secondAttribute="bottom" constant="8" id="1Nw-tH-oGL"/>
-                                                    <constraint firstAttribute="trailing" secondItem="E9e-hb-zQw" secondAttribute="trailing" constant="8" id="Mr4-0C-09T"/>
-                                                    <constraint firstItem="E9e-hb-zQw" firstAttribute="top" secondItem="qL6-vf-qc3" secondAttribute="top" constant="8" id="wcu-3V-6BT"/>
+                                                    <constraint firstItem="E9e-hb-zQw" firstAttribute="leading" secondItem="qL6-vf-qc3" secondAttribute="leading" id="07g-r1-yQe"/>
+                                                    <constraint firstAttribute="bottom" secondItem="E9e-hb-zQw" secondAttribute="bottom" id="1Nw-tH-oGL"/>
+                                                    <constraint firstAttribute="trailing" secondItem="E9e-hb-zQw" secondAttribute="trailing" id="Mr4-0C-09T"/>
+                                                    <constraint firstItem="E9e-hb-zQw" firstAttribute="top" secondItem="qL6-vf-qc3" secondAttribute="top" id="wcu-3V-6BT"/>
                                                 </constraints>
                                             </view>
                                             <blurEffect style="regular"/>
@@ -699,7 +699,7 @@
                             <constraint firstItem="wGQ-0K-Rcg" firstAttribute="top" secondItem="G6v-G0-r5a" secondAttribute="top" id="ECg-8n-6xl"/>
                             <constraint firstItem="wGQ-0K-Rcg" firstAttribute="trailing" secondItem="G6v-G0-r5a" secondAttribute="trailing" id="JXu-0v-zd6"/>
                             <constraint firstItem="wGQ-0K-Rcg" firstAttribute="leading" secondItem="G6v-G0-r5a" secondAttribute="leading" id="o7s-il-U4s"/>
-                            <constraint firstItem="G6v-G0-r5a" firstAttribute="bottom" secondItem="wGQ-0K-Rcg" secondAttribute="bottom" id="pTK-0F-HyJ"/>
+                            <constraint firstAttribute="bottom" secondItem="wGQ-0K-Rcg" secondAttribute="bottom" id="pTK-0F-HyJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="App Icon" id="5QX-R3-V8P"/>

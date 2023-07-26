@@ -10,6 +10,7 @@
 #import "FileProviderEnumerator.h"
 #import "NSError+ISHErrno.h"
 #import "../AppGroup.h"
+#import "../ExceptionExfiltrator.h"
 #include "fs/fake-db.h"
 
 @interface FileProviderExtension () {
@@ -30,7 +31,7 @@
     @synchronized (self) {
         if (!_mounted) {
             if (self.domain == nil) {
-                *error = [NSError errorWithDomain:NSFileProviderErrorDomain code:NSFileProviderErrorServerUnreachable userInfo:nil];
+                *error = [NSError errorWithDomain:NSFileProviderErrorDomain code:NSFileProviderErrorNotAuthenticated userInfo:nil];
                 return NO;
             }
             NSURL *container = ContainerURL();
@@ -439,6 +440,10 @@
     [NSFileProviderManager writePlaceholderAtURL:[NSFileProviderManager placeholderURLForURL:url]
                                     withMetadata:item
                                            error:nil];
+}
+
++ (void)load {
+    NSSetUncaughtExceptionHandler(iSHExceptionHandler);
 }
 
 @end
