@@ -685,7 +685,7 @@
 		BB8C3AFD26B7B8AF00E38DDC /* fakefs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fakefs.c; path = linux/fakefs.c; sourceTree = SOURCE_ROOT; };
 		BB9C7B84240A240E00F5D4F0 /* AppGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppGroup.m; sourceTree = "<group>"; };
 		BB9C7B86240A29DE00F5D4F0 /* AppGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppGroup.h; sourceTree = "<group>"; };
-		BB9C7B88240A343400F5D4F0 /* iSH.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = iSH.xcconfig; path = app/iSH.xcconfig; sourceTree = "<group>"; };
+		BB9C7B88240A343400F5D4F0 /* iCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = iCode.xcconfig; path = app/iCode.xcconfig; sourceTree = "<group>"; };
 		BBA5D87C27536E7600B39D77 /* UpgradeRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpgradeRootViewController.h; sourceTree = "<group>"; };
 		BBA5D87D27536E7600B39D77 /* UpgradeRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpgradeRootViewController.m; sourceTree = "<group>"; };
 		BBA8E2C0236FF5EA00515F76 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -986,7 +986,7 @@
 			isa = PBXGroup;
 			children = (
 				BB792B521F96D90D00FFB7A4 /* app */,
-				BB9C7B88240A343400F5D4F0 /* iSH.xcconfig */,
+				BB9C7B88240A343400F5D4F0 /* iCode.xcconfig */,
 				BB4A53931FAA393B00A72ACE /* most of the code */,
 				BB18B27F1F97F2590059FCD8 /* Scripts */,
 				BB792B511F96D90D00FFB7A4 /* Products */,
