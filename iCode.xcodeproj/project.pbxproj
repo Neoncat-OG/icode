@@ -846,6 +846,66 @@
 			path = interp;
 			sourceTree = "<group>";
 		};
+		A3BF68C62A740135000CF705 /* Terminal */ = {
+			isa = PBXGroup;
+			children = (
+				BB792B561F96D90D00FFB7A4 /* TerminalViewController.h */,
+				BB792B571F96D90D00FFB7A4 /* TerminalViewController.m */,
+				BB78AB291FAD22440013E782 /* TerminalView.h */,
+				BB78AB2A1FAD22440013E782 /* TerminalView.m */,
+				BB0FC5901F980A6B00803272 /* Terminal.h */,
+				BB0FC5911F980A6B00803272 /* Terminal.m */,
+				BB23F58B231E1D1400585522 /* ScrollbarView.h */,
+				BB23F58C231E1D1400585522 /* ScrollbarView.m */,
+			);
+			name = Terminal;
+			sourceTree = "<group>";
+		};
+		A3BF68C72A740185000CF705 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				A30C50202A0A28830047E87E /* FileViewController.swift */,
+				A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */,
+				A30C502D2A0A3AF30047E87E /* FileManager.h */,
+				A30C502E2A0A3B090047E87E /* FileManager.m */,
+			);
+			name = File;
+			sourceTree = "<group>";
+		};
+		A3BF68C82A7401C1000CF705 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				A3D857532A36FCC800165EA7 /* CodeViewController.swift */,
+				A3C547F72A3B9C59003ABB2B /* CodeTextView.swift */,
+				A3C547FD2A3B9C68003ABB2B /* CodeNumTextView.swift */,
+				A319A4122A6A5E3D00918762 /* CompletionBox.swift */,
+				A319A4152A6A833E00918762 /* CompletionButton.swift */,
+				A3BF68C92A7401F2000CF705 /* LS */,
+				A3BF68CA2A740233000CF705 /* Extension */,
+			);
+			name = Editor;
+			sourceTree = "<group>";
+		};
+		A3BF68C92A7401F2000CF705 /* LS */ = {
+			isa = PBXGroup;
+			children = (
+				A377B9972A457B07003A995B /* LSClient.swift */,
+				A319A4012A5D5F7700918762 /* LSStruct.swift */,
+				A319A3FE2A5D536000918762 /* LSMethod.swift */,
+				A3660AE72A46F41E00A755A4 /* LSManager.h */,
+				A3660AE42A46D6C500A755A4 /* LSManager.m */,
+			);
+			name = LS;
+			sourceTree = "<group>";
+		};
+		A3BF68CA2A740233000CF705 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A319A4062A5FBF3D00918762 /* UITextViewExt.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
 		A3D857432A3344FD00165EA7 /* Keyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -1025,33 +1085,13 @@
 				BB565EA32734F1FB00C93EAE /* CurrentRoot.m */,
 				BBCC9D942365430800424C83 /* SceneDelegate.h */,
 				BBCC9D952365430800424C83 /* SceneDelegate.m */,
-				BB792B561F96D90D00FFB7A4 /* TerminalViewController.h */,
-				BB792B571F96D90D00FFB7A4 /* TerminalViewController.m */,
-				A37EE49D2A0659C600049353 /* MainTabBarController.swift */,
 				BB792B591F96D90D00FFB7A4 /* Main.storyboard */,
-				A3D857532A36FCC800165EA7 /* CodeViewController.swift */,
-				A319A4122A6A5E3D00918762 /* CompletionBox.swift */,
-				A319A4152A6A833E00918762 /* CompletionButton.swift */,
-				A3C547F72A3B9C59003ABB2B /* CodeTextView.swift */,
-				A377B9972A457B07003A995B /* LSClient.swift */,
-				A319A4012A5D5F7700918762 /* LSStruct.swift */,
-				A319A3FE2A5D536000918762 /* LSMethod.swift */,
-				A3C547FD2A3B9C68003ABB2B /* CodeNumTextView.swift */,
-				A30C50202A0A28830047E87E /* FileViewController.swift */,
-				A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */,
-				A319A4062A5FBF3D00918762 /* UITextViewExt.swift */,
-				A30C502D2A0A3AF30047E87E /* FileManager.h */,
-				A30C502E2A0A3B090047E87E /* FileManager.m */,
-				A3660AE72A46F41E00A755A4 /* LSManager.h */,
-				A3660AE42A46D6C500A755A4 /* LSManager.m */,
+				A37EE49D2A0659C600049353 /* MainTabBarController.swift */,
+				A3BF68C72A740185000CF705 /* File */,
+				A3BF68C62A740135000CF705 /* Terminal */,
+				A3BF68C82A7401C1000CF705 /* Editor */,
 				A3D857432A3344FD00165EA7 /* Keyboard */,
 				BBFB557D21587B2B00DFE6DE /* Bar */,
-				BB78AB291FAD22440013E782 /* TerminalView.h */,
-				BB78AB2A1FAD22440013E782 /* TerminalView.m */,
-				BB0FC5901F980A6B00803272 /* Terminal.h */,
-				BB0FC5911F980A6B00803272 /* Terminal.m */,
-				BB23F58B231E1D1400585522 /* ScrollbarView.h */,
-				BB23F58C231E1D1400585522 /* ScrollbarView.m */,
 				BBECF39C2691312500DEC937 /* LinuxInterop */,
 				BB4A53991FAA40FD00A72ACE /* terminal */,
 				BB235532235D472F00139E00 /* Devices */,
