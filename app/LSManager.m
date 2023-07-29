@@ -29,5 +29,5 @@ int run_language_server(void) {
 }
 
 void send_server(const char *data, int length) {
-    tty_input(clangd_tty_fd->tty, data, length, true);
+    tty_input(clangd_tty_fd->tty, data, length, false);
 }
