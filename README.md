@@ -10,13 +10,13 @@
 
 A code editor for iOS with Linux emulator [iSH](https://github.com/ish-app/ish).
 
-iCode allows file operations, code editing, and terminal operations all in one app! iCode is developed with the goal of being released on App Store.
+iCode allows file operations, code editing, and terminal operations all in one app!
 
 This project is forked from Linux emulator [iSH](https://github.com/ish-app/ish). Please send issues, pull requests, etc. about Linux emulator to [iSH](https://github.com/ish-app/ish). 
 
 I am not a native English speaker, so issues and pull requests regarding README and code comments are welcome☺️
 
-## What is iCode can do
+## Features
 
 iCode is currently able to do the following:
 
