@@ -11,5 +11,7 @@ int become_new_init_child(void);
 int create_stdio(const char *file, int major, int minor);
 int create_one_stdio(const char *file, int no, int major, int minor);
 int create_piped_stdio(void);
+int create_one_piped_stdio(int no);
+int create_one_adhoc_fd_stdio(const struct fd_ops *ops, int no);
 
 #endif

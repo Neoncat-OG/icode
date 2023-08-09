@@ -143,7 +143,7 @@ struct fd *create_stdio_fd(const char *file, int major, int minor) {
 int create_stdio(const char *file, int major, int minor) {
     struct fd *fd = create_stdio_fd(file, major, minor);
     if (fd == NULL)
-        return 1;
+        return -1;
 
     fd->refcount = 0;
     current->files->files[0] = fd_retain(fd);
@@ -158,7 +158,7 @@ int create_one_stdio(const char *file, int no, int major, int minor) {
     
     struct fd *fd = create_stdio_fd(file, major, minor);
     if (fd == NULL)
-        return 1;
+        return -1;
 
     fd->refcount = 0;
     current->files->files[no] = fd_retain(fd);
@@ -195,5 +195,16 @@ int create_one_piped_stdio(int no) {
     if (!(current->files->files[no] = open_fd_from_actual_fd(STDIN_FILENO))) {
         return -1;
     }
+    return 0;
+}
+
+int create_one_adhoc_fd_stdio(const struct fd_ops *ops, int no) {
+    if (no < 0 || 2 < no)
+        return -1;
+    
+    struct fd *fd = adhoc_fd_create(ops);
+    if (fd == NULL)
+        return -1;
+    current->files->files[no] = fd;
     return 0;
 }
