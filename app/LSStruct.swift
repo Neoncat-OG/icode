@@ -126,5 +126,5 @@ struct CompletionList: Codable {
 
 struct CompletionItem: Codable {
     var insertText: String
-    var detail: String
+    var detail: String?
 }

@@ -6,59 +6,32 @@
 //
 
 import Foundation
+import UIKit
 
 class LSClient {
     
-    let rootUri: String
-    let name: String
-    var id: Int
-    var id2Method: [Int: LSMethod]
-    let fileHandle: FileHandle
-    let source: DispatchSourceFileSystemObject
-    let codeViewController: CodeViewController
+    static var currentLanguage: CodeLanguage = .c
+    static var id: Int = 1
+    static var id2Method: [Int: LSMethod] = [:]
+    static var codeVC: CodeViewController? = nil
     
-    init (codeViewController: CodeViewController) {
-        let root = String(cString: get_all_path("/".cString(using: .utf8)))
-        self.rootUri = URL(fileURLWithPath: root).absoluteString
-        self.name = "Clangd"
-        self.id = 1
-        self.id2Method = [:]
-        run_language_server()
-        self.fileHandle = FileHandle(forReadingAtPath: root + "var/log/clangd-stdout.txt")!
-        self.source = DispatchSource.makeFileSystemObjectSource(fileDescriptor: fileHandle.fileDescriptor, eventMask: .write, queue: DispatchQueue.main)
-        self.codeViewController = codeViewController
-        
-        source.setEventHandler {
-            self.recieveData(event: self.source.data)
-        }
-        
-        fileHandle.seekToEndOfFile()
-        source.resume()
-    }
-    
-    private func recieveData(event: DispatchSource.FileSystemEvent) {
-        guard event.contains(.write) else {
+    static func recieveData(data: String) {
+        print(data)
+        if data.first != "{" {
             return
         }
-        let newData = self.fileHandle.readDataToEndOfFile()
-        guard let string = String(data: newData, encoding: .utf8) else { return }
-        guard let data = parseData(data: string) else { return }
-        let length = data.0
-        let jsonString = data.1
-
+        
         do {
-            let jsonData = try JSONDecoder().decode(Data_Recieve.self, from: jsonString.data(using: .utf8)!)
+            let jsonData = try JSONDecoder().decode(Data_Recieve.self, from: data.data(using: .utf8)!)
             guard let id = jsonData.id else { return }
             guard let method = id2Method[id] else { return }
             id2Method.removeValue(forKey: id)
             switch (method) {
             case LSMethod.Initialize:
-                recieveInitialize(json: jsonString)
-                print("LS-initialize: \(jsonString)")
+                recieveInitialize(json: data)
                 break
             case LSMethod.TextDocument_Completion:
-                print("LS-complation: \(jsonString)")
-                recieveCompletion(json: jsonString)
+                recieveCompletion(json: data)
                 break
             default:
                 return
@@ -70,33 +43,25 @@ class LSClient {
         }
     }
     
-    private func parseData(data: String) -> (Int, String)? {
-        let components = data.components(separatedBy: "\r\n")
-        if (components.count < 3) {
-            return nil
-        }
-        guard let length = Int(components[0].components(separatedBy: " ")[1].components(separatedBy: ":")[0]) else { return nil }
-        return (length, components[2])
-    }
-    
-    private func recieveInitialize(json: String) {
+    private static func recieveInitialize(json: String) {
         initialized()
     }
     
-    private func recieveCompletion(json: String) {
+    private static func recieveCompletion(json: String) {
         do {
             let data = try JSONDecoder().decode(Completion_Recieve.self, from: json.data(using: .utf8)!)
             let complationItems: [CompletionItem] = data.result.items
-            codeViewController.recieveCompletion(data: complationItems)
+            DispatchQueue.main.async {
+                codeVC?.recieveCompletion(data: complationItems)
+            }
         } catch {
             print("RecieveCompletion error: \(error).")
         }
-
     }
     
     
-    private func sendData(json: String) {
-        self.id += 1
+    private static func sendData(json: String) {
+        id += 1
         let contentLength = json.utf8.count
         let sendData = "Content-Length: \(contentLength)\r\n\(json)\n"
         let length = sendData.utf8.count
@@ -106,47 +71,45 @@ class LSClient {
     //
     //  initialize
     //
-    func initialize() {
+    static func initialize() {
         let uri = URL(fileURLWithPath: "/").absoluteString
         let initializeParams = InitializeParams(processId: 1, rootUri: uri, capabilities: [])
-        let initialize = Initialize(id: self.id, method: "initialize", params: initializeParams)
+        let initialize = Initialize(id: id, method: "initialize", params: initializeParams)
         let initializeData = try! JSONEncoder().encode(initialize)
         let initializeString = String(data: initializeData, encoding: .utf8)!
-        self.id2Method.updateValue(LSMethod.Initialize, forKey: self.id)
+        id2Method.updateValue(LSMethod.Initialize, forKey: id)
         sendData(json: initializeString)
     }
     
     //
     //  initialized
     //
-    func initialized() {
+    static func initialized() {
         let initialized = Initialized(method: "initialized", params: InitializedParams())
         let initializedData = try! JSONEncoder().encode(initialized)
         let initializedString = String(data: initializedData, encoding: .utf8)!
-        self.id2Method.updateValue(LSMethod.Initialized, forKey: self.id)
+        id2Method.updateValue(LSMethod.Initialized, forKey: id)
         sendData(json: initializedString)
     }
     
     //
     //  textDocument/didOpen
     //
-    func textDocument_didOpen(path: String, text: String) {
+    static func textDocument_didOpen(path: String, text: String) {
         let uri = URL(fileURLWithPath: path).absoluteString
         let textDocumentItem = TextDocumentItem(uri: uri, languageId: "cpp", version: 0, text: text)
         let didOpenTextDocumentParams = DidOpenTextDocumentParams(textDocument: textDocumentItem)
         let didOpen = DidOpen(method: "textDocument/didOpen", params: didOpenTextDocumentParams)
         let didOpenData = try! JSONEncoder().encode(didOpen)
         let didOpenString = String(data: didOpenData, encoding: .utf8)!
-        //let del: Set<Character> = ["\\"]
-        //didOpenString.removeAll(where:{del.contains($0)})
-        self.id2Method.updateValue(LSMethod.TextDocument_DidOpen, forKey: self.id)
+        id2Method.updateValue(LSMethod.TextDocument_DidOpen, forKey: id)
         sendData(json: didOpenString)
     }
     
     //
     //  textDocument/didChange
     //
-    func textDocument_didChange(path: String, text: String) {
+    static func textDocument_didChange(path: String, text: String) {
         let uri = URL(fileURLWithPath: path).absoluteString
         let versionedTextDocumentIdentifier = VersionedTextDocumentIdentifier(uri: uri, version: 1)
         let textDocumentContentChangeEvent = TextDocumentContentChangeEvent(text: text)
@@ -154,14 +117,14 @@ class LSClient {
         let didChange = DidChange(method: "textDocument/didChange", params: didChangeTextDocumentParams)
         let didChangeData = try! JSONEncoder().encode(didChange)
         let didChangeString = String(data: didChangeData, encoding: .utf8)!
-        self.id2Method.updateValue(LSMethod.TextDocument_DidChange, forKey: self.id)
+        id2Method.updateValue(LSMethod.TextDocument_DidChange, forKey: id)
         sendData(json: didChangeString)
     }
     
     //
     //  textDocument/completion
     //
-    func textDocument_completion(path: String, line: Int, character: Int) {
+    static func textDocument_completion(path: String, line: Int, character: Int) {
         let uri = URL(fileURLWithPath: path).absoluteString
         let textDocumentIdentifier = TextDocumentIdentifier(uri: uri)
         let position = Position(line: line, character: character)
@@ -169,7 +132,7 @@ class LSClient {
         let completion = Completion(id: self.id, method: "textDocument/completion", params: completionParams)
         let completionData = try! JSONEncoder().encode(completion)
         let completionString = String(data: completionData, encoding: .utf8)!
-        self.id2Method.updateValue(LSMethod.TextDocument_Completion, forKey: self.id)
+        id2Method.updateValue(LSMethod.TextDocument_Completion, forKey: id)
         sendData(json: completionString)
     }
 }

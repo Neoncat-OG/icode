@@ -123,6 +123,8 @@
 		A377B9982A457B07003A995B /* LSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A377B9972A457B07003A995B /* LSClient.swift */; };
 		A377B9992A457B07003A995B /* LSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A377B9972A457B07003A995B /* LSClient.swift */; };
 		A37EE49E2A0659C600049353 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EE49D2A0659C600049353 /* MainTabBarController.swift */; };
+		A3BF68F02A82BF9D000CF705 /* LSController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF68EF2A82BF9D000CF705 /* LSController.swift */; };
+		A3BF68F12A82BF9D000CF705 /* LSController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF68EF2A82BF9D000CF705 /* LSController.swift */; };
 		A3C53C5B2A0E0AC700736764 /* CreateFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */; };
 		A3C547F82A3B9C5A003ABB2B /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C547F72A3B9C59003ABB2B /* CodeTextView.swift */; };
 		A3C547F92A3B9C5A003ABB2B /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C547F72A3B9C59003ABB2B /* CodeTextView.swift */; };
@@ -593,6 +595,7 @@
 		A37EE49C2A0659C500049353 /* libiCodeApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libiCodeApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		A37EE49D2A0659C600049353 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A3BF68C52A73FE73000CF705 /* iSHLog.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = iSHLog.xcconfig; sourceTree = "<group>"; };
+		A3BF68EF2A82BF9D000CF705 /* LSController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSController.swift; sourceTree = "<group>"; };
 		A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFileViewController.swift; sourceTree = "<group>"; };
 		A3C547F72A3B9C59003ABB2B /* CodeTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeTextView.swift; sourceTree = "<group>"; };
 		A3C547FD2A3B9C68003ABB2B /* CodeNumTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeNumTextView.swift; sourceTree = "<group>"; };
@@ -890,6 +893,7 @@
 			isa = PBXGroup;
 			children = (
 				A377B9972A457B07003A995B /* LSClient.swift */,
+				A3BF68EF2A82BF9D000CF705 /* LSController.swift */,
 				A319A4012A5D5F7700918762 /* LSStruct.swift */,
 				A319A3FE2A5D536000918762 /* LSMethod.swift */,
 				A3660AE72A46F41E00A755A4 /* LSManager.h */,
@@ -2114,6 +2118,7 @@
 				A319A4072A5FBF3D00918762 /* UITextViewExt.swift in Sources */,
 				A3D8575B2A37015900165EA7 /* FileManager.m in Sources */,
 				A377B9982A457B07003A995B /* LSClient.swift in Sources */,
+				A3BF68F02A82BF9D000CF705 /* LSController.swift in Sources */,
 				A3D857412A3313B800165EA7 /* KeyboardBar.swift in Sources */,
 				BB28C7BA268975AA00BDC834 /* iOSFS.m in Sources */,
 				A3660AE52A46D6C500A755A4 /* LSManager.m in Sources */,
@@ -2176,6 +2181,7 @@
 				496C7AB227CC697E005D7613 /* Theme.m in Sources */,
 				BB28C79426896B1F00BDC834 /* AboutNavigationController.m in Sources */,
 				BB28C79526896B1F00BDC834 /* TerminalViewController.m in Sources */,
+				A3BF68F12A82BF9D000CF705 /* LSController.swift in Sources */,
 				A319A4142A6A5E3D00918762 /* CompletionBox.swift in Sources */,
 				BB123ACE26C9F13500419CDA /* IOSCalls.m in Sources */,
 				A3660AE62A46D6C500A755A4 /* LSManager.m in Sources */,

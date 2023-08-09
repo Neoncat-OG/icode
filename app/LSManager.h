@@ -10,5 +10,5 @@
 #include "kernel/init.h"
 #include "fs/devices.h"
 
-int run_language_server(void);
+int run_language_server(const struct fd_ops *x);
 void send_server(const char *data, int length);

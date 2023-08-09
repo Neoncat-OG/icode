@@ -35,9 +35,7 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         self.rootAllPath = String(cString: get_all_path("/".cString(using: .utf8)))
         self.rootAllPath.removeLast()
-        let clangd = LSClient(codeViewController: self)
-        lsClients["c"] = clangd
-        lsClients["c"]?.initialize()
+        LSController.runLanguageServer(name: "clangd")
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -63,7 +61,8 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         scrollView.contentOffset.y = 0
         numView.setConstraint(parent: innerView)
         codeView.setConstraint(parent: codeInnerView)
-        lsClients["c"]?.textDocument_didOpen(path: filePath, text: codeView.text)
+        LSClient.codeVC = self
+        LSClient.textDocument_didOpen(path: filePath, text: codeView.text)
     }
     
     func setTextContainer(language: String, theme: String) -> NSTextContainer? {
@@ -129,18 +128,18 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         fitCursorPosition()
         if let codeTextView = textView as? CodeTextView {
             codeTextView.textViewDidChange()
-            lsClients["c"]?.textDocument_didChange(path: filenames[tabCount - 1], text: codeTextView.text)
+            LSClient.textDocument_didChange(path: filenames[tabCount - 1], text: codeTextView.text)
         }
     }
     
     func sendCompletionRequest() {
         if let codeView = currentCodeView {
-            lsClients["c"]?.textDocument_didChange(path: filenames[tabCount - 1], text: codeView.text)
+            LSClient.textDocument_didChange(path: filenames[tabCount - 1], text: codeView.text)
             guard let range = codeView.selectedTextRange else { return }
             let cursorPosition = codeView.offset(from: codeView.beginningOfDocument, to: range.start)
             let pre = String(codeView.text.prefix(cursorPosition))
             let arr: [String] = pre.components(separatedBy: "\n")
-            lsClients["c"]?.textDocument_completion(path: filenames[tabCount - 1], line: arr.count - 1, character: arr.last!.count)
+            LSClient.textDocument_completion(path: filenames[tabCount - 1], line: arr.count - 1, character: arr.last!.count)
         }
     }
     
@@ -194,7 +193,7 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         
         var buttons: [ComplationButton] = []
         for (i, completion) in data.enumerated() {
-            let button = ComplationButton(frame: CGRect(x: 0, y: completionCellHeight * Double(i), width: safeAreaSize().width, height: completionCellHeight), main: completion.insertText, sub: completion.detail)
+            let button = ComplationButton(frame: CGRect(x: 0, y: completionCellHeight * Double(i), width: safeAreaSize().width, height: completionCellHeight), main: completion.insertText, sub: completion.detail ?? "")
             button.addTarget(self, action: #selector(insertCompletion(_ :)), for: .touchUpInside)
             buttons.append(button)
         }
