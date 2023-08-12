@@ -105,36 +105,20 @@
 		497F6D5C254E609700C82F46 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = BB7D93822087C2890008DA78 /* main.c */; };
 		497F6D87254E62E100C82F46 /* libish.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB13F7DC200AD81D003D1C4D /* libish.a */; };
 		49FF844B2A06249F00850B7A /* ExceptionExfiltrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FF844A2A06249F00850B7A /* ExceptionExfiltrator.m */; };
-		A30C50222A0A28830047E87E /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30C50202A0A28830047E87E /* FileViewController.swift */; };
 		A30C50302A0A3B090047E87E /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A30C502E2A0A3B090047E87E /* FileManager.m */; };
 		A319A3FF2A5D536000918762 /* LSMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A3FE2A5D536000918762 /* LSMethod.swift */; };
-		A319A4002A5D536000918762 /* LSMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A3FE2A5D536000918762 /* LSMethod.swift */; };
 		A319A4022A5D5F7700918762 /* LSStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4012A5D5F7700918762 /* LSStruct.swift */; };
-		A319A4032A5D5F7700918762 /* LSStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4012A5D5F7700918762 /* LSStruct.swift */; };
 		A319A4072A5FBF3D00918762 /* UITextViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4062A5FBF3D00918762 /* UITextViewExt.swift */; };
-		A319A4082A5FBF3D00918762 /* UITextViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4062A5FBF3D00918762 /* UITextViewExt.swift */; };
 		A319A4132A6A5E3D00918762 /* CompletionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4122A6A5E3D00918762 /* CompletionBox.swift */; };
-		A319A4142A6A5E3D00918762 /* CompletionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4122A6A5E3D00918762 /* CompletionBox.swift */; };
 		A319A4162A6A833E00918762 /* CompletionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4152A6A833E00918762 /* CompletionButton.swift */; };
-		A319A4172A6A833E00918762 /* CompletionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4152A6A833E00918762 /* CompletionButton.swift */; };
 		A3660AE52A46D6C500A755A4 /* LSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3660AE42A46D6C500A755A4 /* LSManager.m */; };
-		A3660AE62A46D6C500A755A4 /* LSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3660AE42A46D6C500A755A4 /* LSManager.m */; };
 		A377B9942A3C898F003A995B /* Highlightr in Frameworks */ = {isa = PBXBuildFile; productRef = A377B9932A3C898F003A995B /* Highlightr */; };
 		A377B9982A457B07003A995B /* LSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A377B9972A457B07003A995B /* LSClient.swift */; };
-		A377B9992A457B07003A995B /* LSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A377B9972A457B07003A995B /* LSClient.swift */; };
-		A37EE49E2A0659C600049353 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EE49D2A0659C600049353 /* MainTabBarController.swift */; };
 		A3BF68F02A82BF9D000CF705 /* LSController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF68EF2A82BF9D000CF705 /* LSController.swift */; };
-		A3BF68F12A82BF9D000CF705 /* LSController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF68EF2A82BF9D000CF705 /* LSController.swift */; };
-		A3C53C5B2A0E0AC700736764 /* CreateFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */; };
 		A3C547F82A3B9C5A003ABB2B /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C547F72A3B9C59003ABB2B /* CodeTextView.swift */; };
-		A3C547F92A3B9C5A003ABB2B /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C547F72A3B9C59003ABB2B /* CodeTextView.swift */; };
 		A3C547FE2A3B9C68003ABB2B /* CodeNumTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C547FD2A3B9C68003ABB2B /* CodeNumTextView.swift */; };
-		A3C547FF2A3B9C68003ABB2B /* CodeNumTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C547FD2A3B9C68003ABB2B /* CodeNumTextView.swift */; };
 		A3D857412A3313B800165EA7 /* KeyboardBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D857402A3313B800165EA7 /* KeyboardBar.swift */; };
-		A3D857422A3313B800165EA7 /* KeyboardBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D857402A3313B800165EA7 /* KeyboardBar.swift */; };
 		A3D857482A334CC200165EA7 /* UIView+parentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D857472A334CC200165EA7 /* UIView+parentViewController.swift */; };
-		A3D857492A334CC200165EA7 /* UIView+parentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D857472A334CC200165EA7 /* UIView+parentViewController.swift */; };
-		A3D857552A36FCC800165EA7 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D857532A36FCC800165EA7 /* CodeViewController.swift */; };
 		A3D857592A37015000165EA7 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30C50202A0A28830047E87E /* FileViewController.swift */; };
 		A3D8575A2A37015400165EA7 /* CreateFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */; };
 		A3D8575B2A37015900165EA7 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A30C502E2A0A3B090047E87E /* FileManager.m */; };
@@ -2171,31 +2155,21 @@
 			files = (
 				BB28C79226896B1F00BDC834 /* AboutAppearanceViewController.m in Sources */,
 				BB28C79326896B1F00BDC834 /* AltIconViewController.m in Sources */,
-				A3D857422A3313B800165EA7 /* KeyboardBar.swift in Sources */,
 				A30C50302A0A3B090047E87E /* FileManager.m in Sources */,
-				A3C547F92A3B9C5A003ABB2B /* CodeTextView.swift in Sources */,
-				A37EE49E2A0659C600049353 /* MainTabBarController.swift in Sources */,
 				491B31E62883BF22008EEFB0 /* ThemeViewController.m in Sources */,
-				A319A4002A5D536000918762 /* LSMethod.swift in Sources */,
 				BB28C7B226896C4600BDC834 /* main.m in Sources */,
 				496C7AB227CC697E005D7613 /* Theme.m in Sources */,
 				BB28C79426896B1F00BDC834 /* AboutNavigationController.m in Sources */,
 				BB28C79526896B1F00BDC834 /* TerminalViewController.m in Sources */,
-				A3BF68F12A82BF9D000CF705 /* LSController.swift in Sources */,
-				A319A4142A6A5E3D00918762 /* CompletionBox.swift in Sources */,
 				BB123ACE26C9F13500419CDA /* IOSCalls.m in Sources */,
-				A3660AE62A46D6C500A755A4 /* LSManager.m in Sources */,
-				A3C547FF2A3B9C68003ABB2B /* CodeNumTextView.swift in Sources */,
 				BBC3863F276817AD00CC8C2E /* CurrentRoot.m in Sources */,
 				BB28C79626896B1F00BDC834 /* ProgressReportViewController.m in Sources */,
 				BB28C79726896B1F00BDC834 /* TerminalView.m in Sources */,
-				A3D857552A36FCC800165EA7 /* CodeViewController.swift in Sources */,
 				497A08BF29633FF400B323CF /* mach_exc.defs in Sources */,
 				BB28C79826896B1F00BDC834 /* ScrollbarView.m in Sources */,
 				BB28C79926896B1F00BDC834 /* DelayedUITask.m in Sources */,
 				497A08C029633FFA00B323CF /* hook.c in Sources */,
 				BB28C7BF2689799800BDC834 /* Roots.m in Sources */,
-				A3D857492A334CC200165EA7 /* UIView+parentViewController.swift in Sources */,
 				BB28C79A26896B1F00BDC834 /* Terminal.m in Sources */,
 				BB28C79B26896B1F00BDC834 /* FontPickerViewController.m in Sources */,
 				BBC3863E276817A900CC8C2E /* UpgradeRootViewController.m in Sources */,
@@ -2204,22 +2178,16 @@
 				BB28C79F26896B1F00BDC834 /* PassthroughView.m in Sources */,
 				BB28C7A026896B1F00BDC834 /* UserPreferences.m in Sources */,
 				BB28C7A126896B1F00BDC834 /* RootsTableViewController.m in Sources */,
-				A319A4172A6A833E00918762 /* CompletionButton.swift in Sources */,
-				A319A4082A5FBF3D00918762 /* UITextViewExt.swift in Sources */,
 				BB28C7A326896B1F00BDC834 /* BarButton.m in Sources */,
 				BB28C7A426896B1F00BDC834 /* AppGroup.m in Sources */,
 				BBECF3BC26913F1600DEC937 /* AppDelegate.m in Sources */,
 				BB28C7A526896B1F00BDC834 /* UIApplication+OpenURL.m in Sources */,
-				A3C53C5B2A0E0AC700736764 /* CreateFileViewController.swift in Sources */,
 				49FF844B2A06249F00850B7A /* ExceptionExfiltrator.m in Sources */,
 				497A08C12963401100B323CF /* AccessibilityFixes.m in Sources */,
 				BB28C7A626896B1F00BDC834 /* AboutViewController.m in Sources */,
 				BB28C7A726896B1F00BDC834 /* UIViewController+Extras.m in Sources */,
 				BB28C7A826896B1F00BDC834 /* NSObject+SaneKVO.m in Sources */,
 				496C7AB327CC734D005D7613 /* ThemesViewController.m in Sources */,
-				A30C50222A0A28830047E87E /* FileViewController.swift in Sources */,
-				A377B9992A457B07003A995B /* LSClient.swift in Sources */,
-				A319A4032A5D5F7700918762 /* LSStruct.swift in Sources */,
 				BB77636726E486A7008DB44A /* fakefs.c in Sources */,
 				BB28C7B826896CE600BDC834 /* ArrowBarButton.m in Sources */,
 			);

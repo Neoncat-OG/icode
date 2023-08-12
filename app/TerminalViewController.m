@@ -21,8 +21,6 @@
 #include "kernel/calls.h"
 #include "fs/devices.h"
 
-#import "libiCodeApp-Swift.h"
-
 @interface TerminalViewController () <UIGestureRecognizerDelegate>
 
 @property UITapGestureRecognizer *tapRecognizer;
@@ -347,8 +345,8 @@
         pad = MAX(self.view.safeAreaInsets.bottom, self.termView.inputAccessoryView.frame.size.height);
     }
     // NSLog(@"pad %f", pad);
-    MainTabBarController *tbc = (MainTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-    CGFloat tabBarHeight = [tbc getTabBarHeight];
+    UITabBarController *tbc = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    CGFloat tabBarHeight = tbc.tabBar.frame.size.height;
     self.bottomConstraint.constant = MAX(pad, tabBarHeight + 10);
 
     BOOL initialLayout = self.termView.needsUpdateConstraints;
@@ -375,8 +373,8 @@
 -(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
     [coordinator animateAlongsideTransition:^(id context) {
     } completion:^(id context){
-        MainTabBarController *tbc = (MainTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-        CGFloat tabBarHeight = [tbc getTabBarHeight];
+        UITabBarController *tbc = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+        CGFloat tabBarHeight = tbc.tabBar.frame.size.height;
         self.bottomConstraint.constant = tabBarHeight + 5;
     }];
 }
