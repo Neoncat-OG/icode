@@ -111,6 +111,122 @@
 		A319A4072A5FBF3D00918762 /* UITextViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4062A5FBF3D00918762 /* UITextViewExt.swift */; };
 		A319A4132A6A5E3D00918762 /* CompletionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4122A6A5E3D00918762 /* CompletionBox.swift */; };
 		A319A4162A6A833E00918762 /* CompletionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4152A6A833E00918762 /* CompletionButton.swift */; };
+		A3563B6D2A880C0800BCFB8C /* Runestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B6C2A880C0800BCFB8C /* Runestone */; };
+		A3563B712A880F1500BCFB8C /* TreeSitterAstro in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B702A880F1500BCFB8C /* TreeSitterAstro */; };
+		A3563B732A880F1500BCFB8C /* TreeSitterAstroQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B722A880F1500BCFB8C /* TreeSitterAstroQueries */; };
+		A3563B752A880F1500BCFB8C /* TreeSitterAstroRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B742A880F1500BCFB8C /* TreeSitterAstroRunestone */; };
+		A3563B772A880F1500BCFB8C /* TreeSitterBash in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B762A880F1500BCFB8C /* TreeSitterBash */; };
+		A3563B792A880F1500BCFB8C /* TreeSitterBashQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B782A880F1500BCFB8C /* TreeSitterBashQueries */; };
+		A3563B7B2A880F1500BCFB8C /* TreeSitterBashRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B7A2A880F1500BCFB8C /* TreeSitterBashRunestone */; };
+		A3563B7D2A880F1500BCFB8C /* TreeSitterC in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B7C2A880F1500BCFB8C /* TreeSitterC */; };
+		A3563B7F2A880F1500BCFB8C /* TreeSitterCPP in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B7E2A880F1500BCFB8C /* TreeSitterCPP */; };
+		A3563B812A880F1500BCFB8C /* TreeSitterCPPQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B802A880F1500BCFB8C /* TreeSitterCPPQueries */; };
+		A3563B832A880F1500BCFB8C /* TreeSitterCPPRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B822A880F1500BCFB8C /* TreeSitterCPPRunestone */; };
+		A3563B852A880F1500BCFB8C /* TreeSitterCQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B842A880F1500BCFB8C /* TreeSitterCQueries */; };
+		A3563B872A880F1500BCFB8C /* TreeSitterCRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B862A880F1500BCFB8C /* TreeSitterCRunestone */; };
+		A3563B892A880F1500BCFB8C /* TreeSitterCSS in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B882A880F1500BCFB8C /* TreeSitterCSS */; };
+		A3563B8B2A880F1500BCFB8C /* TreeSitterCSSQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B8A2A880F1500BCFB8C /* TreeSitterCSSQueries */; };
+		A3563B8D2A880F1500BCFB8C /* TreeSitterCSSRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B8C2A880F1500BCFB8C /* TreeSitterCSSRunestone */; };
+		A3563B8F2A880F1500BCFB8C /* TreeSitterCSharp in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B8E2A880F1500BCFB8C /* TreeSitterCSharp */; };
+		A3563B912A880F1500BCFB8C /* TreeSitterCSharpQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B902A880F1500BCFB8C /* TreeSitterCSharpQueries */; };
+		A3563B932A880F1500BCFB8C /* TreeSitterCSharpRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B922A880F1500BCFB8C /* TreeSitterCSharpRunestone */; };
+		A3563B952A880F1500BCFB8C /* TreeSitterComment in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B942A880F1500BCFB8C /* TreeSitterComment */; };
+		A3563B972A880F1500BCFB8C /* TreeSitterCommentQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B962A880F1500BCFB8C /* TreeSitterCommentQueries */; };
+		A3563B992A880F1500BCFB8C /* TreeSitterCommentRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B982A880F1500BCFB8C /* TreeSitterCommentRunestone */; };
+		A3563B9B2A880F1500BCFB8C /* TreeSitterElixir in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B9A2A880F1500BCFB8C /* TreeSitterElixir */; };
+		A3563B9D2A880F1500BCFB8C /* TreeSitterElixirQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B9C2A880F1500BCFB8C /* TreeSitterElixirQueries */; };
+		A3563B9F2A880F1500BCFB8C /* TreeSitterElixirRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B9E2A880F1500BCFB8C /* TreeSitterElixirRunestone */; };
+		A3563BA12A880F1500BCFB8C /* TreeSitterElm in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BA02A880F1500BCFB8C /* TreeSitterElm */; };
+		A3563BA32A880F1500BCFB8C /* TreeSitterElmQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BA22A880F1500BCFB8C /* TreeSitterElmQueries */; };
+		A3563BA52A880F1500BCFB8C /* TreeSitterElmRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BA42A880F1500BCFB8C /* TreeSitterElmRunestone */; };
+		A3563BA72A880F1500BCFB8C /* TreeSitterGo in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BA62A880F1500BCFB8C /* TreeSitterGo */; };
+		A3563BA92A880F1500BCFB8C /* TreeSitterGoQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BA82A880F1500BCFB8C /* TreeSitterGoQueries */; };
+		A3563BAB2A880F1500BCFB8C /* TreeSitterGoRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BAA2A880F1500BCFB8C /* TreeSitterGoRunestone */; };
+		A3563BAD2A880F1500BCFB8C /* TreeSitterHTML in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BAC2A880F1500BCFB8C /* TreeSitterHTML */; };
+		A3563BAF2A880F1500BCFB8C /* TreeSitterHTMLQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BAE2A880F1500BCFB8C /* TreeSitterHTMLQueries */; };
+		A3563BB12A880F1500BCFB8C /* TreeSitterHTMLRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BB02A880F1500BCFB8C /* TreeSitterHTMLRunestone */; };
+		A3563BB32A880F1500BCFB8C /* TreeSitterHaskell in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BB22A880F1500BCFB8C /* TreeSitterHaskell */; };
+		A3563BB52A880F1500BCFB8C /* TreeSitterHaskellQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BB42A880F1500BCFB8C /* TreeSitterHaskellQueries */; };
+		A3563BB72A880F1500BCFB8C /* TreeSitterHaskellRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BB62A880F1500BCFB8C /* TreeSitterHaskellRunestone */; };
+		A3563BB92A880F1500BCFB8C /* TreeSitterJSDoc in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BB82A880F1500BCFB8C /* TreeSitterJSDoc */; };
+		A3563BBB2A880F1500BCFB8C /* TreeSitterJSDocQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BBA2A880F1500BCFB8C /* TreeSitterJSDocQueries */; };
+		A3563BBD2A880F1500BCFB8C /* TreeSitterJSDocRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BBC2A880F1500BCFB8C /* TreeSitterJSDocRunestone */; };
+		A3563BBF2A880F1500BCFB8C /* TreeSitterJSON in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BBE2A880F1500BCFB8C /* TreeSitterJSON */; };
+		A3563BC12A880F1500BCFB8C /* TreeSitterJSON5 in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BC02A880F1500BCFB8C /* TreeSitterJSON5 */; };
+		A3563BC32A880F1500BCFB8C /* TreeSitterJSON5Queries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BC22A880F1500BCFB8C /* TreeSitterJSON5Queries */; };
+		A3563BC52A880F1500BCFB8C /* TreeSitterJSON5Runestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BC42A880F1500BCFB8C /* TreeSitterJSON5Runestone */; };
+		A3563BC72A880F1500BCFB8C /* TreeSitterJSONQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BC62A880F1500BCFB8C /* TreeSitterJSONQueries */; };
+		A3563BC92A880F1500BCFB8C /* TreeSitterJSONRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BC82A880F1500BCFB8C /* TreeSitterJSONRunestone */; };
+		A3563BCB2A880F1500BCFB8C /* TreeSitterJava in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BCA2A880F1500BCFB8C /* TreeSitterJava */; };
+		A3563BCD2A880F1500BCFB8C /* TreeSitterJavaQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BCC2A880F1500BCFB8C /* TreeSitterJavaQueries */; };
+		A3563BCF2A880F1500BCFB8C /* TreeSitterJavaRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BCE2A880F1500BCFB8C /* TreeSitterJavaRunestone */; };
+		A3563BD12A880F1500BCFB8C /* TreeSitterJavaScript in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BD02A880F1500BCFB8C /* TreeSitterJavaScript */; };
+		A3563BD32A880F1500BCFB8C /* TreeSitterJavaScriptQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BD22A880F1500BCFB8C /* TreeSitterJavaScriptQueries */; };
+		A3563BD52A880F1500BCFB8C /* TreeSitterJavaScriptRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BD42A880F1500BCFB8C /* TreeSitterJavaScriptRunestone */; };
+		A3563BD72A880F1500BCFB8C /* TreeSitterJulia in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BD62A880F1500BCFB8C /* TreeSitterJulia */; };
+		A3563BD92A880F1500BCFB8C /* TreeSitterJuliaQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BD82A880F1500BCFB8C /* TreeSitterJuliaQueries */; };
+		A3563BDB2A880F1500BCFB8C /* TreeSitterJuliaRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BDA2A880F1500BCFB8C /* TreeSitterJuliaRunestone */; };
+		A3563BDD2A880F1500BCFB8C /* TreeSitterLaTeX in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BDC2A880F1500BCFB8C /* TreeSitterLaTeX */; };
+		A3563BDF2A880F1500BCFB8C /* TreeSitterLaTeXQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BDE2A880F1500BCFB8C /* TreeSitterLaTeXQueries */; };
+		A3563BE12A880F1500BCFB8C /* TreeSitterLaTeXRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BE02A880F1500BCFB8C /* TreeSitterLaTeXRunestone */; };
+		A3563BE32A880F1500BCFB8C /* TreeSitterLanguagesCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BE22A880F1500BCFB8C /* TreeSitterLanguagesCommon */; };
+		A3563BE52A880F1500BCFB8C /* TreeSitterLua in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BE42A880F1500BCFB8C /* TreeSitterLua */; };
+		A3563BE72A880F1500BCFB8C /* TreeSitterLuaQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BE62A880F1500BCFB8C /* TreeSitterLuaQueries */; };
+		A3563BE92A880F1500BCFB8C /* TreeSitterLuaRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BE82A880F1500BCFB8C /* TreeSitterLuaRunestone */; };
+		A3563BEB2A880F1500BCFB8C /* TreeSitterMarkdown in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BEA2A880F1500BCFB8C /* TreeSitterMarkdown */; };
+		A3563BED2A880F1500BCFB8C /* TreeSitterMarkdownInline in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BEC2A880F1500BCFB8C /* TreeSitterMarkdownInline */; };
+		A3563BEF2A880F1500BCFB8C /* TreeSitterMarkdownInlineQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BEE2A880F1500BCFB8C /* TreeSitterMarkdownInlineQueries */; };
+		A3563BF12A880F1500BCFB8C /* TreeSitterMarkdownInlineRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BF02A880F1500BCFB8C /* TreeSitterMarkdownInlineRunestone */; };
+		A3563BF32A880F1500BCFB8C /* TreeSitterMarkdownQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BF22A880F1500BCFB8C /* TreeSitterMarkdownQueries */; };
+		A3563BF52A880F1500BCFB8C /* TreeSitterMarkdownRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BF42A880F1500BCFB8C /* TreeSitterMarkdownRunestone */; };
+		A3563BF72A880F1500BCFB8C /* TreeSitterOCaml in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BF62A880F1500BCFB8C /* TreeSitterOCaml */; };
+		A3563BF92A880F1500BCFB8C /* TreeSitterOCamlQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BF82A880F1500BCFB8C /* TreeSitterOCamlQueries */; };
+		A3563BFB2A880F1500BCFB8C /* TreeSitterOCamlRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BFA2A880F1500BCFB8C /* TreeSitterOCamlRunestone */; };
+		A3563BFD2A880F1500BCFB8C /* TreeSitterPHP in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BFC2A880F1500BCFB8C /* TreeSitterPHP */; };
+		A3563BFF2A880F1500BCFB8C /* TreeSitterPHPQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563BFE2A880F1500BCFB8C /* TreeSitterPHPQueries */; };
+		A3563C012A880F1500BCFB8C /* TreeSitterPHPRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C002A880F1500BCFB8C /* TreeSitterPHPRunestone */; };
+		A3563C032A880F1500BCFB8C /* TreeSitterPerl in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C022A880F1500BCFB8C /* TreeSitterPerl */; };
+		A3563C052A880F1500BCFB8C /* TreeSitterPerlQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C042A880F1500BCFB8C /* TreeSitterPerlQueries */; };
+		A3563C072A880F1500BCFB8C /* TreeSitterPerlRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C062A880F1500BCFB8C /* TreeSitterPerlRunestone */; };
+		A3563C092A880F1500BCFB8C /* TreeSitterPython in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C082A880F1500BCFB8C /* TreeSitterPython */; };
+		A3563C0B2A880F1500BCFB8C /* TreeSitterPythonQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C0A2A880F1500BCFB8C /* TreeSitterPythonQueries */; };
+		A3563C0D2A880F1500BCFB8C /* TreeSitterPythonRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C0C2A880F1500BCFB8C /* TreeSitterPythonRunestone */; };
+		A3563C0F2A880F1500BCFB8C /* TreeSitterR in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C0E2A880F1500BCFB8C /* TreeSitterR */; };
+		A3563C112A880F1500BCFB8C /* TreeSitterRQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C102A880F1500BCFB8C /* TreeSitterRQueries */; };
+		A3563C132A880F1500BCFB8C /* TreeSitterRRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C122A880F1500BCFB8C /* TreeSitterRRunestone */; };
+		A3563C152A880F1500BCFB8C /* TreeSitterRegex in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C142A880F1500BCFB8C /* TreeSitterRegex */; };
+		A3563C172A880F1500BCFB8C /* TreeSitterRegexQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C162A880F1500BCFB8C /* TreeSitterRegexQueries */; };
+		A3563C192A880F1500BCFB8C /* TreeSitterRegexRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C182A880F1500BCFB8C /* TreeSitterRegexRunestone */; };
+		A3563C1B2A880F1500BCFB8C /* TreeSitterRuby in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C1A2A880F1500BCFB8C /* TreeSitterRuby */; };
+		A3563C1D2A880F1500BCFB8C /* TreeSitterRubyQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C1C2A880F1500BCFB8C /* TreeSitterRubyQueries */; };
+		A3563C1F2A880F1500BCFB8C /* TreeSitterRubyRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C1E2A880F1500BCFB8C /* TreeSitterRubyRunestone */; };
+		A3563C212A880F1500BCFB8C /* TreeSitterRust in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C202A880F1500BCFB8C /* TreeSitterRust */; };
+		A3563C232A880F1500BCFB8C /* TreeSitterRustQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C222A880F1500BCFB8C /* TreeSitterRustQueries */; };
+		A3563C252A880F1500BCFB8C /* TreeSitterRustRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C242A880F1500BCFB8C /* TreeSitterRustRunestone */; };
+		A3563C272A880F1500BCFB8C /* TreeSitterSCSS in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C262A880F1500BCFB8C /* TreeSitterSCSS */; };
+		A3563C292A880F1500BCFB8C /* TreeSitterSCSSQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C282A880F1500BCFB8C /* TreeSitterSCSSQueries */; };
+		A3563C2B2A880F1500BCFB8C /* TreeSitterSCSSRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C2A2A880F1500BCFB8C /* TreeSitterSCSSRunestone */; };
+		A3563C2D2A880F1500BCFB8C /* TreeSitterSQL in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C2C2A880F1500BCFB8C /* TreeSitterSQL */; };
+		A3563C2F2A880F1500BCFB8C /* TreeSitterSQLQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C2E2A880F1500BCFB8C /* TreeSitterSQLQueries */; };
+		A3563C312A880F1500BCFB8C /* TreeSitterSQLRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C302A880F1500BCFB8C /* TreeSitterSQLRunestone */; };
+		A3563C332A880F1500BCFB8C /* TreeSitterSvelte in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C322A880F1500BCFB8C /* TreeSitterSvelte */; };
+		A3563C352A880F1500BCFB8C /* TreeSitterSvelteQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C342A880F1500BCFB8C /* TreeSitterSvelteQueries */; };
+		A3563C372A880F1500BCFB8C /* TreeSitterSvelteRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C362A880F1500BCFB8C /* TreeSitterSvelteRunestone */; };
+		A3563C392A880F1500BCFB8C /* TreeSitterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C382A880F1500BCFB8C /* TreeSitterSwift */; };
+		A3563C3B2A880F1500BCFB8C /* TreeSitterSwiftQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C3A2A880F1500BCFB8C /* TreeSitterSwiftQueries */; };
+		A3563C3D2A880F1500BCFB8C /* TreeSitterSwiftRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C3C2A880F1500BCFB8C /* TreeSitterSwiftRunestone */; };
+		A3563C3F2A880F1500BCFB8C /* TreeSitterTOML in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C3E2A880F1500BCFB8C /* TreeSitterTOML */; };
+		A3563C412A880F1500BCFB8C /* TreeSitterTOMLQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C402A880F1500BCFB8C /* TreeSitterTOMLQueries */; };
+		A3563C432A880F1500BCFB8C /* TreeSitterTOMLRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C422A880F1500BCFB8C /* TreeSitterTOMLRunestone */; };
+		A3563C452A880F1500BCFB8C /* TreeSitterTSX in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C442A880F1500BCFB8C /* TreeSitterTSX */; };
+		A3563C472A880F1500BCFB8C /* TreeSitterTSXQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C462A880F1500BCFB8C /* TreeSitterTSXQueries */; };
+		A3563C492A880F1500BCFB8C /* TreeSitterTSXRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C482A880F1500BCFB8C /* TreeSitterTSXRunestone */; };
+		A3563C4B2A880F1500BCFB8C /* TreeSitterTypeScript in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C4A2A880F1500BCFB8C /* TreeSitterTypeScript */; };
+		A3563C4D2A880F1500BCFB8C /* TreeSitterTypeScriptQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C4C2A880F1500BCFB8C /* TreeSitterTypeScriptQueries */; };
+		A3563C4F2A880F1500BCFB8C /* TreeSitterTypeScriptRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C4E2A880F1500BCFB8C /* TreeSitterTypeScriptRunestone */; };
+		A3563C512A880F1500BCFB8C /* TreeSitterYAML in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C502A880F1500BCFB8C /* TreeSitterYAML */; };
+		A3563C532A880F1500BCFB8C /* TreeSitterYAMLQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C522A880F1500BCFB8C /* TreeSitterYAMLQueries */; };
+		A3563C552A880F1500BCFB8C /* TreeSitterYAMLRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C542A880F1500BCFB8C /* TreeSitterYAMLRunestone */; };
 		A3660AE52A46D6C500A755A4 /* LSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3660AE42A46D6C500A755A4 /* LSManager.m */; };
 		A377B9942A3C898F003A995B /* Highlightr in Frameworks */ = {isa = PBXBuildFile; productRef = A377B9932A3C898F003A995B /* Highlightr */; };
 		A377B9982A457B07003A995B /* LSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A377B9972A457B07003A995B /* LSClient.swift */; };
@@ -738,17 +854,133 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3563BEB2A880F1500BCFB8C /* TreeSitterMarkdown in Frameworks */,
+				A3563BC72A880F1500BCFB8C /* TreeSitterJSONQueries in Frameworks */,
+				A3563C252A880F1500BCFB8C /* TreeSitterRustRunestone in Frameworks */,
+				A3563BD92A880F1500BCFB8C /* TreeSitterJuliaQueries in Frameworks */,
+				A3563BC32A880F1500BCFB8C /* TreeSitterJSON5Queries in Frameworks */,
+				A3563BAD2A880F1500BCFB8C /* TreeSitterHTML in Frameworks */,
+				A3563BE52A880F1500BCFB8C /* TreeSitterLua in Frameworks */,
 				BB28C7AE26896C1D00BDC834 /* libiCodeApp.a in Frameworks */,
+				A3563BA12A880F1500BCFB8C /* TreeSitterElm in Frameworks */,
+				A3563C0F2A880F1500BCFB8C /* TreeSitterR in Frameworks */,
+				A3563C032A880F1500BCFB8C /* TreeSitterPerl in Frameworks */,
+				A3563C1D2A880F1500BCFB8C /* TreeSitterRubyQueries in Frameworks */,
 				BB21A18426890C7E00BD19B4 /* libfakefs.a in Frameworks */,
 				BB13F7EA200ADCED003D1C4D /* libish.a in Frameworks */,
+				A3563BEF2A880F1500BCFB8C /* TreeSitterMarkdownInlineQueries in Frameworks */,
+				A3563B812A880F1500BCFB8C /* TreeSitterCPPQueries in Frameworks */,
+				A3563BC92A880F1500BCFB8C /* TreeSitterJSONRunestone in Frameworks */,
+				A3563C3F2A880F1500BCFB8C /* TreeSitterTOML in Frameworks */,
+				A3563BA72A880F1500BCFB8C /* TreeSitterGo in Frameworks */,
+				A3563B9D2A880F1500BCFB8C /* TreeSitterElixirQueries in Frameworks */,
+				A3563BD32A880F1500BCFB8C /* TreeSitterJavaScriptQueries in Frameworks */,
+				A3563C152A880F1500BCFB8C /* TreeSitterRegex in Frameworks */,
+				A3563C272A880F1500BCFB8C /* TreeSitterSCSS in Frameworks */,
+				A3563B932A880F1500BCFB8C /* TreeSitterCSharpRunestone in Frameworks */,
 				BBFB2CEC2590296B00545EAB /* libish_emu.a in Frameworks */,
+				A3563C112A880F1500BCFB8C /* TreeSitterRQueries in Frameworks */,
+				A3563B872A880F1500BCFB8C /* TreeSitterCRunestone in Frameworks */,
+				A3563BD72A880F1500BCFB8C /* TreeSitterJulia in Frameworks */,
+				A3563BC12A880F1500BCFB8C /* TreeSitterJSON5 in Frameworks */,
+				A3563BFF2A880F1500BCFB8C /* TreeSitterPHPQueries in Frameworks */,
+				A3563C3D2A880F1500BCFB8C /* TreeSitterSwiftRunestone in Frameworks */,
+				A3563C2F2A880F1500BCFB8C /* TreeSitterSQLQueries in Frameworks */,
+				A3563BAF2A880F1500BCFB8C /* TreeSitterHTMLQueries in Frameworks */,
+				A3563C492A880F1500BCFB8C /* TreeSitterTSXRunestone in Frameworks */,
+				A3563BA52A880F1500BCFB8C /* TreeSitterElmRunestone in Frameworks */,
+				A3563C452A880F1500BCFB8C /* TreeSitterTSX in Frameworks */,
+				A3563C3B2A880F1500BCFB8C /* TreeSitterSwiftQueries in Frameworks */,
+				A3563BCB2A880F1500BCFB8C /* TreeSitterJava in Frameworks */,
+				A3563BFB2A880F1500BCFB8C /* TreeSitterOCamlRunestone in Frameworks */,
+				A3563B952A880F1500BCFB8C /* TreeSitterComment in Frameworks */,
+				A3563C1B2A880F1500BCFB8C /* TreeSitterRuby in Frameworks */,
+				A3563BE32A880F1500BCFB8C /* TreeSitterLanguagesCommon in Frameworks */,
+				A3563C4F2A880F1500BCFB8C /* TreeSitterTypeScriptRunestone in Frameworks */,
+				A3563BCF2A880F1500BCFB8C /* TreeSitterJavaRunestone in Frameworks */,
+				A3563C332A880F1500BCFB8C /* TreeSitterSvelte in Frameworks */,
+				A3563BD52A880F1500BCFB8C /* TreeSitterJavaScriptRunestone in Frameworks */,
+				A3563BBB2A880F1500BCFB8C /* TreeSitterJSDocQueries in Frameworks */,
+				A3563C2B2A880F1500BCFB8C /* TreeSitterSCSSRunestone in Frameworks */,
+				A3563C072A880F1500BCFB8C /* TreeSitterPerlRunestone in Frameworks */,
+				A3563BBF2A880F1500BCFB8C /* TreeSitterJSON in Frameworks */,
+				A3563C0B2A880F1500BCFB8C /* TreeSitterPythonQueries in Frameworks */,
+				A3563B792A880F1500BCFB8C /* TreeSitterBashQueries in Frameworks */,
+				A3563C512A880F1500BCFB8C /* TreeSitterYAML in Frameworks */,
+				A3563B732A880F1500BCFB8C /* TreeSitterAstroQueries in Frameworks */,
+				A3563B7D2A880F1500BCFB8C /* TreeSitterC in Frameworks */,
+				A3563B8D2A880F1500BCFB8C /* TreeSitterCSSRunestone in Frameworks */,
+				A3563BE12A880F1500BCFB8C /* TreeSitterLaTeXRunestone in Frameworks */,
+				A3563C132A880F1500BCFB8C /* TreeSitterRRunestone in Frameworks */,
+				A3563B7F2A880F1500BCFB8C /* TreeSitterCPP in Frameworks */,
+				A3563B6D2A880C0800BCFB8C /* Runestone in Frameworks */,
+				A3563BFD2A880F1500BCFB8C /* TreeSitterPHP in Frameworks */,
+				A3563BB32A880F1500BCFB8C /* TreeSitterHaskell in Frameworks */,
+				A3563BF72A880F1500BCFB8C /* TreeSitterOCaml in Frameworks */,
+				A3563C092A880F1500BCFB8C /* TreeSitterPython in Frameworks */,
 				BB10E5C9248DBAAC009C7A74 /* libarchive.a in Frameworks */,
+				A3563C372A880F1500BCFB8C /* TreeSitterSvelteRunestone in Frameworks */,
+				A3563B772A880F1500BCFB8C /* TreeSitterBash in Frameworks */,
+				A3563BED2A880F1500BCFB8C /* TreeSitterMarkdownInline in Frameworks */,
 				BB235537235D49B300139E00 /* CoreLocation.framework in Frameworks */,
+				A3563C2D2A880F1500BCFB8C /* TreeSitterSQL in Frameworks */,
+				A3563B912A880F1500BCFB8C /* TreeSitterCSharpQueries in Frameworks */,
+				A3563C532A880F1500BCFB8C /* TreeSitterYAMLQueries in Frameworks */,
 				BBA8E2C1236FF5EA00515F76 /* SystemConfiguration.framework in Frameworks */,
+				A3563C292A880F1500BCFB8C /* TreeSitterSCSSQueries in Frameworks */,
 				BBAEE339249B58E80069EBB5 /* libbz2.tbd in Frameworks */,
+				A3563B972A880F1500BCFB8C /* TreeSitterCommentQueries in Frameworks */,
+				A3563BB72A880F1500BCFB8C /* TreeSitterHaskellRunestone in Frameworks */,
+				A3563C4D2A880F1500BCFB8C /* TreeSitterTypeScriptQueries in Frameworks */,
 				A377B9942A3C898F003A995B /* Highlightr in Frameworks */,
+				A3563B9B2A880F1500BCFB8C /* TreeSitterElixir in Frameworks */,
+				A3563C212A880F1500BCFB8C /* TreeSitterRust in Frameworks */,
+				A3563C472A880F1500BCFB8C /* TreeSitterTSXQueries in Frameworks */,
+				A3563BAB2A880F1500BCFB8C /* TreeSitterGoRunestone in Frameworks */,
+				A3563B852A880F1500BCFB8C /* TreeSitterCQueries in Frameworks */,
+				A3563C432A880F1500BCFB8C /* TreeSitterTOMLRunestone in Frameworks */,
+				A3563BDD2A880F1500BCFB8C /* TreeSitterLaTeX in Frameworks */,
+				A3563C312A880F1500BCFB8C /* TreeSitterSQLRunestone in Frameworks */,
+				A3563BA92A880F1500BCFB8C /* TreeSitterGoQueries in Frameworks */,
+				A3563C232A880F1500BCFB8C /* TreeSitterRustQueries in Frameworks */,
+				A3563C412A880F1500BCFB8C /* TreeSitterTOMLQueries in Frameworks */,
+				A3563B8B2A880F1500BCFB8C /* TreeSitterCSSQueries in Frameworks */,
+				A3563B752A880F1500BCFB8C /* TreeSitterAstroRunestone in Frameworks */,
+				A3563BB92A880F1500BCFB8C /* TreeSitterJSDoc in Frameworks */,
+				A3563C352A880F1500BCFB8C /* TreeSitterSvelteQueries in Frameworks */,
+				A3563B892A880F1500BCFB8C /* TreeSitterCSS in Frameworks */,
+				A3563BF92A880F1500BCFB8C /* TreeSitterOCamlQueries in Frameworks */,
+				A3563BA32A880F1500BCFB8C /* TreeSitterElmQueries in Frameworks */,
+				A3563C552A880F1500BCFB8C /* TreeSitterYAMLRunestone in Frameworks */,
+				A3563BF12A880F1500BCFB8C /* TreeSitterMarkdownInlineRunestone in Frameworks */,
+				A3563C4B2A880F1500BCFB8C /* TreeSitterTypeScript in Frameworks */,
+				A3563BE72A880F1500BCFB8C /* TreeSitterLuaQueries in Frameworks */,
+				A3563C1F2A880F1500BCFB8C /* TreeSitterRubyRunestone in Frameworks */,
+				A3563C392A880F1500BCFB8C /* TreeSitterSwift in Frameworks */,
+				A3563BDB2A880F1500BCFB8C /* TreeSitterJuliaRunestone in Frameworks */,
+				A3563BF32A880F1500BCFB8C /* TreeSitterMarkdownQueries in Frameworks */,
+				A3563BE92A880F1500BCFB8C /* TreeSitterLuaRunestone in Frameworks */,
+				A3563BCD2A880F1500BCFB8C /* TreeSitterJavaQueries in Frameworks */,
+				A3563C0D2A880F1500BCFB8C /* TreeSitterPythonRunestone in Frameworks */,
+				A3563C012A880F1500BCFB8C /* TreeSitterPHPRunestone in Frameworks */,
+				A3563BB12A880F1500BCFB8C /* TreeSitterHTMLRunestone in Frameworks */,
+				A3563B9F2A880F1500BCFB8C /* TreeSitterElixirRunestone in Frameworks */,
+				A3563B712A880F1500BCFB8C /* TreeSitterAstro in Frameworks */,
+				A3563BB52A880F1500BCFB8C /* TreeSitterHaskellQueries in Frameworks */,
+				A3563B7B2A880F1500BCFB8C /* TreeSitterBashRunestone in Frameworks */,
+				A3563B8F2A880F1500BCFB8C /* TreeSitterCSharp in Frameworks */,
+				A3563B992A880F1500BCFB8C /* TreeSitterCommentRunestone in Frameworks */,
+				A3563BDF2A880F1500BCFB8C /* TreeSitterLaTeXQueries in Frameworks */,
 				BB6DB261216435340047A611 /* libiconv.tbd in Frameworks */,
+				A3563BC52A880F1500BCFB8C /* TreeSitterJSON5Runestone in Frameworks */,
+				A3563C192A880F1500BCFB8C /* TreeSitterRegexRunestone in Frameworks */,
+				A3563BF52A880F1500BCFB8C /* TreeSitterMarkdownRunestone in Frameworks */,
+				A3563C172A880F1500BCFB8C /* TreeSitterRegexQueries in Frameworks */,
 				BBFB55662158644C00DFE6DE /* libresolv.tbd in Frameworks */,
+				A3563BD12A880F1500BCFB8C /* TreeSitterJavaScript in Frameworks */,
+				A3563C052A880F1500BCFB8C /* TreeSitterPerlQueries in Frameworks */,
+				A3563BBD2A880F1500BCFB8C /* TreeSitterJSDocRunestone in Frameworks */,
+				A3563B832A880F1500BCFB8C /* TreeSitterCPPRunestone in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1516,6 +1748,122 @@
 			name = iCode;
 			packageProductDependencies = (
 				A377B9932A3C898F003A995B /* Highlightr */,
+				A3563B6C2A880C0800BCFB8C /* Runestone */,
+				A3563B702A880F1500BCFB8C /* TreeSitterAstro */,
+				A3563B722A880F1500BCFB8C /* TreeSitterAstroQueries */,
+				A3563B742A880F1500BCFB8C /* TreeSitterAstroRunestone */,
+				A3563B762A880F1500BCFB8C /* TreeSitterBash */,
+				A3563B782A880F1500BCFB8C /* TreeSitterBashQueries */,
+				A3563B7A2A880F1500BCFB8C /* TreeSitterBashRunestone */,
+				A3563B7C2A880F1500BCFB8C /* TreeSitterC */,
+				A3563B7E2A880F1500BCFB8C /* TreeSitterCPP */,
+				A3563B802A880F1500BCFB8C /* TreeSitterCPPQueries */,
+				A3563B822A880F1500BCFB8C /* TreeSitterCPPRunestone */,
+				A3563B842A880F1500BCFB8C /* TreeSitterCQueries */,
+				A3563B862A880F1500BCFB8C /* TreeSitterCRunestone */,
+				A3563B882A880F1500BCFB8C /* TreeSitterCSS */,
+				A3563B8A2A880F1500BCFB8C /* TreeSitterCSSQueries */,
+				A3563B8C2A880F1500BCFB8C /* TreeSitterCSSRunestone */,
+				A3563B8E2A880F1500BCFB8C /* TreeSitterCSharp */,
+				A3563B902A880F1500BCFB8C /* TreeSitterCSharpQueries */,
+				A3563B922A880F1500BCFB8C /* TreeSitterCSharpRunestone */,
+				A3563B942A880F1500BCFB8C /* TreeSitterComment */,
+				A3563B962A880F1500BCFB8C /* TreeSitterCommentQueries */,
+				A3563B982A880F1500BCFB8C /* TreeSitterCommentRunestone */,
+				A3563B9A2A880F1500BCFB8C /* TreeSitterElixir */,
+				A3563B9C2A880F1500BCFB8C /* TreeSitterElixirQueries */,
+				A3563B9E2A880F1500BCFB8C /* TreeSitterElixirRunestone */,
+				A3563BA02A880F1500BCFB8C /* TreeSitterElm */,
+				A3563BA22A880F1500BCFB8C /* TreeSitterElmQueries */,
+				A3563BA42A880F1500BCFB8C /* TreeSitterElmRunestone */,
+				A3563BA62A880F1500BCFB8C /* TreeSitterGo */,
+				A3563BA82A880F1500BCFB8C /* TreeSitterGoQueries */,
+				A3563BAA2A880F1500BCFB8C /* TreeSitterGoRunestone */,
+				A3563BAC2A880F1500BCFB8C /* TreeSitterHTML */,
+				A3563BAE2A880F1500BCFB8C /* TreeSitterHTMLQueries */,
+				A3563BB02A880F1500BCFB8C /* TreeSitterHTMLRunestone */,
+				A3563BB22A880F1500BCFB8C /* TreeSitterHaskell */,
+				A3563BB42A880F1500BCFB8C /* TreeSitterHaskellQueries */,
+				A3563BB62A880F1500BCFB8C /* TreeSitterHaskellRunestone */,
+				A3563BB82A880F1500BCFB8C /* TreeSitterJSDoc */,
+				A3563BBA2A880F1500BCFB8C /* TreeSitterJSDocQueries */,
+				A3563BBC2A880F1500BCFB8C /* TreeSitterJSDocRunestone */,
+				A3563BBE2A880F1500BCFB8C /* TreeSitterJSON */,
+				A3563BC02A880F1500BCFB8C /* TreeSitterJSON5 */,
+				A3563BC22A880F1500BCFB8C /* TreeSitterJSON5Queries */,
+				A3563BC42A880F1500BCFB8C /* TreeSitterJSON5Runestone */,
+				A3563BC62A880F1500BCFB8C /* TreeSitterJSONQueries */,
+				A3563BC82A880F1500BCFB8C /* TreeSitterJSONRunestone */,
+				A3563BCA2A880F1500BCFB8C /* TreeSitterJava */,
+				A3563BCC2A880F1500BCFB8C /* TreeSitterJavaQueries */,
+				A3563BCE2A880F1500BCFB8C /* TreeSitterJavaRunestone */,
+				A3563BD02A880F1500BCFB8C /* TreeSitterJavaScript */,
+				A3563BD22A880F1500BCFB8C /* TreeSitterJavaScriptQueries */,
+				A3563BD42A880F1500BCFB8C /* TreeSitterJavaScriptRunestone */,
+				A3563BD62A880F1500BCFB8C /* TreeSitterJulia */,
+				A3563BD82A880F1500BCFB8C /* TreeSitterJuliaQueries */,
+				A3563BDA2A880F1500BCFB8C /* TreeSitterJuliaRunestone */,
+				A3563BDC2A880F1500BCFB8C /* TreeSitterLaTeX */,
+				A3563BDE2A880F1500BCFB8C /* TreeSitterLaTeXQueries */,
+				A3563BE02A880F1500BCFB8C /* TreeSitterLaTeXRunestone */,
+				A3563BE22A880F1500BCFB8C /* TreeSitterLanguagesCommon */,
+				A3563BE42A880F1500BCFB8C /* TreeSitterLua */,
+				A3563BE62A880F1500BCFB8C /* TreeSitterLuaQueries */,
+				A3563BE82A880F1500BCFB8C /* TreeSitterLuaRunestone */,
+				A3563BEA2A880F1500BCFB8C /* TreeSitterMarkdown */,
+				A3563BEC2A880F1500BCFB8C /* TreeSitterMarkdownInline */,
+				A3563BEE2A880F1500BCFB8C /* TreeSitterMarkdownInlineQueries */,
+				A3563BF02A880F1500BCFB8C /* TreeSitterMarkdownInlineRunestone */,
+				A3563BF22A880F1500BCFB8C /* TreeSitterMarkdownQueries */,
+				A3563BF42A880F1500BCFB8C /* TreeSitterMarkdownRunestone */,
+				A3563BF62A880F1500BCFB8C /* TreeSitterOCaml */,
+				A3563BF82A880F1500BCFB8C /* TreeSitterOCamlQueries */,
+				A3563BFA2A880F1500BCFB8C /* TreeSitterOCamlRunestone */,
+				A3563BFC2A880F1500BCFB8C /* TreeSitterPHP */,
+				A3563BFE2A880F1500BCFB8C /* TreeSitterPHPQueries */,
+				A3563C002A880F1500BCFB8C /* TreeSitterPHPRunestone */,
+				A3563C022A880F1500BCFB8C /* TreeSitterPerl */,
+				A3563C042A880F1500BCFB8C /* TreeSitterPerlQueries */,
+				A3563C062A880F1500BCFB8C /* TreeSitterPerlRunestone */,
+				A3563C082A880F1500BCFB8C /* TreeSitterPython */,
+				A3563C0A2A880F1500BCFB8C /* TreeSitterPythonQueries */,
+				A3563C0C2A880F1500BCFB8C /* TreeSitterPythonRunestone */,
+				A3563C0E2A880F1500BCFB8C /* TreeSitterR */,
+				A3563C102A880F1500BCFB8C /* TreeSitterRQueries */,
+				A3563C122A880F1500BCFB8C /* TreeSitterRRunestone */,
+				A3563C142A880F1500BCFB8C /* TreeSitterRegex */,
+				A3563C162A880F1500BCFB8C /* TreeSitterRegexQueries */,
+				A3563C182A880F1500BCFB8C /* TreeSitterRegexRunestone */,
+				A3563C1A2A880F1500BCFB8C /* TreeSitterRuby */,
+				A3563C1C2A880F1500BCFB8C /* TreeSitterRubyQueries */,
+				A3563C1E2A880F1500BCFB8C /* TreeSitterRubyRunestone */,
+				A3563C202A880F1500BCFB8C /* TreeSitterRust */,
+				A3563C222A880F1500BCFB8C /* TreeSitterRustQueries */,
+				A3563C242A880F1500BCFB8C /* TreeSitterRustRunestone */,
+				A3563C262A880F1500BCFB8C /* TreeSitterSCSS */,
+				A3563C282A880F1500BCFB8C /* TreeSitterSCSSQueries */,
+				A3563C2A2A880F1500BCFB8C /* TreeSitterSCSSRunestone */,
+				A3563C2C2A880F1500BCFB8C /* TreeSitterSQL */,
+				A3563C2E2A880F1500BCFB8C /* TreeSitterSQLQueries */,
+				A3563C302A880F1500BCFB8C /* TreeSitterSQLRunestone */,
+				A3563C322A880F1500BCFB8C /* TreeSitterSvelte */,
+				A3563C342A880F1500BCFB8C /* TreeSitterSvelteQueries */,
+				A3563C362A880F1500BCFB8C /* TreeSitterSvelteRunestone */,
+				A3563C382A880F1500BCFB8C /* TreeSitterSwift */,
+				A3563C3A2A880F1500BCFB8C /* TreeSitterSwiftQueries */,
+				A3563C3C2A880F1500BCFB8C /* TreeSitterSwiftRunestone */,
+				A3563C3E2A880F1500BCFB8C /* TreeSitterTOML */,
+				A3563C402A880F1500BCFB8C /* TreeSitterTOMLQueries */,
+				A3563C422A880F1500BCFB8C /* TreeSitterTOMLRunestone */,
+				A3563C442A880F1500BCFB8C /* TreeSitterTSX */,
+				A3563C462A880F1500BCFB8C /* TreeSitterTSXQueries */,
+				A3563C482A880F1500BCFB8C /* TreeSitterTSXRunestone */,
+				A3563C4A2A880F1500BCFB8C /* TreeSitterTypeScript */,
+				A3563C4C2A880F1500BCFB8C /* TreeSitterTypeScriptQueries */,
+				A3563C4E2A880F1500BCFB8C /* TreeSitterTypeScriptRunestone */,
+				A3563C502A880F1500BCFB8C /* TreeSitterYAML */,
+				A3563C522A880F1500BCFB8C /* TreeSitterYAMLQueries */,
+				A3563C542A880F1500BCFB8C /* TreeSitterYAMLRunestone */,
 			);
 			productName = iSH;
 			productReference = BB792B501F96D90D00FFB7A4 /* iCode.app */;
@@ -1705,6 +2053,8 @@
 			mainGroup = BB792B451F96D8E000FFB7A4;
 			packageReferences = (
 				A377B9912A3C8979003A995B /* XCRemoteSwiftPackageReference "Highlightr" */,
+				A3563B6B2A880C0800BCFB8C /* XCRemoteSwiftPackageReference "Runestone" */,
+				A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */,
 			);
 			productRefGroup = BB792B511F96D90D00FFB7A4 /* Products */;
 			projectDirPath = "";
@@ -3098,6 +3448,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A3563B6B2A880C0800BCFB8C /* XCRemoteSwiftPackageReference "Runestone" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simonbs/Runestone.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.2;
+			};
+		};
+		A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simonbs/TreeSitterLanguages.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.7;
+			};
+		};
 		A377B9912A3C8979003A995B /* XCRemoteSwiftPackageReference "Highlightr" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/morinoyu8/Highlightr.git";
@@ -3109,6 +3475,586 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A3563B6C2A880C0800BCFB8C /* Runestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6B2A880C0800BCFB8C /* XCRemoteSwiftPackageReference "Runestone" */;
+			productName = Runestone;
+		};
+		A3563B702A880F1500BCFB8C /* TreeSitterAstro */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterAstro;
+		};
+		A3563B722A880F1500BCFB8C /* TreeSitterAstroQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterAstroQueries;
+		};
+		A3563B742A880F1500BCFB8C /* TreeSitterAstroRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterAstroRunestone;
+		};
+		A3563B762A880F1500BCFB8C /* TreeSitterBash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterBash;
+		};
+		A3563B782A880F1500BCFB8C /* TreeSitterBashQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterBashQueries;
+		};
+		A3563B7A2A880F1500BCFB8C /* TreeSitterBashRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterBashRunestone;
+		};
+		A3563B7C2A880F1500BCFB8C /* TreeSitterC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterC;
+		};
+		A3563B7E2A880F1500BCFB8C /* TreeSitterCPP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCPP;
+		};
+		A3563B802A880F1500BCFB8C /* TreeSitterCPPQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCPPQueries;
+		};
+		A3563B822A880F1500BCFB8C /* TreeSitterCPPRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCPPRunestone;
+		};
+		A3563B842A880F1500BCFB8C /* TreeSitterCQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCQueries;
+		};
+		A3563B862A880F1500BCFB8C /* TreeSitterCRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCRunestone;
+		};
+		A3563B882A880F1500BCFB8C /* TreeSitterCSS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCSS;
+		};
+		A3563B8A2A880F1500BCFB8C /* TreeSitterCSSQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCSSQueries;
+		};
+		A3563B8C2A880F1500BCFB8C /* TreeSitterCSSRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCSSRunestone;
+		};
+		A3563B8E2A880F1500BCFB8C /* TreeSitterCSharp */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCSharp;
+		};
+		A3563B902A880F1500BCFB8C /* TreeSitterCSharpQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCSharpQueries;
+		};
+		A3563B922A880F1500BCFB8C /* TreeSitterCSharpRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCSharpRunestone;
+		};
+		A3563B942A880F1500BCFB8C /* TreeSitterComment */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterComment;
+		};
+		A3563B962A880F1500BCFB8C /* TreeSitterCommentQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCommentQueries;
+		};
+		A3563B982A880F1500BCFB8C /* TreeSitterCommentRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCommentRunestone;
+		};
+		A3563B9A2A880F1500BCFB8C /* TreeSitterElixir */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterElixir;
+		};
+		A3563B9C2A880F1500BCFB8C /* TreeSitterElixirQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterElixirQueries;
+		};
+		A3563B9E2A880F1500BCFB8C /* TreeSitterElixirRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterElixirRunestone;
+		};
+		A3563BA02A880F1500BCFB8C /* TreeSitterElm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterElm;
+		};
+		A3563BA22A880F1500BCFB8C /* TreeSitterElmQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterElmQueries;
+		};
+		A3563BA42A880F1500BCFB8C /* TreeSitterElmRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterElmRunestone;
+		};
+		A3563BA62A880F1500BCFB8C /* TreeSitterGo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterGo;
+		};
+		A3563BA82A880F1500BCFB8C /* TreeSitterGoQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterGoQueries;
+		};
+		A3563BAA2A880F1500BCFB8C /* TreeSitterGoRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterGoRunestone;
+		};
+		A3563BAC2A880F1500BCFB8C /* TreeSitterHTML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterHTML;
+		};
+		A3563BAE2A880F1500BCFB8C /* TreeSitterHTMLQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterHTMLQueries;
+		};
+		A3563BB02A880F1500BCFB8C /* TreeSitterHTMLRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterHTMLRunestone;
+		};
+		A3563BB22A880F1500BCFB8C /* TreeSitterHaskell */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterHaskell;
+		};
+		A3563BB42A880F1500BCFB8C /* TreeSitterHaskellQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterHaskellQueries;
+		};
+		A3563BB62A880F1500BCFB8C /* TreeSitterHaskellRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterHaskellRunestone;
+		};
+		A3563BB82A880F1500BCFB8C /* TreeSitterJSDoc */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJSDoc;
+		};
+		A3563BBA2A880F1500BCFB8C /* TreeSitterJSDocQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJSDocQueries;
+		};
+		A3563BBC2A880F1500BCFB8C /* TreeSitterJSDocRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJSDocRunestone;
+		};
+		A3563BBE2A880F1500BCFB8C /* TreeSitterJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJSON;
+		};
+		A3563BC02A880F1500BCFB8C /* TreeSitterJSON5 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJSON5;
+		};
+		A3563BC22A880F1500BCFB8C /* TreeSitterJSON5Queries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJSON5Queries;
+		};
+		A3563BC42A880F1500BCFB8C /* TreeSitterJSON5Runestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJSON5Runestone;
+		};
+		A3563BC62A880F1500BCFB8C /* TreeSitterJSONQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJSONQueries;
+		};
+		A3563BC82A880F1500BCFB8C /* TreeSitterJSONRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJSONRunestone;
+		};
+		A3563BCA2A880F1500BCFB8C /* TreeSitterJava */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJava;
+		};
+		A3563BCC2A880F1500BCFB8C /* TreeSitterJavaQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJavaQueries;
+		};
+		A3563BCE2A880F1500BCFB8C /* TreeSitterJavaRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJavaRunestone;
+		};
+		A3563BD02A880F1500BCFB8C /* TreeSitterJavaScript */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJavaScript;
+		};
+		A3563BD22A880F1500BCFB8C /* TreeSitterJavaScriptQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJavaScriptQueries;
+		};
+		A3563BD42A880F1500BCFB8C /* TreeSitterJavaScriptRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJavaScriptRunestone;
+		};
+		A3563BD62A880F1500BCFB8C /* TreeSitterJulia */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJulia;
+		};
+		A3563BD82A880F1500BCFB8C /* TreeSitterJuliaQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJuliaQueries;
+		};
+		A3563BDA2A880F1500BCFB8C /* TreeSitterJuliaRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJuliaRunestone;
+		};
+		A3563BDC2A880F1500BCFB8C /* TreeSitterLaTeX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterLaTeX;
+		};
+		A3563BDE2A880F1500BCFB8C /* TreeSitterLaTeXQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterLaTeXQueries;
+		};
+		A3563BE02A880F1500BCFB8C /* TreeSitterLaTeXRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterLaTeXRunestone;
+		};
+		A3563BE22A880F1500BCFB8C /* TreeSitterLanguagesCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterLanguagesCommon;
+		};
+		A3563BE42A880F1500BCFB8C /* TreeSitterLua */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterLua;
+		};
+		A3563BE62A880F1500BCFB8C /* TreeSitterLuaQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterLuaQueries;
+		};
+		A3563BE82A880F1500BCFB8C /* TreeSitterLuaRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterLuaRunestone;
+		};
+		A3563BEA2A880F1500BCFB8C /* TreeSitterMarkdown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterMarkdown;
+		};
+		A3563BEC2A880F1500BCFB8C /* TreeSitterMarkdownInline */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterMarkdownInline;
+		};
+		A3563BEE2A880F1500BCFB8C /* TreeSitterMarkdownInlineQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterMarkdownInlineQueries;
+		};
+		A3563BF02A880F1500BCFB8C /* TreeSitterMarkdownInlineRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterMarkdownInlineRunestone;
+		};
+		A3563BF22A880F1500BCFB8C /* TreeSitterMarkdownQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterMarkdownQueries;
+		};
+		A3563BF42A880F1500BCFB8C /* TreeSitterMarkdownRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterMarkdownRunestone;
+		};
+		A3563BF62A880F1500BCFB8C /* TreeSitterOCaml */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterOCaml;
+		};
+		A3563BF82A880F1500BCFB8C /* TreeSitterOCamlQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterOCamlQueries;
+		};
+		A3563BFA2A880F1500BCFB8C /* TreeSitterOCamlRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterOCamlRunestone;
+		};
+		A3563BFC2A880F1500BCFB8C /* TreeSitterPHP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPHP;
+		};
+		A3563BFE2A880F1500BCFB8C /* TreeSitterPHPQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPHPQueries;
+		};
+		A3563C002A880F1500BCFB8C /* TreeSitterPHPRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPHPRunestone;
+		};
+		A3563C022A880F1500BCFB8C /* TreeSitterPerl */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPerl;
+		};
+		A3563C042A880F1500BCFB8C /* TreeSitterPerlQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPerlQueries;
+		};
+		A3563C062A880F1500BCFB8C /* TreeSitterPerlRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPerlRunestone;
+		};
+		A3563C082A880F1500BCFB8C /* TreeSitterPython */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPython;
+		};
+		A3563C0A2A880F1500BCFB8C /* TreeSitterPythonQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPythonQueries;
+		};
+		A3563C0C2A880F1500BCFB8C /* TreeSitterPythonRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPythonRunestone;
+		};
+		A3563C0E2A880F1500BCFB8C /* TreeSitterR */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterR;
+		};
+		A3563C102A880F1500BCFB8C /* TreeSitterRQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterRQueries;
+		};
+		A3563C122A880F1500BCFB8C /* TreeSitterRRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterRRunestone;
+		};
+		A3563C142A880F1500BCFB8C /* TreeSitterRegex */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterRegex;
+		};
+		A3563C162A880F1500BCFB8C /* TreeSitterRegexQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterRegexQueries;
+		};
+		A3563C182A880F1500BCFB8C /* TreeSitterRegexRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterRegexRunestone;
+		};
+		A3563C1A2A880F1500BCFB8C /* TreeSitterRuby */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterRuby;
+		};
+		A3563C1C2A880F1500BCFB8C /* TreeSitterRubyQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterRubyQueries;
+		};
+		A3563C1E2A880F1500BCFB8C /* TreeSitterRubyRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterRubyRunestone;
+		};
+		A3563C202A880F1500BCFB8C /* TreeSitterRust */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterRust;
+		};
+		A3563C222A880F1500BCFB8C /* TreeSitterRustQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterRustQueries;
+		};
+		A3563C242A880F1500BCFB8C /* TreeSitterRustRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterRustRunestone;
+		};
+		A3563C262A880F1500BCFB8C /* TreeSitterSCSS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterSCSS;
+		};
+		A3563C282A880F1500BCFB8C /* TreeSitterSCSSQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterSCSSQueries;
+		};
+		A3563C2A2A880F1500BCFB8C /* TreeSitterSCSSRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterSCSSRunestone;
+		};
+		A3563C2C2A880F1500BCFB8C /* TreeSitterSQL */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterSQL;
+		};
+		A3563C2E2A880F1500BCFB8C /* TreeSitterSQLQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterSQLQueries;
+		};
+		A3563C302A880F1500BCFB8C /* TreeSitterSQLRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterSQLRunestone;
+		};
+		A3563C322A880F1500BCFB8C /* TreeSitterSvelte */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterSvelte;
+		};
+		A3563C342A880F1500BCFB8C /* TreeSitterSvelteQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterSvelteQueries;
+		};
+		A3563C362A880F1500BCFB8C /* TreeSitterSvelteRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterSvelteRunestone;
+		};
+		A3563C382A880F1500BCFB8C /* TreeSitterSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterSwift;
+		};
+		A3563C3A2A880F1500BCFB8C /* TreeSitterSwiftQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterSwiftQueries;
+		};
+		A3563C3C2A880F1500BCFB8C /* TreeSitterSwiftRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterSwiftRunestone;
+		};
+		A3563C3E2A880F1500BCFB8C /* TreeSitterTOML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterTOML;
+		};
+		A3563C402A880F1500BCFB8C /* TreeSitterTOMLQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterTOMLQueries;
+		};
+		A3563C422A880F1500BCFB8C /* TreeSitterTOMLRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterTOMLRunestone;
+		};
+		A3563C442A880F1500BCFB8C /* TreeSitterTSX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterTSX;
+		};
+		A3563C462A880F1500BCFB8C /* TreeSitterTSXQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterTSXQueries;
+		};
+		A3563C482A880F1500BCFB8C /* TreeSitterTSXRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterTSXRunestone;
+		};
+		A3563C4A2A880F1500BCFB8C /* TreeSitterTypeScript */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterTypeScript;
+		};
+		A3563C4C2A880F1500BCFB8C /* TreeSitterTypeScriptQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterTypeScriptQueries;
+		};
+		A3563C4E2A880F1500BCFB8C /* TreeSitterTypeScriptRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterTypeScriptRunestone;
+		};
+		A3563C502A880F1500BCFB8C /* TreeSitterYAML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterYAML;
+		};
+		A3563C522A880F1500BCFB8C /* TreeSitterYAMLQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterYAMLQueries;
+		};
+		A3563C542A880F1500BCFB8C /* TreeSitterYAMLRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterYAMLRunestone;
+		};
 		A377B9922A3C8979003A995B /* Highlightr */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A377B9912A3C8979003A995B /* XCRemoteSwiftPackageReference "Highlightr" */;

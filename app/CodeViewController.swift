@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Runestone
 import Highlightr
 
 class CodeViewController: UIViewController, UITextViewDelegate {

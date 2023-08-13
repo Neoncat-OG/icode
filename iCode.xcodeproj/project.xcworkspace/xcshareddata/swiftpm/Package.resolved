@@ -8,6 +8,33 @@
         "branch" : "master",
         "revision" : "db2ba565f05d9172f87dc3d534bc2ea6acfe6449"
       }
+    },
+    {
+      "identity" : "runestone",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/simonbs/Runestone.git",
+      "state" : {
+        "revision" : "00dee9fbc9c93b709f6b1b052bce84cb971e493a",
+        "version" : "0.3.2"
+      }
+    },
+    {
+      "identity" : "tree-sitter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/simonbs/tree-sitter",
+      "state" : {
+        "revision" : "f88ae4ebe351d8aa99c31a17111607017d805118",
+        "version" : "0.20.9-beta-1"
+      }
+    },
+    {
+      "identity" : "treesitterlanguages",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/simonbs/TreeSitterLanguages.git",
+      "state" : {
+        "revision" : "a15ab30453d14097355d7d78ec7c0feb008cfbba",
+        "version" : "0.1.7"
+      }
     }
   ],
   "version" : 2
