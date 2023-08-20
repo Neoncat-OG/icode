@@ -53,6 +53,7 @@ struct VersionedTextDocumentIdentifier: Codable {
 }
 
 struct TextDocumentContentChangeEvent: Codable {
+    var range: Range?
     var text: String
 }
 
@@ -82,6 +83,11 @@ struct DidClose: Codable {
 struct Position: Codable {
     var line: Int
     var character: Int
+}
+
+struct Range: Codable {
+    var start: Position
+    var end: Position
 }
 
 struct TextDocumentPositionParams: Codable {
