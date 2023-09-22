@@ -37,9 +37,17 @@ class CodeViewController: UIViewController {
         let language = getLanguage(filePath: filePath)
         let codeTextView = CodeTextView(filePath: rootAllPath + filePath)
         currentCodeTextView = codeTextView
-        if (codeTextView.setText() != 0) {
+        
+        guard let text = try? String(contentsOfFile: rootAllPath + filePath) else {
             showAlert()
-            return;
+            return
+        }
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let state = TextViewState(text: text, language: .c)
+            DispatchQueue.main.async {
+                codeTextView.setState(state)
+            }
         }
         
         filenames[tabCount] = filePath
@@ -49,7 +57,7 @@ class CodeViewController: UIViewController {
         codeView.addSubview(codeTextView)
         codeTextView.setConstraint(parent: codeView)
         LSClient.codeVC = self
-        LSClient.textDocument_didOpen(path: filePath, text: codeTextView.text)
+        LSClient.textDocument_didOpen(path: filePath, text: text)
     }
     
     func showAlert() {
@@ -72,16 +80,6 @@ class CodeViewController: UIViewController {
         }
         return ""
     }
-    
-    func sendCompletionRequest() {
-        if let codeTextView = currentCodeTextView {
-            guard let range = codeTextView.selectedTextRange else { return }
-            let cursorPosition = codeTextView.offset(from: codeTextView.beginningOfDocument, to: range.start)
-            guard let location = codeTextView.textLocation(at: cursorPosition) else { return }
-            LSClient.textDocument_completion(path: filenames[tabCount - 1], line: location.lineNumber, character: location.column)
-        }
-    }
-    
     
     func textViewDidChangeSelection(_ textView: UITextView) {
         removeCompletionBox()
@@ -178,8 +176,12 @@ class CodeViewController: UIViewController {
 
 extension CodeViewController: TextViewDelegate {
     func textView(_ textView: TextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard let startLocation = textView.textLocation(at: range.location) else { return true }
+        guard let endLocation = textView.textLocation(at: range.location + range.length) else { return true }
+        LSClient.textDocument_didChange(path: filenames[tabCount - 1], text: text, startLocation: startLocation, endLocation: endLocation)
+        
         if text == "." {
-            sendCompletionRequest()
+            LSClient.textDocument_completion(path: filenames[tabCount - 1], line: startLocation.lineNumber, character: endLocation.column + 1)
         }
         return true
     }
