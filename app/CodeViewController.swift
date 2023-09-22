@@ -7,7 +7,6 @@
 
 import UIKit
 import Runestone
-import Highlightr
 
 class CodeViewController: UIViewController {
     var filenames = [String](repeating: "", count: 100)
