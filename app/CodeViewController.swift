@@ -11,7 +11,6 @@ import Runestone
 class CodeViewController: UIViewController {
     var filenames = [String](repeating: "", count: 100)
     var tabCount = 0
-    var lsClients: [String:LSClient] = [:]
     var currentCodeTextView: CodeTextView? = nil
     var rootAllPath: String = ""
     
