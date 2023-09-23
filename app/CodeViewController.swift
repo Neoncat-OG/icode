@@ -36,6 +36,7 @@ class CodeViewController: UIViewController {
         let language = getLanguage(filePath: filePath)
         let codeTextView = CodeTextView(filePath: rootAllPath + filePath)
         currentCodeTextView = codeTextView
+        codeTextView.inputAccessoryView = self.inputAccessoryView
         
         guard let text = try? String(contentsOfFile: rootAllPath + filePath) else {
             showAlert()
