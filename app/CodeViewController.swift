@@ -181,6 +181,8 @@ extension CodeViewController: TextViewDelegate {
         
         if text == "." {
             LSClient.textDocument_completion(path: filenames[tabCount - 1], line: startLocation.lineNumber, character: endLocation.column + 1)
+        } else {
+            removeCompletionBox()
         }
         return true
     }
