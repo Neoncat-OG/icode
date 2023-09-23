@@ -25,20 +25,6 @@ class CodeTextView: TextView {
         super.init(coder: coder)
     }
     
-    func setText() -> Int {
-        guard let text = try? String(contentsOfFile: self.filePath) else {
-            return 1
-        }
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            let state = TextViewState(text: text, language: .c)
-            DispatchQueue.main.async {
-                self.setState(state)
-            }
-        }
-        return 0
-    }
-    
     func setConstraint(parent: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         let leading = self.leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: 0)
