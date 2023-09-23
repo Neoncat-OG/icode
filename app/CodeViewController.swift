@@ -155,23 +155,6 @@ class CodeViewController: UIViewController {
     func isPortrait() -> Bool {
         return self.view.bounds.height - self.view.bounds.width > 0
     }
-    
-//    func fitCursorPosition() {
-//        guard let start = currentCodeView?.selectedTextRange?.start else { return }
-//        guard let cursorFrame = currentCodeView?.caretRect(for: start) else { return }
-//        guard let position = currentCodeView?.convert(cursorFrame, to: self.view) else { return }
-//        if position.origin.y.isInfinite {
-//            return
-//        }
-//
-//        if position.origin.y < self.view.safeAreaInsets.top {
-//            scrollView.contentOffset.y -= self.view.safeAreaInsets.top - position.origin.y
-//        }
-//
-//        if position.origin.y + 10 > self.view.safeAreaInsets.top + safeAreaSize().height - scrollbarBottom.constant {
-//            scrollView.contentOffset.y += position.origin.y - (self.view.safeAreaInsets.top + safeAreaSize().height - scrollbarBottom.constant) + cursorFrame.height
-//        }
-//    }
 }
 
 extension CodeViewController: TextViewDelegate {
