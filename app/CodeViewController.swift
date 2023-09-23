@@ -26,6 +26,7 @@ class CodeViewController: UIViewController {
         super.viewDidLoad()
         self.rootAllPath = String(cString: get_all_path("/".cString(using: .utf8)))
         self.rootAllPath.removeLast()
+        LSClient.codeVC = self
         LSController.runLanguageServer(name: "clangd")
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -55,7 +56,6 @@ class CodeViewController: UIViewController {
         codeTextView.editorDelegate = self
         codeView.addSubview(codeTextView)
         codeTextView.setConstraint(parent: codeView)
-        LSClient.codeVC = self
         LSClient.textDocument_didOpen(path: filePath, text: text)
     }
     
