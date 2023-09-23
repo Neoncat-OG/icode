@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Runestone
 
 class LSClient {
     
@@ -109,10 +110,21 @@ class LSClient {
     //
     //  textDocument/didChange
     //
-    static func textDocument_didChange(path: String, text: String) {
+    static func textDocument_didChange(path: String, text: String, startLocation start: TextLocation? = nil, endLocation end: TextLocation? = nil) {
         let uri = URL(fileURLWithPath: path).absoluteString
         let versionedTextDocumentIdentifier = VersionedTextDocumentIdentifier(uri: uri, version: 1)
-        let textDocumentContentChangeEvent = TextDocumentContentChangeEvent(text: text)
+        
+        let createTextDocumentContentChangeEvent = {
+            if start == nil || end == nil {
+                return TextDocumentContentChangeEvent(text: text)
+            }
+            let startPosition = Position(line: start!.lineNumber, character: start!.column)
+            let endPosition = Position(line: end!.lineNumber, character: end!.column)
+            let range = Range(start: startPosition, end: endPosition)
+            return TextDocumentContentChangeEvent(range: range, text: text)
+        }
+        
+        let textDocumentContentChangeEvent = createTextDocumentContentChangeEvent()
         let didChangeTextDocumentParams = DidChangeTextDocumentParams(textDocument: versionedTextDocumentIdentifier, contentChanges: [textDocumentContentChangeEvent])
         let didChange = DidChange(method: "textDocument/didChange", params: didChangeTextDocumentParams)
         let didChangeData = try! JSONEncoder().encode(didChange)

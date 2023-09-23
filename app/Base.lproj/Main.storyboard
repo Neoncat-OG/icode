@@ -389,73 +389,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PMf-qY-m7j">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKv-bT-D03" userLabel="Code View">
                                 <rect key="frame" x="0.0" y="50" width="375" height="679"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QNM-SP-yBX">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
-                                        <subviews>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blF-50-XrH">
-                                                <rect key="frame" x="30" y="0.0" width="345" height="100"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbY-it-aAR">
-                                                        <rect key="frame" x="0.0" y="0.0" width="1000" height="100"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="1000" id="QHO-PD-3PQ"/>
-                                                        </constraints>
-                                                    </view>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="bbY-it-aAR" secondAttribute="trailing" id="4aK-la-qls"/>
-                                                    <constraint firstItem="bbY-it-aAR" firstAttribute="leading" secondItem="blF-50-XrH" secondAttribute="leading" id="ARW-nk-wbg"/>
-                                                    <constraint firstItem="bbY-it-aAR" firstAttribute="top" secondItem="blF-50-XrH" secondAttribute="top" id="Npx-Y3-qfu"/>
-                                                    <constraint firstAttribute="height" constant="100" id="RQY-GO-Ggy"/>
-                                                    <constraint firstItem="bbY-it-aAR" firstAttribute="height" secondItem="blF-50-XrH" secondAttribute="height" id="fgI-qa-qtz"/>
-                                                    <constraint firstAttribute="bottom" secondItem="bbY-it-aAR" secondAttribute="bottom" id="kKI-fy-LT6"/>
-                                                </constraints>
-                                                <viewLayoutGuide key="contentLayoutGuide" id="BRz-Hx-wWi"/>
-                                                <viewLayoutGuide key="frameLayoutGuide" id="XoJ-5g-qHN"/>
-                                            </scrollView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="9YP-6c-dyu"/>
-                                            <constraint firstItem="blF-50-XrH" firstAttribute="leading" secondItem="QNM-SP-yBX" secondAttribute="leading" constant="30" id="Cmj-Gs-8i1"/>
-                                            <constraint firstAttribute="bottom" secondItem="blF-50-XrH" secondAttribute="bottom" id="SL1-qM-812"/>
-                                            <constraint firstAttribute="trailing" secondItem="blF-50-XrH" secondAttribute="trailing" id="rNS-84-WMW"/>
-                                            <constraint firstItem="blF-50-XrH" firstAttribute="top" secondItem="QNM-SP-yBX" secondAttribute="top" id="sRp-rf-LDK"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="QNM-SP-yBX" firstAttribute="top" secondItem="PMf-qY-m7j" secondAttribute="top" id="LOo-qH-Fxc"/>
-                                    <constraint firstItem="QNM-SP-yBX" firstAttribute="leading" secondItem="PMf-qY-m7j" secondAttribute="leading" id="XpX-dy-gGd"/>
-                                    <constraint firstItem="QNM-SP-yBX" firstAttribute="width" secondItem="PMf-qY-m7j" secondAttribute="width" id="l6C-ho-u1f"/>
-                                    <constraint firstAttribute="bottom" secondItem="QNM-SP-yBX" secondAttribute="bottom" id="vPJ-UD-qWk"/>
-                                    <constraint firstAttribute="trailing" secondItem="QNM-SP-yBX" secondAttribute="trailing" id="wcD-5N-0iE"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="z5S-jC-2L3"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="hQ1-1F-RaQ"/>
-                            </scrollView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QIg-bd-QgT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="QIg-bd-QgT" firstAttribute="bottom" secondItem="PMf-qY-m7j" secondAttribute="bottom" id="9rU-4b-JSG"/>
-                            <constraint firstItem="PMf-qY-m7j" firstAttribute="top" secondItem="QIg-bd-QgT" secondAttribute="top" id="AwV-mu-NDk"/>
-                            <constraint firstItem="PMf-qY-m7j" firstAttribute="leading" secondItem="QIg-bd-QgT" secondAttribute="leading" id="lHE-6G-OI3"/>
-                            <constraint firstItem="QIg-bd-QgT" firstAttribute="trailing" secondItem="PMf-qY-m7j" secondAttribute="trailing" id="nvY-nL-lEM"/>
+                            <constraint firstItem="QIg-bd-QgT" firstAttribute="bottom" secondItem="vKv-bT-D03" secondAttribute="bottom" id="UcB-LM-bOY"/>
+                            <constraint firstItem="vKv-bT-D03" firstAttribute="leading" secondItem="QIg-bd-QgT" secondAttribute="leading" id="ZlZ-5v-uDl"/>
+                            <constraint firstItem="vKv-bT-D03" firstAttribute="top" secondItem="QIg-bd-QgT" secondAttribute="top" id="nhU-aN-qqW"/>
+                            <constraint firstItem="QIg-bd-QgT" firstAttribute="trailing" secondItem="vKv-bT-D03" secondAttribute="trailing" id="z68-Dg-Jd5"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Code" image="doc.plaintext" catalog="system" id="Yv1-Hd-Fao"/>
                     <connections>
-                        <outlet property="codeInnerView" destination="bbY-it-aAR" id="aqe-Aj-znA"/>
-                        <outlet property="codeInnerWidth" destination="QHO-PD-3PQ" id="faA-VW-7BK"/>
-                        <outlet property="innerHeight" destination="9YP-6c-dyu" id="xwY-L6-KQe"/>
-                        <outlet property="innerScrollViewLeading" destination="Cmj-Gs-8i1" id="vPS-nY-agb"/>
-                        <outlet property="innerView" destination="QNM-SP-yBX" id="TZj-44-2C1"/>
-                        <outlet property="scrollView" destination="PMf-qY-m7j" id="NNJ-AS-Fcc"/>
-                        <outlet property="scrollbarBottom" destination="9rU-4b-JSG" id="6zx-uM-1AF"/>
+                        <outlet property="codeView" destination="vKv-bT-D03" id="IwG-1B-6ac"/>
+                        <outlet property="codeViewBottomConstraint" destination="UcB-LM-bOY" id="43v-oO-A5H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPa-DS-Lkj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

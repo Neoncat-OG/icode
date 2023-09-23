@@ -6,25 +6,17 @@
 //
 
 import UIKit
-import Highlightr
+import Runestone
 
-class CodeViewController: UIViewController, UITextViewDelegate {
+class CodeViewController: UIViewController {
     var filenames = [String](repeating: "", count: 100)
     var tabCount = 0
     var lsClients: [String:LSClient] = [:]
-    var currentCodeView: CodeTextView? = nil
+    var currentCodeTextView: CodeTextView? = nil
     var rootAllPath: String = ""
     
-    @IBOutlet weak var scrollbarBottom: NSLayoutConstraint!
-    @IBOutlet weak var innerView: UIView!
-    @IBOutlet weak var innerHeight: NSLayoutConstraint!
-    
-    @IBOutlet weak var codeInnerView: UIView!
-    @IBOutlet weak var codeInnerWidth: NSLayoutConstraint!
-    
-    @IBOutlet weak var scrollView: UIScrollView!
-    
-    @IBOutlet weak var innerScrollViewLeading: NSLayoutConstraint!
+    @IBOutlet weak var codeView: UIView!
+    @IBOutlet weak var codeViewBottomConstraint: NSLayoutConstraint!
     
     var currentCompletionBox: CompletionBox? = nil
     
@@ -42,42 +34,30 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     
     func addCodeEditView(filePath: String) {
         let language = getLanguage(filePath: filePath)
-        let textContainer = setTextContainer(language: language, theme: "xcode")
-        let numView = CodeNumTextView(frame: self.innerView.frame, lineHeight: 2.4)
-        let codeView = CodeTextView(frame: self.innerView.frame, textContainer: textContainer, numView: numView, filePath: rootAllPath + filePath, parent: self)
-        currentCodeView = codeView
-        if (codeView.setText() != 0) {
+        let codeTextView = CodeTextView(filePath: rootAllPath + filePath)
+        currentCodeTextView = codeTextView
+        codeTextView.inputAccessoryView = self.inputAccessoryView
+        
+        guard let text = try? String(contentsOfFile: rootAllPath + filePath) else {
             showAlert()
-            return;
+            return
+        }
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let state = TextViewState(text: text, language: .c)
+            DispatchQueue.main.async {
+                codeTextView.setState(state)
+            }
         }
         
         filenames[tabCount] = filePath
         tabCount += 1
         
-        codeView.delegate = self
-        
-        codeInnerView.addSubview(codeView)
-        innerView.addSubview(numView)
-        scrollView.contentOffset.y = 0
-        numView.setConstraint(parent: innerView)
-        codeView.setConstraint(parent: codeInnerView)
+        codeTextView.editorDelegate = self
+        codeView.addSubview(codeTextView)
+        codeTextView.setConstraint(parent: codeView)
         LSClient.codeVC = self
-        LSClient.textDocument_didOpen(path: filePath, text: codeView.text)
-    }
-    
-    func setTextContainer(language: String, theme: String) -> NSTextContainer? {
-        let textStorage = CodeAttributedString(lineHeight: 2.4)
-        textStorage.language = language
-        textStorage.highlightr.setTheme(to: theme)
-        textStorage.highlightr.theme.codeFont = UIFont(name: "Menlo-Regular", size: 13)
-        
-        let layoutManager = NSLayoutManager()
-        textStorage.addLayoutManager(layoutManager)
-
-        let textContainer = NSTextContainer(size: view.bounds.size)
-        layoutManager.addTextContainer(textContainer)
-        
-        return textContainer
+        LSClient.textDocument_didOpen(path: filePath, text: text)
     }
     
     func showAlert() {
@@ -101,82 +81,23 @@ class CodeViewController: UIViewController, UITextViewDelegate {
         return ""
     }
     
-    func sizeFit(newSize: CGSize, digit: Int) {
-        codeInnerWidth.constant = newSize.width
-        innerHeight.constant = newSize.height
-        setLeading(digit: digit)
-    }
-    
-    func setLeading(digit :Int) {
-        switch (digit) {
-        case 1, 2:
-            self.innerScrollViewLeading?.constant = 30
-            break
-        case 3:
-            self.innerScrollViewLeading?.constant = 37
-            break
-        case 4:
-            self.innerScrollViewLeading?.constant = 44
-            break
-        default:
-            self.innerScrollViewLeading?.constant = 51
-            break
-        }
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        fitCursorPosition()
-        if let codeTextView = textView as? CodeTextView {
-            codeTextView.textViewDidChange()
-            LSClient.textDocument_didChange(path: filenames[tabCount - 1], text: codeTextView.text)
-        }
-    }
-    
-    func sendCompletionRequest() {
-        if let codeView = currentCodeView {
-            LSClient.textDocument_didChange(path: filenames[tabCount - 1], text: codeView.text)
-            guard let range = codeView.selectedTextRange else { return }
-            let cursorPosition = codeView.offset(from: codeView.beginningOfDocument, to: range.start)
-            let pre = String(codeView.text.prefix(cursorPosition))
-            let arr: [String] = pre.components(separatedBy: "\n")
-            LSClient.textDocument_completion(path: filenames[tabCount - 1], line: arr.count - 1, character: arr.last!.count)
-        }
-    }
-    
-    
     func textViewDidChangeSelection(_ textView: UITextView) {
         removeCompletionBox()
     }
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if let codeTextView = textView as? CodeTextView {
-            if range.length > 1 {
-                codeTextView.setLineNum()
-                return true
-            }
-            if text.count > 1 {
-                codeTextView.addLineNum(addText: text)
-                return true
-            }
-        }
-        return true
-    }
-    
     func insertTab() {
-        guard let codeView = currentCodeView else { return }
-        codeView.insertText("\t")
+        currentCodeTextView?.insertText("\t")
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            scrollbarBottom.constant = keyboardSize.height - self.view.safeAreaInsets.bottom
-            fitCursorPosition()
+            codeViewBottomConstraint.constant = keyboardSize.height - self.view.safeAreaInsets.bottom
         }
     }
     
     @objc func keyboardWillHide() {
         removeCompletionBox()
-        scrollbarBottom.constant = 0
+        codeViewBottomConstraint.constant = 0
     }
     
     func recieveCompletion(data: [CompletionItem]) {
@@ -186,11 +107,6 @@ class CodeViewController: UIViewController, UITextViewDelegate {
             return
         }
         
-        guard let start = currentCodeView?.selectedTextRange?.start else { return }
-        guard let cursorFrame = currentCodeView?.caretRect(for: start) else { return }
-        
-        guard let position = currentCodeView?.convert(cursorFrame, to: self.view) else { return }
-        
         var buttons: [ComplationButton] = []
         for (i, completion) in data.enumerated() {
             let button = ComplationButton(frame: CGRect(x: 0, y: completionCellHeight * Double(i), width: safeAreaSize().width, height: completionCellHeight), main: completion.insertText, sub: completion.detail ?? "")
@@ -198,34 +114,33 @@ class CodeViewController: UIViewController, UITextViewDelegate {
             buttons.append(button)
         }
         
-        let boxRect = calculateBoxRect(cursorPosition: position, cellCount: data.count)
+        let boxRect = calculateBoxRect(cellCount: data.count)
         let completionBox = CompletionBox(frame: boxRect, buttons: buttons)
         self.view.addSubview(completionBox)
-        scrollbarBottom.constant += boxRect.height
-        fitCursorPosition()
+        codeViewBottomConstraint.constant += boxRect.height
         currentCompletionBox = completionBox
     }
     
     @objc func insertCompletion(_ sender: ComplationButton) {
         removeCompletionBox()
-        currentCodeView?.insertText(sender.label)
+        currentCodeTextView?.insertText(sender.label)
     }
     
-    func calculateBoxRect(cursorPosition: CGRect, cellCount: Int) -> CGRect {
+    func calculateBoxRect(cellCount: Int) -> CGRect {
         var boxHeight: Double = Double(complationMaxHeight)
         if cellCount < Int(complationMaxHeight) / Int(completionCellHeight) {
             boxHeight = completionCellHeight * Double(cellCount)
         }
         
         let position_x = 0.0
-        let position_y = self.view.safeAreaInsets.top + safeAreaSize().height - scrollbarBottom.constant - boxHeight
+        let position_y = self.view.frame.height - codeViewBottomConstraint.constant - self.view.safeAreaInsets.bottom - boxHeight
         
         return CGRect(x: position_x, y: position_y, width: safeAreaSize().width, height: boxHeight)
     }
     
     func removeCompletionBox() {
         if let box = self.currentCompletionBox {
-            scrollbarBottom.constant -= box.frame.height
+            codeViewBottomConstraint.constant -= box.frame.height
             box.removeFromSuperview()
             self.currentCompletionBox = nil
         }
@@ -240,21 +155,19 @@ class CodeViewController: UIViewController, UITextViewDelegate {
     func isPortrait() -> Bool {
         return self.view.bounds.height - self.view.bounds.width > 0
     }
-    
-    func fitCursorPosition() {
-        guard let start = currentCodeView?.selectedTextRange?.start else { return }
-        guard let cursorFrame = currentCodeView?.caretRect(for: start) else { return }
-        guard let position = currentCodeView?.convert(cursorFrame, to: self.view) else { return }
-        if position.origin.y.isInfinite {
-            return
-        }
+}
+
+extension CodeViewController: TextViewDelegate {
+    func textView(_ textView: TextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard let startLocation = textView.textLocation(at: range.location) else { return true }
+        guard let endLocation = textView.textLocation(at: range.location + range.length) else { return true }
+        LSClient.textDocument_didChange(path: filenames[tabCount - 1], text: text, startLocation: startLocation, endLocation: endLocation)
         
-        if position.origin.y < self.view.safeAreaInsets.top {
-            scrollView.contentOffset.y -= self.view.safeAreaInsets.top - position.origin.y
+        if text == "." {
+            LSClient.textDocument_completion(path: filenames[tabCount - 1], line: startLocation.lineNumber, character: endLocation.column + 1)
+        } else {
+            removeCompletionBox()
         }
-        
-        if position.origin.y + 10 > self.view.safeAreaInsets.top + safeAreaSize().height - scrollbarBottom.constant {
-            scrollView.contentOffset.y += position.origin.y - (self.view.safeAreaInsets.top + safeAreaSize().height - scrollbarBottom.constant) + cursorFrame.height
-        }
+        return true
     }
 }
