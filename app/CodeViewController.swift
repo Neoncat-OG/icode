@@ -83,7 +83,8 @@ class CodeViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    
+    // Remove completionBox when cursor is moved
+    // TODO: Refine timing of completionBox removing
     func textViewDidChangeSelection(_ textView: UITextView) {
         removeCompletionBox()
     }
@@ -92,6 +93,7 @@ class CodeViewController: UIViewController {
         currentCodeTextView?.insertText("\t")
     }
     
+    // Adjust size of codeEditView when keyboard appears
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             codeViewBottomConstraint.constant = keyboardSize.height - self.view.safeAreaInsets.bottom
