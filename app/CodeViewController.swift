@@ -13,7 +13,9 @@ class CodeViewController: UIViewController {
     var currentCodeTextView: CodeTextView?
     var currentFilePath: String = ""
     
-    var rootAllPath: String = ""
+    // Path to root of the Linux filesystem
+    // The last "/" is removed
+    let rootAllPath: String = String(String(cString: get_all_path("/".cString(using: .utf8))).dropLast())
     
     @IBOutlet weak var codeView: UIView!
     @IBOutlet weak var codeViewBottomConstraint: NSLayoutConstraint!
@@ -25,8 +27,6 @@ class CodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.rootAllPath = String(cString: get_all_path("/".cString(using: .utf8)))
-        self.rootAllPath.removeLast()
         LSClient.codeVC = self
         LSController.runLanguageServer(name: "clangd")
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
