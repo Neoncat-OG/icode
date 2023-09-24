@@ -34,13 +34,12 @@ class CodeViewController: UIViewController {
     }
     
     // Called when a file is selected from the File page
-    func addCodeEditView(filePath: String) {
+    func openCode(filePath: String) {
         let language = getLanguage(filePath: filePath)
         let codeTextView = CodeTextView()
         codeTextViewList.append(filePath: filePath, codeTextView: codeTextView)
         currentCodeTextView = codeTextView
         currentFilePath = filePath
-        codeTextView.inputAccessoryView = self.inputAccessoryView
         
         guard let text = try? String(contentsOfFile: rootAllPath + filePath) else {
             showAlert()
@@ -54,10 +53,16 @@ class CodeViewController: UIViewController {
             }
         }
         
-        codeTextView.editorDelegate = self
-        codeView.addSubview(codeTextView)
-        codeTextView.setConstraint(parent: codeView)
+        setCodeTextView(codeTextView)
         LSClient.textDocument_didOpen(path: filePath, text: text)
+    }
+    
+    // Add new CodeTextView as a chile of codeView
+    private func setCodeTextView(_ new: CodeTextView) {
+        new.editorDelegate = self
+        new.inputAccessoryView = self.inputAccessoryView
+        codeView.addSubview(new)
+        new.setConstraint(parent: codeView)
     }
     
     func showAlert() {
