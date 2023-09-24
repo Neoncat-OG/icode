@@ -12,16 +12,12 @@ import TreeSitterCRunestone
 
 class CodeTextView: TextView {
     
-    let filePath: String
-    
-    init(filePath: String) {
-        self.filePath = filePath
+    init() {
         super.init(frame: CGRect())
         setCustomization()
     }
     
     required init?(coder: NSCoder) {
-        self.filePath = ""
         super.init(coder: coder)
     }
     

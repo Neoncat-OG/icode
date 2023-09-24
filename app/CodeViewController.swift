@@ -33,9 +33,10 @@ class CodeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    // Called when a file is selected from the File page
     func addCodeEditView(filePath: String) {
         let language = getLanguage(filePath: filePath)
-        let codeTextView = CodeTextView(filePath: rootAllPath + filePath)
+        let codeTextView = CodeTextView()
         codeTextViewList.append(filePath: filePath, codeTextView: codeTextView)
         currentCodeTextView = codeTextView
         currentFilePath = filePath
