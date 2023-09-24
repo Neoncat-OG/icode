@@ -84,13 +84,6 @@ class CodeViewController: UIViewController {
     }
     
     
-    func getLanguage(filePath: String) -> String {
-        if let ext = filePath.split(separator: ".").last {
-            return String(ext)
-        }
-        return ""
-    }
-    
     func textViewDidChangeSelection(_ textView: UITextView) {
         removeCompletionBox()
     }
