@@ -28,7 +28,7 @@ class CodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         LSClient.codeVC = self
-        LSController.runLanguageServer(name: "clangd")
+        LSInitializer.runLanguageServer(name: "clangd")
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }

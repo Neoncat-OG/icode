@@ -14,7 +14,7 @@ enum CodeLanguage: String {
     case swift = "swift"
 }
 
-class LSController {
+class LSInitializer {
     
     static var iosfs_fdops_ls: fd_ops = fd_ops()
     
