@@ -105,6 +105,7 @@ class CodeViewController: UIViewController {
         codeViewBottomConstraint.constant = 0
     }
     
+    // Show completionBox
     func showCompletion(data: [CompletionItem]) {
         removeCompletionBox()
         
@@ -119,7 +120,7 @@ class CodeViewController: UIViewController {
             buttons.append(button)
         }
         
-        let boxRect = calculateBoxRect(cellCount: data.count)
+        let boxRect = completionBoxRect(cellCount: data.count)
         let completionBox = CompletionBox(frame: boxRect, buttons: buttons)
         self.view.addSubview(completionBox)
         codeViewBottomConstraint.constant += boxRect.height
@@ -131,7 +132,7 @@ class CodeViewController: UIViewController {
         currentCodeTextView?.insertText(sender.label)
     }
     
-    func calculateBoxRect(cellCount: Int) -> CGRect {
+    func completionBoxRect(cellCount: Int) -> CGRect {
         var boxHeight: Double = Double(complationMaxHeight)
         if cellCount < Int(complationMaxHeight) / Int(completionCellHeight) {
             boxHeight = completionCellHeight * Double(cellCount)
@@ -143,6 +144,7 @@ class CodeViewController: UIViewController {
         return CGRect(x: position_x, y: position_y, width: safeAreaSize().width, height: boxHeight)
     }
     
+    // Remove completionBox if it is shown
     func removeCompletionBox() {
         if let box = self.currentCompletionBox {
             codeViewBottomConstraint.constant -= box.frame.height
