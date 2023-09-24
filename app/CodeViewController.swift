@@ -9,9 +9,10 @@ import UIKit
 import Runestone
 
 class CodeViewController: UIViewController {
-    var filenames = [String](repeating: "", count: 100)
-    var tabCount = 0
-    var currentCodeTextView: CodeTextView? = nil
+    var codeTextViewList: CodeTextViewList = CodeTextViewList()
+    var currentCodeTextView: CodeTextView?
+    var currentFilePath: String = ""
+    
     var rootAllPath: String = ""
     
     @IBOutlet weak var codeView: UIView!
@@ -35,7 +36,9 @@ class CodeViewController: UIViewController {
     func addCodeEditView(filePath: String) {
         let language = getLanguage(filePath: filePath)
         let codeTextView = CodeTextView(filePath: rootAllPath + filePath)
+        codeTextViewList.append(filePath: filePath, codeTextView: codeTextView)
         currentCodeTextView = codeTextView
+        currentFilePath = filePath
         codeTextView.inputAccessoryView = self.inputAccessoryView
         
         guard let text = try? String(contentsOfFile: rootAllPath + filePath) else {
@@ -49,9 +52,6 @@ class CodeViewController: UIViewController {
                 codeTextView.setState(state)
             }
         }
-        
-        filenames[tabCount] = filePath
-        tabCount += 1
         
         codeTextView.editorDelegate = self
         codeView.addSubview(codeTextView)
@@ -160,10 +160,10 @@ extension CodeViewController: TextViewDelegate {
     func textView(_ textView: TextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         guard let startLocation = textView.textLocation(at: range.location) else { return true }
         guard let endLocation = textView.textLocation(at: range.location + range.length) else { return true }
-        LSClient.textDocument_didChange(path: filenames[tabCount - 1], text: text, startLocation: startLocation, endLocation: endLocation)
+        LSClient.textDocument_didChange(path: currentFilePath, text: text, startLocation: startLocation, endLocation: endLocation)
         
         if text == "." {
-            LSClient.textDocument_completion(path: filenames[tabCount - 1], line: startLocation.lineNumber, character: endLocation.column + 1)
+            LSClient.textDocument_completion(path: currentFilePath, line: startLocation.lineNumber, character: endLocation.column + 1)
         } else {
             removeCompletionBox()
         }

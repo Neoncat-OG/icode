@@ -106,6 +106,7 @@
 		497F6D87254E62E100C82F46 /* libish.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB13F7DC200AD81D003D1C4D /* libish.a */; };
 		49FF844B2A06249F00850B7A /* ExceptionExfiltrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FF844A2A06249F00850B7A /* ExceptionExfiltrator.m */; };
 		A30C50302A0A3B090047E87E /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A30C502E2A0A3B090047E87E /* FileManager.m */; };
+		A311B7422ABF6C8C001AA7F7 /* CodeTextViewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311B7412ABF6C8C001AA7F7 /* CodeTextViewList.swift */; };
 		A319A3FF2A5D536000918762 /* LSMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A3FE2A5D536000918762 /* LSMethod.swift */; };
 		A319A4022A5D5F7700918762 /* LSStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4012A5D5F7700918762 /* LSStruct.swift */; };
 		A319A4072A5FBF3D00918762 /* UITextViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4062A5FBF3D00918762 /* UITextViewExt.swift */; };
@@ -683,6 +684,7 @@
 		A30C502B2A0A3A7D0047E87E /* iCode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iCode-Bridging-Header.h"; sourceTree = "<group>"; };
 		A30C502D2A0A3AF30047E87E /* FileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		A30C502E2A0A3B090047E87E /* FileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
+		A311B7412ABF6C8C001AA7F7 /* CodeTextViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextViewList.swift; sourceTree = "<group>"; };
 		A319A3FE2A5D536000918762 /* LSMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSMethod.swift; sourceTree = "<group>"; };
 		A319A4012A5D5F7700918762 /* LSStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSStruct.swift; sourceTree = "<group>"; };
 		A319A4062A5FBF3D00918762 /* UITextViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExt.swift; sourceTree = "<group>"; };
@@ -1093,6 +1095,7 @@
 			isa = PBXGroup;
 			children = (
 				A3D857532A36FCC800165EA7 /* CodeViewController.swift */,
+				A311B7412ABF6C8C001AA7F7 /* CodeTextViewList.swift */,
 				A3C547F72A3B9C59003ABB2B /* CodeTextView.swift */,
 				A319A4122A6A5E3D00918762 /* CompletionBox.swift */,
 				A319A4152A6A833E00918762 /* CompletionButton.swift */,
@@ -2441,6 +2444,7 @@
 				A319A4132A6A5E3D00918762 /* CompletionBox.swift in Sources */,
 				A3D857592A37015000165EA7 /* FileViewController.swift in Sources */,
 				BB28C7BB268975AE00BDC834 /* LocationDevice.m in Sources */,
+				A311B7422ABF6C8C001AA7F7 /* CodeTextViewList.swift in Sources */,
 				A319A4162A6A833E00918762 /* CompletionButton.swift in Sources */,
 				A3D8575E2A37016900165EA7 /* MainTabBarController.swift in Sources */,
 				A3D8575A2A37015400165EA7 /* CreateFileViewController.swift in Sources */,
