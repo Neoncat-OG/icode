@@ -35,17 +35,23 @@ class CodeViewController: UIViewController {
     
     // Called when a file is selected from the File page
     func openCode(filePath: String) {
-        let language = getLanguage(filePath: filePath)
         let codeTextView = CodeTextView()
+        setCodeTextViewAsChild(codeTextView)
+        
+        // Update codeTextView list and current things
         codeTextViewList.append(filePath: filePath, codeTextView: codeTextView)
         currentCodeTextView = codeTextView
         currentFilePath = filePath
         
+        // Open file
         guard let text = try? String(contentsOfFile: rootAllPath + filePath) else {
             showAlert()
             return
         }
         
+        // Set file text to codeTextView
+        // https://docs.runestone.app/documentation/runestone/gettingstarted/#4-Set-the-state-of-the-text-view
+        //
         DispatchQueue.global(qos: .userInitiated).async {
             let state = TextViewState(text: text, language: .c)
             DispatchQueue.main.async {
@@ -53,12 +59,11 @@ class CodeViewController: UIViewController {
             }
         }
         
-        setCodeTextView(codeTextView)
         LSClient.textDocument_didOpen(path: filePath, text: text)
     }
     
     // Add new CodeTextView as a chile of codeView
-    private func setCodeTextView(_ new: CodeTextView) {
+    private func setCodeTextViewAsChild(_ new: CodeTextView) {
         new.editorDelegate = self
         new.inputAccessoryView = self.inputAccessoryView
         codeView.addSubview(new)
