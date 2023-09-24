@@ -165,6 +165,8 @@ class CodeViewController: UIViewController {
 }
 
 extension CodeViewController: TextViewDelegate {
+    
+    // Send message to language servers when text in textView is updated
     func textView(_ textView: TextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         guard let startLocation = textView.textLocation(at: range.location) else { return true }
         guard let endLocation = textView.textLocation(at: range.location + range.length) else { return true }
@@ -172,9 +174,9 @@ extension CodeViewController: TextViewDelegate {
         
         if text == "." {
             LSClient.textDocument_completion(path: currentFilePath, line: startLocation.lineNumber, character: endLocation.column + 1)
-        } else {
-            removeCompletionBox()
+            return true
         }
+        removeCompletionBox()
         return true
     }
 }
