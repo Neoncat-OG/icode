@@ -1,5 +1,5 @@
 //
-//  LSController.swift
+//  LSInitializer.swift
 //  iCode
 //
 //  Created by morinoyu8 on 08/09/23.
