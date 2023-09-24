@@ -3,4 +3,4 @@
 //
 
 #import "FileManager.h"
-#import "LSManager.h"
+#import "LSClientConnector.h"

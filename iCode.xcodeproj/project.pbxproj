@@ -228,7 +228,7 @@
 		A3563C512A880F1500BCFB8C /* TreeSitterYAML in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C502A880F1500BCFB8C /* TreeSitterYAML */; };
 		A3563C532A880F1500BCFB8C /* TreeSitterYAMLQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C522A880F1500BCFB8C /* TreeSitterYAMLQueries */; };
 		A3563C552A880F1500BCFB8C /* TreeSitterYAMLRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C542A880F1500BCFB8C /* TreeSitterYAMLRunestone */; };
-		A3660AE52A46D6C500A755A4 /* LSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3660AE42A46D6C500A755A4 /* LSManager.m */; };
+		A3660AE52A46D6C500A755A4 /* LSClientConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = A3660AE42A46D6C500A755A4 /* LSClientConnector.m */; };
 		A377B9942A3C898F003A995B /* Highlightr in Frameworks */ = {isa = PBXBuildFile; productRef = A377B9932A3C898F003A995B /* Highlightr */; };
 		A377B9982A457B07003A995B /* LSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A377B9972A457B07003A995B /* LSClient.swift */; };
 		A3BF68F02A82BF9D000CF705 /* LSInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF68EF2A82BF9D000CF705 /* LSInitializer.swift */; };
@@ -690,8 +690,8 @@
 		A319A4062A5FBF3D00918762 /* UITextViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExt.swift; sourceTree = "<group>"; };
 		A319A4122A6A5E3D00918762 /* CompletionBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionBox.swift; sourceTree = "<group>"; };
 		A319A4152A6A833E00918762 /* CompletionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionButton.swift; sourceTree = "<group>"; };
-		A3660AE42A46D6C500A755A4 /* LSManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSManager.m; sourceTree = "<group>"; };
-		A3660AE72A46F41E00A755A4 /* LSManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSManager.h; sourceTree = "<group>"; };
+		A3660AE42A46D6C500A755A4 /* LSClientConnector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSClientConnector.m; sourceTree = "<group>"; };
+		A3660AE72A46F41E00A755A4 /* LSClientConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSClientConnector.h; sourceTree = "<group>"; };
 		A377B9972A457B07003A995B /* LSClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSClient.swift; sourceTree = "<group>"; };
 		A37EE49C2A0659C500049353 /* libiCodeApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libiCodeApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		A37EE49D2A0659C600049353 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -1112,8 +1112,8 @@
 				A3BF68EF2A82BF9D000CF705 /* LSInitializer.swift */,
 				A319A4012A5D5F7700918762 /* LSStruct.swift */,
 				A319A3FE2A5D536000918762 /* LSMethod.swift */,
-				A3660AE72A46F41E00A755A4 /* LSManager.h */,
-				A3660AE42A46D6C500A755A4 /* LSManager.m */,
+				A3660AE72A46F41E00A755A4 /* LSClientConnector.h */,
+				A3660AE42A46D6C500A755A4 /* LSClientConnector.m */,
 			);
 			name = LS;
 			sourceTree = "<group>";
@@ -2455,7 +2455,7 @@
 				A3BF68F02A82BF9D000CF705 /* LSInitializer.swift in Sources */,
 				A3D857412A3313B800165EA7 /* KeyboardBar.swift in Sources */,
 				BB28C7BA268975AA00BDC834 /* iOSFS.m in Sources */,
-				A3660AE52A46D6C500A755A4 /* LSManager.m in Sources */,
+				A3660AE52A46D6C500A755A4 /* LSClientConnector.m in Sources */,
 				BB28C7BC268975B000BDC834 /* PasteboardDevice.m in Sources */,
 				A319A4022A5D5F7700918762 /* LSStruct.swift in Sources */,
 				A3D857482A334CC200165EA7 /* UIView+parentViewController.swift in Sources */,
