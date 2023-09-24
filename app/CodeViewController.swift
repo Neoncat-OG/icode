@@ -105,7 +105,7 @@ class CodeViewController: UIViewController {
         codeViewBottomConstraint.constant = 0
     }
     
-    func recieveCompletion(data: [CompletionItem]) {
+    func showCompletion(data: [CompletionItem]) {
         removeCompletionBox()
         
         if data.count < 1 {

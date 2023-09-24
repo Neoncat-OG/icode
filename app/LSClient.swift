@@ -53,7 +53,7 @@ class LSClient {
             let data = try JSONDecoder().decode(Completion_Recieve.self, from: json.data(using: .utf8)!)
             let complationItems: [CompletionItem] = data.result.items
             DispatchQueue.main.async {
-                codeVC?.recieveCompletion(data: complationItems)
+                codeVC?.showCompletion(data: complationItems)
             }
         } catch {
             print("RecieveCompletion error: \(error).")
