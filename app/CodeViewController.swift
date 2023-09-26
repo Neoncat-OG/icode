@@ -27,9 +27,11 @@ class CodeViewController: UIViewController {
     
     var currentLSClient: LSClient?
     
+    private static var instance: CodeViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        LSClient.codeVC = self
+        CodeViewController.instance = self
         currentLSClient = LSClient(name: "clangd")
         LSInitializer.runLanguageServer(name: "clangd")
         currentLSClient?.initialize()
@@ -167,6 +169,11 @@ class CodeViewController: UIViewController {
     func isPortrait() -> Bool {
         return self.view.bounds.height - self.view.bounds.width > 0
     }
+    
+    static func getInstance() -> CodeViewController? {
+        return CodeViewController.instance
+    }
+    
 }
 
 extension CodeViewController: TextViewDelegate {

@@ -42,8 +42,6 @@ class LSClient {
     // Since the response contains only id, Identify method from id when recieving a response.
     static var id2Method: [Int: LSRequestMethod] = [:]
     
-    static var codeVC: CodeViewController? = nil
-    
     enum LSClientError: Error {
         case FailConvertString
     }

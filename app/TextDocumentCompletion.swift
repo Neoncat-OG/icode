@@ -51,7 +51,7 @@ extension LSClient {
             let completion = try JSONDecoder().decode(TextDocumentCompletionResponseMessage.self, from: data)
             let complationItems: [CompletionItem] = completion.result.items
             DispatchQueue.main.async {
-                codeVC?.showCompletion(data: complationItems)
+                CodeViewController.getInstance()?.showCompletion(data: complationItems)
             }
         } catch {
             print("Decodeing textDocument/completion response data error: \(error).")

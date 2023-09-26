@@ -26,6 +26,6 @@ extension LSClient {
     
     // Recieve initialize response.
     static func recieveInitialize(responseMessage message: String) {
-        codeVC?.currentLSClient?.initialized()
+        CodeViewController.getInstance()?.currentLSClient?.initialized()
     }
 }
