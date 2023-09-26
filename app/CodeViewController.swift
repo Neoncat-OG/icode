@@ -25,10 +25,15 @@ class CodeViewController: UIViewController {
     let complationMaxHeight: Double = 120
     let completionCellHeight:Double = 40
     
+    var currentLSClient: LSClient?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         LSClient.codeVC = self
+        currentLSClient = LSClient(name: "clangd")
         LSInitializer.runLanguageServer(name: "clangd")
+        currentLSClient?.initialize()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -59,7 +64,7 @@ class CodeViewController: UIViewController {
             }
         }
         
-        LSClient.textDocument_didOpen(path: filePath, text: text)
+        currentLSClient?.textDocumentDidOpen(path: filePath, text: text)
     }
     
     // Add new CodeTextView as a chile of codeView
@@ -168,12 +173,11 @@ extension CodeViewController: TextViewDelegate {
     
     // Send message to language servers when text in textView is updated
     func textView(_ textView: TextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        guard let startLocation = textView.textLocation(at: range.location) else { return true }
-        guard let endLocation = textView.textLocation(at: range.location + range.length) else { return true }
-        LSClient.textDocument_didChange(path: currentFilePath, text: text, startLocation: startLocation, endLocation: endLocation)
-        
+        guard let start = textView.textLocation(at: range.location) else { return true }
+        guard let end = textView.textLocation(at: range.location + range.length) else { return true }
+        currentLSClient?.textDocumentDidChange(path: currentFilePath, text: text, startLocation: start, endLocation: end)
         if text == "." {
-            LSClient.textDocument_completion(path: currentFilePath, line: startLocation.lineNumber, character: endLocation.column + 1)
+            currentLSClient?.textDocumentCompletion(path: currentFilePath, line: start.lineNumber, character: start.column + 1)
             return true
         }
         removeCompletionBox()

@@ -9,142 +9,137 @@ import Foundation
 import UIKit
 import Runestone
 
+
+struct RequestMessage<T: Codable>: Codable {
+    var jsonrpc: String = "2.0"
+    var id: Int
+    var method: String
+    var params: T
+}
+
+struct NotificationMessage<T: Codable>: Codable {
+    var jsonrpc: String = "2.0"
+    var method: String
+    var params: T
+}
+
+struct ResponseMessage: Codable {
+    var jsonrpc: String
+    var id: Int?
+}
+
+
 class LSClient {
     
-    static var currentLanguage: CodeLanguage = .c
+    // Name of LS communicating with this client.
+    let name: String
+    
+    // id is included in a request to LS.
+    // id does not duplicate another request.
     static var id: Int = 1
-    static var id2Method: [Int: LSMethod] = [:]
+    
+    // Link id to method when sending request.
+    // Since the response contains only id, Identify method from id when recieving a response.
+    static var id2Method: [Int: LSRequestMethod] = [:]
+    
     static var codeVC: CodeViewController? = nil
     
-    static func recieveData(data: String) {
-        print(data)
-        if data.first != "{" {
+    enum LSClientError: Error {
+        case FailConvertString
+    }
+    
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    
+    // Send request to LS.
+    // params is a structure corresponding to method.
+    func sendRequest<T: Codable>(method: LSRequestMethod, params: T) {
+        let requestMessage = RequestMessage(id: LSClient.id, method: method.rawValue, params: params)
+        do {
+            let jsonData = try JSONEncoder().encode(requestMessage)
+            let sendMessage = try convertDataForLS(data: jsonData)
+            sendMessageToServer(message: sendMessage)
+            LSClient.id2Method.updateValue(method, forKey: LSClient.id)
+            LSClient.id += 1
+        } catch LSClientError.FailConvertString {
+            print("\(method.rawValue): Converting String error")
+        } catch {
+            print("\(method.rawValue) request message encoding error: \(error).")
+        }
+    }
+    
+    // Send notification to LS.
+    // params is a structure corresponding to method.
+    func sendNotification<T: Codable>(method: LSNotificationMethod, params: T) {
+        
+        let notificationMessage = NotificationMessage(method: method.rawValue, params: params)
+        do {
+            let jsonData = try JSONEncoder().encode(notificationMessage)
+            let sendMessage = try convertDataForLS(data: jsonData)
+            sendMessageToServer(message: sendMessage)
+        } catch LSClientError.FailConvertString {
+            print("\(method.rawValue): Converting String error")
+        } catch {
+            print("Send notification message error: \(error).")
+        }
+    }
+    
+    // Convert to format to send to LS.
+    // Throws an error if conversion to string fails.
+    private func convertDataForLS(data: Data) throws -> String {
+        guard let string = String(data: data, encoding: .utf8) else {
+            throw LSClientError.FailConvertString
+        }
+        let contentLength = string.utf8.count
+        return "Content-Length: \(contentLength)\r\n\(string)\n"
+    }
+    
+    private func sendMessageToServer(message: String) {
+        let length = message.utf8.count
+        send_server(message, Int32(length))
+    }
+    
+    
+    // Called when the client recieves a response from LS.
+    static func recieveResponse(message: String) {
+        // If message is not in JSON format, this method does nothing.
+        if message.first != "{" {
             return
         }
         
         do {
-            let jsonData = try JSONDecoder().decode(Data_Recieve.self, from: data.data(using: .utf8)!)
-            guard let id = jsonData.id else { return }
-            guard let method = id2Method[id] else { return }
-            id2Method.removeValue(forKey: id)
-            switch (method) {
-            case LSMethod.Initialize:
-                recieveInitialize(json: data)
-                break
-            case LSMethod.TextDocument_Completion:
-                recieveCompletion(json: data)
-                break
-            default:
+            // Decode response to temporary structure ResponseMessage
+            // to get the corresponding method.
+            guard let data = message.data(using: .utf8) else {
+                print("Converting responce message to data error.")
                 return
+            }
+            let response = try JSONDecoder().decode(ResponseMessage.self, from: data)
+            
+            // Get method corresponding to id from id2Method
+            guard let id = response.id else { return }
+            guard let method = id2Method[id] else {
+                print("Cannot find corresponding method to id(\(id))")
+                return
+            }
+            // id received from response is removed
+            id2Method.removeValue(forKey: id)
+            
+            switch (method) {
+            case .initialize:
+                recieveInitialize(responseMessage: message)
+            case .textDocumentCompletion:
+                recieveTextDocumentCompletion(responceMessage: message)
             }
             
         } catch {
+            // If the response message cannot be decoded to ResponseMessage structure,
+            // it may be error response.
+            // TODO: error response
             print("Recieve Data error: \(error).")
-            return
         }
-    }
-    
-    private static func recieveInitialize(json: String) {
-        initialized()
-    }
-    
-    private static func recieveCompletion(json: String) {
-        do {
-            let data = try JSONDecoder().decode(Completion_Recieve.self, from: json.data(using: .utf8)!)
-            let complationItems: [CompletionItem] = data.result.items
-            DispatchQueue.main.async {
-                codeVC?.showCompletion(data: complationItems)
-            }
-        } catch {
-            print("RecieveCompletion error: \(error).")
-        }
-    }
-    
-    
-    private static func sendData(json: String) {
-        id += 1
-        let contentLength = json.utf8.count
-        let sendData = "Content-Length: \(contentLength)\r\n\(json)\n"
-        let length = sendData.utf8.count
-        send_server(sendData, Int32(length))
-    }
-    
-    //
-    //  initialize
-    //
-    static func initialize() {
-        let uri = URL(fileURLWithPath: "/").absoluteString
-        let initializeParams = InitializeParams(processId: 1, rootUri: uri, capabilities: [])
-        let initialize = Initialize(id: id, method: "initialize", params: initializeParams)
-        let initializeData = try! JSONEncoder().encode(initialize)
-        let initializeString = String(data: initializeData, encoding: .utf8)!
-        id2Method.updateValue(LSMethod.Initialize, forKey: id)
-        sendData(json: initializeString)
-    }
-    
-    //
-    //  initialized
-    //
-    static func initialized() {
-        let initialized = Initialized(method: "initialized", params: InitializedParams())
-        let initializedData = try! JSONEncoder().encode(initialized)
-        let initializedString = String(data: initializedData, encoding: .utf8)!
-        id2Method.updateValue(LSMethod.Initialized, forKey: id)
-        sendData(json: initializedString)
-    }
-    
-    //
-    //  textDocument/didOpen
-    //
-    static func textDocument_didOpen(path: String, text: String) {
-        let uri = URL(fileURLWithPath: path).absoluteString
-        let textDocumentItem = TextDocumentItem(uri: uri, languageId: "cpp", version: 0, text: text)
-        let didOpenTextDocumentParams = DidOpenTextDocumentParams(textDocument: textDocumentItem)
-        let didOpen = DidOpen(method: "textDocument/didOpen", params: didOpenTextDocumentParams)
-        let didOpenData = try! JSONEncoder().encode(didOpen)
-        let didOpenString = String(data: didOpenData, encoding: .utf8)!
-        id2Method.updateValue(LSMethod.TextDocument_DidOpen, forKey: id)
-        sendData(json: didOpenString)
-    }
-    
-    //
-    //  textDocument/didChange
-    //
-    static func textDocument_didChange(path: String, text: String, startLocation start: TextLocation? = nil, endLocation end: TextLocation? = nil) {
-        let uri = URL(fileURLWithPath: path).absoluteString
-        let versionedTextDocumentIdentifier = VersionedTextDocumentIdentifier(uri: uri, version: 1)
-        
-        let createTextDocumentContentChangeEvent = {
-            if start == nil || end == nil {
-                return TextDocumentContentChangeEvent(text: text)
-            }
-            let startPosition = Position(line: start!.lineNumber, character: start!.column)
-            let endPosition = Position(line: end!.lineNumber, character: end!.column)
-            let range = Range(start: startPosition, end: endPosition)
-            return TextDocumentContentChangeEvent(range: range, text: text)
-        }
-        
-        let textDocumentContentChangeEvent = createTextDocumentContentChangeEvent()
-        let didChangeTextDocumentParams = DidChangeTextDocumentParams(textDocument: versionedTextDocumentIdentifier, contentChanges: [textDocumentContentChangeEvent])
-        let didChange = DidChange(method: "textDocument/didChange", params: didChangeTextDocumentParams)
-        let didChangeData = try! JSONEncoder().encode(didChange)
-        let didChangeString = String(data: didChangeData, encoding: .utf8)!
-        id2Method.updateValue(LSMethod.TextDocument_DidChange, forKey: id)
-        sendData(json: didChangeString)
-    }
-    
-    //
-    //  textDocument/completion
-    //
-    static func textDocument_completion(path: String, line: Int, character: Int) {
-        let uri = URL(fileURLWithPath: path).absoluteString
-        let textDocumentIdentifier = TextDocumentIdentifier(uri: uri)
-        let position = Position(line: line, character: character)
-        let completionParams = CompletionParams(textDocument: textDocumentIdentifier, position: position)
-        let completion = Completion(id: self.id, method: "textDocument/completion", params: completionParams)
-        let completionData = try! JSONEncoder().encode(completion)
-        let completionString = String(data: completionData, encoding: .utf8)!
-        id2Method.updateValue(LSMethod.TextDocument_Completion, forKey: id)
-        sendData(json: completionString)
     }
 }

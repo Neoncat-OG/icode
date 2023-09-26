@@ -5,10 +5,13 @@
 //  Created by morinoyu8 on 07/11/23.
 //
 
-enum LSMethod {
-    case Initialize
-    case Initialized
-    case TextDocument_DidOpen
-    case TextDocument_DidChange
-    case TextDocument_Completion
+enum LSRequestMethod: String {
+    case initialize = "initialize"
+    case textDocumentCompletion = "textDocument/completion"
+}
+
+enum LSNotificationMethod: String {
+    case initialized = "initialized"
+    case textDocumentDidOpen = "textDocument/didOpen"
+    case textDocumentDidChange = "textDocument/didChange"
 }
