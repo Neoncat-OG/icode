@@ -32,9 +32,6 @@ class CodeViewController: UIViewController {
     @IBOutlet weak var codeView: UIView!
     @IBOutlet weak var codeViewBottomConstraint: NSLayoutConstraint!
     
-    let complationMaxHeight: Double = 120
-    let completionCellHeight:Double = 40
-    
     private static var instance: CodeViewController?
     
     override func viewDidLoad() {
@@ -134,18 +131,16 @@ class CodeViewController: UIViewController {
             return
         }
         
-        var buttons: [ComplationButton] = []
-        for (i, completion) in data.enumerated() {
-            let button = ComplationButton(frame: CGRect(x: 0, y: completionCellHeight * Double(i), width: safeAreaSize().width, height: completionCellHeight), main: completion.insertText, sub: completion.detail ?? "")
-            button.addTarget(self, action: #selector(insertCompletion(_ :)), for: .touchUpInside)
-            buttons.append(button)
-        }
-        
+        // Generate completion box.
+        // Set the completion value to be inserted when the button is touched.
         let boxRect = completionBoxRect(cellCount: data.count)
-        let completionBox = CompletionBox(frame: boxRect, buttons: buttons)
+        let completionBox = CompletionBox(frame: boxRect, completionItem: data)
+        completionBox.addButtonTarget(self, action: #selector(insertCompletion(_ :)), for: .touchUpInside)
         self.view.addSubview(completionBox)
-        codeViewBottomConstraint.constant += boxRect.height
         currentCompletionBox = completionBox
+        
+        // Adjust codeView size.
+        codeViewBottomConstraint.constant += boxRect.height
     }
     
     @objc func insertCompletion(_ sender: ComplationButton) {
@@ -153,10 +148,12 @@ class CodeViewController: UIViewController {
         currentCodeTextView?.insertText(sender.label)
     }
     
+    // Calculate the position and size of the CompletionBox
     func completionBoxRect(cellCount: Int) -> CGRect {
-        var boxHeight: Double = Double(complationMaxHeight)
-        if cellCount < Int(complationMaxHeight) / Int(completionCellHeight) {
-            boxHeight = completionCellHeight * Double(cellCount)
+        var boxHeight: Double = Double(CompletionBox.complationMaxHeight)
+        // If the number of completions is less than certain value, reduce the size of the box.
+        if cellCount < Int(CompletionBox.complationMaxHeight) / Int(CompletionBox.completionCellHeight) {
+            boxHeight = CompletionBox.completionCellHeight * Double(cellCount)
         }
         
         let position_x = 0.0
@@ -178,10 +175,6 @@ class CodeViewController: UIViewController {
         let safeAreaWidth = self.view.bounds.width - self.view.safeAreaInsets.left - self.view.safeAreaInsets.right
         let safeAreaHeight = self.view.bounds.height - self.view.safeAreaInsets.top - self.view.safeAreaInsets.bottom
         return (width: safeAreaWidth, height: safeAreaHeight)
-    }
-    
-    func isPortrait() -> Bool {
-        return self.view.bounds.height - self.view.bounds.width > 0
     }
     
     static func getInstance() -> CodeViewController? {
