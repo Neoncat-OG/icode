@@ -1,15 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "highlightr",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/morinoyu8/Highlightr.git",
-      "state" : {
-        "branch" : "master",
-        "revision" : "db2ba565f05d9172f87dc3d534bc2ea6acfe6449"
-      }
-    },
-    {
       "identity" : "runestone",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/simonbs/Runestone.git",
