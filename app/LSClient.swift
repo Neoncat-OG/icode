@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Runestone
 
-
+// https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#requestMessage
 struct RequestMessage<T: Codable>: Codable {
     var jsonrpc: String = "2.0"
     var id: Int
@@ -17,12 +17,14 @@ struct RequestMessage<T: Codable>: Codable {
     var params: T
 }
 
+// https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#notificationMessage
 struct NotificationMessage<T: Codable>: Codable {
     var jsonrpc: String = "2.0"
     var method: String
     var params: T
 }
 
+// https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#responseMessage
 struct ResponseMessage: Codable {
     var jsonrpc: String
     var id: Int?

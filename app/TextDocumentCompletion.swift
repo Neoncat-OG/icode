@@ -4,6 +4,8 @@
 //
 //  Created by morinoyu8 on 09/25/23.
 //
+// https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_completion
+//
 
 import Foundation
 
@@ -50,6 +52,8 @@ extension LSClient {
             }
             let completion = try JSONDecoder().decode(TextDocumentCompletionResponseMessage.self, from: data)
             let complationItems: [CompletionItem] = completion.result.items
+            
+            // Processing related to screen rendering should be in the main thread
             DispatchQueue.main.async {
                 CodeViewController.getInstance()?.showCompletion(data: complationItems)
             }
