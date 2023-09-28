@@ -9,29 +9,42 @@ import UIKit
 import Runestone
 
 class CodeViewController: UIViewController {
+    
+    // Manage multiple CodeTextView.
     var codeTextViewList: CodeTextViewList = CodeTextViewList()
+    
+    // The currently displayed CodeTextView and its file path.
+    // This file path is path from root of the Linux filesystem.
     var currentCodeTextView: CodeTextView?
     var currentFilePath: String = ""
     
-    // Path to root of the Linux filesystem
-    // The last "/" is removed
+    // LSClient communicating to the language server that should currently be running.
+    var currentLSClient: LSClient?
+    
+    // completionBox currently displayed.
+    // If No completionBox is displayed, it should be nil.
+    var currentCompletionBox: CompletionBox? = nil
+    
+    // Path to root of the Linux filesystem from root of the iOS filesystem.
+    // The last "/" is removed.
     let rootAllPath: String = String(String(cString: get_all_path("/".cString(using: .utf8))).dropLast())
     
     @IBOutlet weak var codeView: UIView!
     @IBOutlet weak var codeViewBottomConstraint: NSLayoutConstraint!
     
-    var currentCompletionBox: CompletionBox? = nil
-    
     let complationMaxHeight: Double = 120
     let completionCellHeight:Double = 40
-    
-    var currentLSClient: LSClient?
     
     private static var instance: CodeViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Only one instance of CodeViewController is created.
         CodeViewController.instance = self
+        
+        // Run the language server clangd and generate its clients.
+        // TODO: Support multiple language servers.
         currentLSClient = LSClient(name: "clangd")
         LSInitializer.runLanguageServer(name: "clangd")
         currentLSClient?.initialize()
@@ -77,6 +90,7 @@ class CodeViewController: UIViewController {
         new.setConstraint(parent: codeView)
     }
     
+    // Alert displayed when a text file cannot be opened.
     func showAlert() {
         let alert = UIAlertController(
                     title: "File cannot be opened",
@@ -183,6 +197,7 @@ extension CodeViewController: TextViewDelegate {
         guard let start = textView.textLocation(at: range.location) else { return true }
         guard let end = textView.textLocation(at: range.location + range.length) else { return true }
         currentLSClient?.textDocumentDidChange(path: currentFilePath, text: text, startLocation: start, endLocation: end)
+        
         if text == "." {
             currentLSClient?.textDocumentCompletion(path: currentFilePath, line: start.lineNumber, character: start.column + 1)
             return true
