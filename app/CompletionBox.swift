@@ -45,7 +45,7 @@ class CompletionBox: UIScrollView {
         super.init(coder: coder)
     }
     
-    //
+    // Method executed when completion buttons are pushed.
     func addButtonTarget(_ target: Any?, action: Selector, for event: UIControl.Event) {
         for button in buttons {
             button.addTarget(target, action: action, for: event)
