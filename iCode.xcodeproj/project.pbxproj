@@ -110,7 +110,6 @@
 		A311B7472AC1611E001AA7F7 /* Initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311B7462AC1611D001AA7F7 /* Initialize.swift */; };
 		A311B7492AC1620F001AA7F7 /* Initialized.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311B7482AC1620F001AA7F7 /* Initialized.swift */; };
 		A319A3FF2A5D536000918762 /* LSMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A3FE2A5D536000918762 /* LSMethod.swift */; };
-		A319A4072A5FBF3D00918762 /* UITextViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4062A5FBF3D00918762 /* UITextViewExt.swift */; };
 		A319A4132A6A5E3D00918762 /* CompletionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4122A6A5E3D00918762 /* CompletionBox.swift */; };
 		A319A4162A6A833E00918762 /* CompletionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4152A6A833E00918762 /* CompletionButton.swift */; };
 		A3563B6D2A880C0800BCFB8C /* Runestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B6C2A880C0800BCFB8C /* Runestone */; };
@@ -692,7 +691,6 @@
 		A311B7462AC1611D001AA7F7 /* Initialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initialize.swift; sourceTree = "<group>"; };
 		A311B7482AC1620F001AA7F7 /* Initialized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initialized.swift; sourceTree = "<group>"; };
 		A319A3FE2A5D536000918762 /* LSMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSMethod.swift; sourceTree = "<group>"; };
-		A319A4062A5FBF3D00918762 /* UITextViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExt.swift; sourceTree = "<group>"; };
 		A319A4122A6A5E3D00918762 /* CompletionBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionBox.swift; sourceTree = "<group>"; };
 		A319A4152A6A833E00918762 /* CompletionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionButton.swift; sourceTree = "<group>"; };
 		A3660AE42A46D6C500A755A4 /* LSClientConnector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSClientConnector.m; sourceTree = "<group>"; };
@@ -1129,7 +1127,6 @@
 				A319A4122A6A5E3D00918762 /* CompletionBox.swift */,
 				A319A4152A6A833E00918762 /* CompletionButton.swift */,
 				A3BF68C92A7401F2000CF705 /* LS */,
-				A3BF68CA2A740233000CF705 /* Extension */,
 			);
 			name = Editor;
 			sourceTree = "<group>";
@@ -1144,14 +1141,6 @@
 				A311B7442AC16030001AA7F7 /* Protocols */,
 			);
 			name = LS;
-			sourceTree = "<group>";
-		};
-		A3BF68CA2A740233000CF705 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				A319A4062A5FBF3D00918762 /* UITextViewExt.swift */,
-			);
-			name = Extension;
 			sourceTree = "<group>";
 		};
 		A3C19DA22AC19A9200CD6EFD /* LanguageFeatures */ = {
@@ -2494,7 +2483,6 @@
 				A3EE07E62AC187DB00731773 /* TextDocumentDidOpen.swift in Sources */,
 				A3D8575A2A37015400165EA7 /* CreateFileViewController.swift in Sources */,
 				A3D8575D2A37016300165EA7 /* CodeViewController.swift in Sources */,
-				A319A4072A5FBF3D00918762 /* UITextViewExt.swift in Sources */,
 				A311B7492AC1620F001AA7F7 /* Initialized.swift in Sources */,
 				A3D8575B2A37015900165EA7 /* FileManager.m in Sources */,
 				A377B9982A457B07003A995B /* LSClient.swift in Sources */,
