@@ -9,8 +9,8 @@
 #import "FileProviderItem.h"
 #import "FileProviderEnumerator.h"
 #import "NSError+ISHErrno.h"
-#import "../AppGroup.h"
-#import "../ExceptionExfiltrator.h"
+#import "../Utilities/AppGroup.h"
+#import "../Utilities/ExceptionExfiltrator.h"
 #include "fs/fake-db.h"
 
 @interface FileProviderExtension () {
