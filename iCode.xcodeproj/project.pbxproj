@@ -697,7 +697,6 @@
 		A3660AE42A46D6C500A755A4 /* LSClientConnector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSClientConnector.m; sourceTree = "<group>"; };
 		A3660AE72A46F41E00A755A4 /* LSClientConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSClientConnector.h; sourceTree = "<group>"; };
 		A377B9972A457B07003A995B /* LSClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSClient.swift; sourceTree = "<group>"; };
-		A37EE49C2A0659C500049353 /* libiCodeApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libiCodeApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		A37EE49D2A0659C600049353 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A3BF68C52A73FE73000CF705 /* iSHLog.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = iSHLog.xcconfig; sourceTree = "<group>"; };
 		A3BF68EF2A82BF9D000CF705 /* LSInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSInitializer.swift; sourceTree = "<group>"; };
@@ -1452,7 +1451,6 @@
 				BB88F4A4215476BA00A341FD /* iCode.entitlements */,
 				BB88F4912154760800A341FD /* FileProvider */,
 				BB41591D255EF9E300E0950C /* UITests */,
-				A37EE49C2A0659C500049353 /* libiCodeApp-Bridging-Header.h */,
 				A30C502B2A0A3A7D0047E87E /* iCode-Bridging-Header.h */,
 			);
 			path = app;
