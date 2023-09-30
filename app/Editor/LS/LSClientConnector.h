@@ -1,5 +1,5 @@
 //
-//  LSManager.h
+//  LSClientConnector.h
 //  iCode
 //
 //  Created by morinoyu8 on 06/24/23.

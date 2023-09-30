@@ -106,9 +106,10 @@
 		497F6D87254E62E100C82F46 /* libish.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB13F7DC200AD81D003D1C4D /* libish.a */; };
 		49FF844B2A06249F00850B7A /* ExceptionExfiltrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FF844A2A06249F00850B7A /* ExceptionExfiltrator.m */; };
 		A30C50302A0A3B090047E87E /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A30C502E2A0A3B090047E87E /* FileManager.m */; };
+		A311B7422ABF6C8C001AA7F7 /* CodeTextViewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311B7412ABF6C8C001AA7F7 /* CodeTextViewList.swift */; };
+		A311B7472AC1611E001AA7F7 /* Initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311B7462AC1611D001AA7F7 /* Initialize.swift */; };
+		A311B7492AC1620F001AA7F7 /* Initialized.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311B7482AC1620F001AA7F7 /* Initialized.swift */; };
 		A319A3FF2A5D536000918762 /* LSMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A3FE2A5D536000918762 /* LSMethod.swift */; };
-		A319A4022A5D5F7700918762 /* LSStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4012A5D5F7700918762 /* LSStruct.swift */; };
-		A319A4072A5FBF3D00918762 /* UITextViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4062A5FBF3D00918762 /* UITextViewExt.swift */; };
 		A319A4132A6A5E3D00918762 /* CompletionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4122A6A5E3D00918762 /* CompletionBox.swift */; };
 		A319A4162A6A833E00918762 /* CompletionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A319A4152A6A833E00918762 /* CompletionButton.swift */; };
 		A3563B6D2A880C0800BCFB8C /* Runestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563B6C2A880C0800BCFB8C /* Runestone */; };
@@ -227,10 +228,10 @@
 		A3563C512A880F1500BCFB8C /* TreeSitterYAML in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C502A880F1500BCFB8C /* TreeSitterYAML */; };
 		A3563C532A880F1500BCFB8C /* TreeSitterYAMLQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C522A880F1500BCFB8C /* TreeSitterYAMLQueries */; };
 		A3563C552A880F1500BCFB8C /* TreeSitterYAMLRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3563C542A880F1500BCFB8C /* TreeSitterYAMLRunestone */; };
-		A3660AE52A46D6C500A755A4 /* LSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3660AE42A46D6C500A755A4 /* LSManager.m */; };
-		A377B9942A3C898F003A995B /* Highlightr in Frameworks */ = {isa = PBXBuildFile; productRef = A377B9932A3C898F003A995B /* Highlightr */; };
+		A3660AE52A46D6C500A755A4 /* LSClientConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = A3660AE42A46D6C500A755A4 /* LSClientConnector.m */; };
 		A377B9982A457B07003A995B /* LSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A377B9972A457B07003A995B /* LSClient.swift */; };
-		A3BF68F02A82BF9D000CF705 /* LSController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF68EF2A82BF9D000CF705 /* LSController.swift */; };
+		A3BF68F02A82BF9D000CF705 /* LSInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF68EF2A82BF9D000CF705 /* LSInitializer.swift */; };
+		A3C19DA12AC19A6600CD6EFD /* TextDocumentCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C19DA02AC19A6600CD6EFD /* TextDocumentCompletion.swift */; };
 		A3C547F82A3B9C5A003ABB2B /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C547F72A3B9C59003ABB2B /* CodeTextView.swift */; };
 		A3D857412A3313B800165EA7 /* KeyboardBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D857402A3313B800165EA7 /* KeyboardBar.swift */; };
 		A3D857482A334CC200165EA7 /* UIView+parentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D857472A334CC200165EA7 /* UIView+parentViewController.swift */; };
@@ -239,6 +240,9 @@
 		A3D8575B2A37015900165EA7 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A30C502E2A0A3B090047E87E /* FileManager.m */; };
 		A3D8575D2A37016300165EA7 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D857532A36FCC800165EA7 /* CodeViewController.swift */; };
 		A3D8575E2A37016900165EA7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37EE49D2A0659C600049353 /* MainTabBarController.swift */; };
+		A3EE07E62AC187DB00731773 /* TextDocumentDidOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE07E52AC187DB00731773 /* TextDocumentDidOpen.swift */; };
+		A3EE07E82AC188ED00731773 /* BasicJSONStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE07E72AC188ED00731773 /* BasicJSONStructures.swift */; };
+		A3EE07EA2AC1929F00731773 /* TextDocumentDidChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE07E92AC1929F00731773 /* TextDocumentDidChange.swift */; };
 		BB0F552E239F8A790032A2A1 /* Icons.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB0F552D239F8A790032A2A1 /* Icons.plist */; };
 		BB10E5C9248DBAAC009C7A74 /* libarchive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB10E5C8248DBAA1009C7A74 /* libarchive.a */; };
 		BB10E5D0248DC21D009C7A74 /* Roots.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB10E5CF248DC21D009C7A74 /* Roots.storyboard */; };
@@ -683,23 +687,28 @@
 		A30C502B2A0A3A7D0047E87E /* iCode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iCode-Bridging-Header.h"; sourceTree = "<group>"; };
 		A30C502D2A0A3AF30047E87E /* FileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		A30C502E2A0A3B090047E87E /* FileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
+		A311B7412ABF6C8C001AA7F7 /* CodeTextViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextViewList.swift; sourceTree = "<group>"; };
+		A311B7462AC1611D001AA7F7 /* Initialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initialize.swift; sourceTree = "<group>"; };
+		A311B7482AC1620F001AA7F7 /* Initialized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initialized.swift; sourceTree = "<group>"; };
 		A319A3FE2A5D536000918762 /* LSMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSMethod.swift; sourceTree = "<group>"; };
-		A319A4012A5D5F7700918762 /* LSStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSStruct.swift; sourceTree = "<group>"; };
-		A319A4062A5FBF3D00918762 /* UITextViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExt.swift; sourceTree = "<group>"; };
 		A319A4122A6A5E3D00918762 /* CompletionBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionBox.swift; sourceTree = "<group>"; };
 		A319A4152A6A833E00918762 /* CompletionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionButton.swift; sourceTree = "<group>"; };
-		A3660AE42A46D6C500A755A4 /* LSManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSManager.m; sourceTree = "<group>"; };
-		A3660AE72A46F41E00A755A4 /* LSManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSManager.h; sourceTree = "<group>"; };
+		A3595AB22AC6153800E3763E /* mach_exc.defs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.mig; name = mach_exc.defs; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/mach/mach_exc.defs; sourceTree = DEVELOPER_DIR; };
+		A3660AE42A46D6C500A755A4 /* LSClientConnector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSClientConnector.m; sourceTree = "<group>"; };
+		A3660AE72A46F41E00A755A4 /* LSClientConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSClientConnector.h; sourceTree = "<group>"; };
 		A377B9972A457B07003A995B /* LSClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSClient.swift; sourceTree = "<group>"; };
-		A37EE49C2A0659C500049353 /* libiCodeApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libiCodeApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		A37EE49D2A0659C600049353 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A3BF68C52A73FE73000CF705 /* iSHLog.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = iSHLog.xcconfig; sourceTree = "<group>"; };
-		A3BF68EF2A82BF9D000CF705 /* LSController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSController.swift; sourceTree = "<group>"; };
+		A3BF68EF2A82BF9D000CF705 /* LSInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSInitializer.swift; sourceTree = "<group>"; };
+		A3C19DA02AC19A6600CD6EFD /* TextDocumentCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDocumentCompletion.swift; sourceTree = "<group>"; };
 		A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFileViewController.swift; sourceTree = "<group>"; };
 		A3C547F72A3B9C59003ABB2B /* CodeTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeTextView.swift; sourceTree = "<group>"; };
 		A3D857402A3313B800165EA7 /* KeyboardBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardBar.swift; sourceTree = "<group>"; };
 		A3D857472A334CC200165EA7 /* UIView+parentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+parentViewController.swift"; sourceTree = "<group>"; };
 		A3D857532A36FCC800165EA7 /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
+		A3EE07E52AC187DB00731773 /* TextDocumentDidOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDocumentDidOpen.swift; sourceTree = "<group>"; };
+		A3EE07E72AC188ED00731773 /* BasicJSONStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicJSONStructures.swift; sourceTree = "<group>"; };
+		A3EE07E92AC1929F00731773 /* TextDocumentDidChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDocumentDidChange.swift; sourceTree = "<group>"; };
 		BB0B848E2586A4CF00208600 /* XcodeDefault.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = XcodeDefault.xcconfig; sourceTree = "<group>"; };
 		BB0B859B2586F13200208600 /* XcodeDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = XcodeDebug.xcconfig; sourceTree = "<group>"; };
 		BB0B859C2586F19000208600 /* XcodeRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = XcodeRelease.xcconfig; sourceTree = "<group>"; };
@@ -714,7 +723,7 @@
 		BB101B362364CF57000A93BC /* FontPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontPickerViewController.h; sourceTree = "<group>"; };
 		BB101B372364CF57000A93BC /* FontPickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FontPickerViewController.m; sourceTree = "<group>"; };
 		BB10E0C1248DA5B0009C7A74 /* libarchive.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libarchive.xcodeproj; path = ../deps/libarchive.xcodeproj; sourceTree = "<group>"; };
-		BB10E5C2248DBA7B009C7A74 /* fakefs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fakefs.c; path = tools/fakefs.c; sourceTree = SOURCE_ROOT; };
+		BB10E5C2248DBA7B009C7A74 /* fakefs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fakefs.c; path = app/Roots/fakefs.c; sourceTree = SOURCE_ROOT; };
 		BB10E5CC248DBE66009C7A74 /* Roots.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Roots.h; sourceTree = "<group>"; };
 		BB10E5CD248DBE66009C7A74 /* Roots.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Roots.m; sourceTree = "<group>"; };
 		BB10E5CF248DC21D009C7A74 /* Roots.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Roots.storyboard; sourceTree = "<group>"; };
@@ -784,7 +793,7 @@
 		BB88F49B2154760800A341FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB88F49C2154760800A341FD /* iSHFileProvider.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iSHFileProvider.entitlements; sourceTree = "<group>"; };
 		BB88F4A4215476BA00A341FD /* iCode.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iCode.entitlements; sourceTree = "<group>"; };
-		BB8C3AFD26B7B8AF00E38DDC /* fakefs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fakefs.c; path = linux/fakefs.c; sourceTree = SOURCE_ROOT; };
+		BB8C3AFD26B7B8AF00E38DDC /* fakefs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fakefs.c; path = app/LinuxInterop/fakefs.c; sourceTree = SOURCE_ROOT; };
 		BB9C7B84240A240E00F5D4F0 /* AppGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppGroup.m; sourceTree = "<group>"; };
 		BB9C7B86240A29DE00F5D4F0 /* AppGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppGroup.h; sourceTree = "<group>"; };
 		BB9C7B88240A343400F5D4F0 /* iCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = iCode.xcconfig; path = app/iCode.xcconfig; sourceTree = "<group>"; };
@@ -930,7 +939,6 @@
 				A3563B972A880F1500BCFB8C /* TreeSitterCommentQueries in Frameworks */,
 				A3563BB72A880F1500BCFB8C /* TreeSitterHaskellRunestone in Frameworks */,
 				A3563C4D2A880F1500BCFB8C /* TreeSitterTypeScriptQueries in Frameworks */,
-				A377B9942A3C898F003A995B /* Highlightr in Frameworks */,
 				A3563B9B2A880F1500BCFB8C /* TreeSitterElixir in Frameworks */,
 				A3563C212A880F1500BCFB8C /* TreeSitterRust in Frameworks */,
 				A3563C472A880F1500BCFB8C /* TreeSitterTSXQueries in Frameworks */,
@@ -1063,76 +1071,47 @@
 			path = interp;
 			sourceTree = "<group>";
 		};
-		A3BF68C62A740135000CF705 /* Terminal */ = {
+		A3595AB12AC6152900E3763E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				BB792B561F96D90D00FFB7A4 /* TerminalViewController.h */,
-				BB792B571F96D90D00FFB7A4 /* TerminalViewController.m */,
-				BB78AB291FAD22440013E782 /* TerminalView.h */,
-				BB78AB2A1FAD22440013E782 /* TerminalView.m */,
-				BB0FC5901F980A6B00803272 /* Terminal.h */,
-				BB0FC5911F980A6B00803272 /* Terminal.m */,
-				BB23F58B231E1D1400585522 /* ScrollbarView.h */,
-				BB23F58C231E1D1400585522 /* ScrollbarView.m */,
+				497A08BC2961168400B323CF /* AccessibilityFixes.m */,
+				BB9C7B86240A29DE00F5D4F0 /* AppGroup.h */,
+				BB9C7B84240A240E00F5D4F0 /* AppGroup.m */,
+				BB455E0F1FB37F6600AFB48B /* DelayedUITask.h */,
+				BB455E101FB37F6600AFB48B /* DelayedUITask.m */,
+				49FF844C2A0624AF00850B7A /* ExceptionExfiltrator.h */,
+				49FF844A2A06249F00850B7A /* ExceptionExfiltrator.m */,
+				49087C14295DF0490058075B /* hook.c */,
+				49087C13295DF0490058075B /* hook.h */,
+				A3595AB22AC6153800E3763E /* mach_exc.defs */,
+				BBCED895255BB65A00CA0701 /* NSObject+SaneKVO.h */,
+				BBCED896255BB65A00CA0701 /* NSObject+SaneKVO.m */,
+				BB149E7E256DC97C00F57815 /* PassthroughView.h */,
+				BB149E7F256DC97C00F57815 /* PassthroughView.m */,
+				BBFB557A215878C600DFE6DE /* UIApplication+OpenURL.h */,
+				BBFB557B215878C600DFE6DE /* UIApplication+OpenURL.m */,
+				BBFB556F21586C4800DFE6DE /* UIViewController+Extras.h */,
+				BBFB557021586C4800DFE6DE /* UIViewController+Extras.m */,
 			);
-			name = Terminal;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
-		A3BF68C72A740185000CF705 /* File */ = {
+		A3595AB32AC6156200E3763E /* Roots */ = {
 			isa = PBXGroup;
 			children = (
-				A30C50202A0A28830047E87E /* FileViewController.swift */,
-				A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */,
-				A30C502D2A0A3AF30047E87E /* FileManager.h */,
-				A30C502E2A0A3B090047E87E /* FileManager.m */,
+				BB10E5CC248DBE66009C7A74 /* Roots.h */,
+				BB10E5CD248DBE66009C7A74 /* Roots.m */,
+				BB10E5CF248DC21D009C7A74 /* Roots.storyboard */,
+				BB10E5D1248DCFEA009C7A74 /* RootsTableViewController.h */,
+				BB10E5D2248DCFEA009C7A74 /* RootsTableViewController.m */,
+				BBAEE33A249BDADC0069EBB5 /* ProgressReportViewController.h */,
+				BBAEE33B249BDADC0069EBB5 /* ProgressReportViewController.m */,
+				BB10E5C2248DBA7B009C7A74 /* fakefs.c */,
 			);
-			name = File;
+			path = Roots;
 			sourceTree = "<group>";
 		};
-		A3BF68C82A7401C1000CF705 /* Editor */ = {
-			isa = PBXGroup;
-			children = (
-				A3D857532A36FCC800165EA7 /* CodeViewController.swift */,
-				A3C547F72A3B9C59003ABB2B /* CodeTextView.swift */,
-				A319A4122A6A5E3D00918762 /* CompletionBox.swift */,
-				A319A4152A6A833E00918762 /* CompletionButton.swift */,
-				A3BF68C92A7401F2000CF705 /* LS */,
-				A3BF68CA2A740233000CF705 /* Extension */,
-			);
-			name = Editor;
-			sourceTree = "<group>";
-		};
-		A3BF68C92A7401F2000CF705 /* LS */ = {
-			isa = PBXGroup;
-			children = (
-				A377B9972A457B07003A995B /* LSClient.swift */,
-				A3BF68EF2A82BF9D000CF705 /* LSController.swift */,
-				A319A4012A5D5F7700918762 /* LSStruct.swift */,
-				A319A3FE2A5D536000918762 /* LSMethod.swift */,
-				A3660AE72A46F41E00A755A4 /* LSManager.h */,
-				A3660AE42A46D6C500A755A4 /* LSManager.m */,
-			);
-			name = LS;
-			sourceTree = "<group>";
-		};
-		A3BF68CA2A740233000CF705 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				A319A4062A5FBF3D00918762 /* UITextViewExt.swift */,
-			);
-			name = Extension;
-			sourceTree = "<group>";
-		};
-		A3D857432A3344FD00165EA7 /* Keyboard */ = {
-			isa = PBXGroup;
-			children = (
-				A3D857402A3313B800165EA7 /* KeyboardBar.swift */,
-				A3D857472A334CC200165EA7 /* UIView+parentViewController.swift */,
-			);
-			name = Keyboard;
-			sourceTree = "<group>";
-		};
-		BB0B848D2586A4B100208600 /* Configs */ = {
+		A3595AB52AC6160400E3763E /* Configs */ = {
 			isa = PBXGroup;
 			children = (
 				BB0B86CD2586FD8800208600 /* App.xcconfig */,
@@ -1153,23 +1132,182 @@
 				BB0B859C2586F19000208600 /* XcodeRelease.xcconfig */,
 				A3BF68C52A73FE73000CF705 /* iSHLog.xcconfig */,
 			);
-			name = Configs;
+			path = Configs;
 			sourceTree = "<group>";
 		};
-		BB10E5C1248DB961009C7A74 /* Roots */ = {
+		A3595AB62AC6166800E3763E /* About */ = {
 			isa = PBXGroup;
 			children = (
-				BB10E5CC248DBE66009C7A74 /* Roots.h */,
-				BB10E5CD248DBE66009C7A74 /* Roots.m */,
-				BB10E5CF248DC21D009C7A74 /* Roots.storyboard */,
-				BB10E5D1248DCFEA009C7A74 /* RootsTableViewController.h */,
-				BB10E5D2248DCFEA009C7A74 /* RootsTableViewController.m */,
-				BBAEE33A249BDADC0069EBB5 /* ProgressReportViewController.h */,
-				BBAEE33B249BDADC0069EBB5 /* ProgressReportViewController.m */,
-				BB10E5C2248DBA7B009C7A74 /* fakefs.c */,
+				BBBCE7E521D2F02200CA00B3 /* About.storyboard */,
+				9A28E4E8219A8B670073D200 /* AboutAppearanceViewController.h */,
+				9A28E4E9219A8B670073D200 /* AboutAppearanceViewController.m */,
+				BB82A7FB21B4C2E8006AA5FD /* AboutExternalKeyboardViewController.h */,
+				BB82A7FC21B4C2E8006AA5FD /* AboutExternalKeyboardViewController.m */,
+				BB1D9D91234A8FE100F364E8 /* AboutNavigationController.h */,
+				BB1D9D92234A8FE100F364E8 /* AboutNavigationController.m */,
+				BBFB5577215876CD00DFE6DE /* AboutViewController.h */,
+				BBFB5578215876CD00DFE6DE /* AboutViewController.m */,
+				BB267FA423A48F1500ED7CAF /* AltIconViewController.h */,
+				BB267FA523A48F1500ED7CAF /* AltIconViewController.m */,
+				BB101B362364CF57000A93BC /* FontPickerViewController.h */,
+				BB101B372364CF57000A93BC /* FontPickerViewController.m */,
+				491C4C1D27C8FB65008B1DFA /* Theme.h */,
+				491C4C1E27C8FB65008B1DFA /* Theme.m */,
+				491C4C1527C8F84A008B1DFA /* ThemesViewController.h */,
+				491C4C1627C8F84A008B1DFA /* ThemesViewController.m */,
+				491B31E42883BF22008EEFB0 /* ThemeViewController.h */,
+				491B31E52883BF22008EEFB0 /* ThemeViewController.m */,
+				BBA5D87C27536E7600B39D77 /* UpgradeRootViewController.h */,
+				BBA5D87D27536E7600B39D77 /* UpgradeRootViewController.m */,
+				8632A7BD219A59FB00F02325 /* UserPreferences.h */,
+				8632A7BE219A59FB00F02325 /* UserPreferences.m */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		A3595AB72AC6169300E3763E /* Devices */ = {
+			isa = PBXGroup;
+			children = (
+				650B337222EA235C00B4C03E /* PasteboardDevice.h */,
+				650B337322EA235C00B4C03E /* PasteboardDevice.m */,
+				BBBF9CBB27C217A6002A30F7 /* PasteboardDeviceLinux.c */,
+				BB235535235D489400139E00 /* LocationDevice.h */,
+				BB235533235D488400139E00 /* LocationDevice.m */,
+				408A263B23644102008A4E81 /* iOSFS.h */,
+				408A2639236440F8008A4E81 /* iOSFS.m */,
+			);
+			path = Devices;
+			sourceTree = "<group>";
+		};
+		A3595AB82AC616BF00E3763E /* LinuxInterop */ = {
+			isa = PBXGroup;
+			children = (
+				BBECF39B2691311D00DEC937 /* LinuxInterop.h */,
+				BB123ACD26C9F13500419CDA /* IOSCalls.m */,
+				BBECF39D2691313B00DEC937 /* LinuxInterop.c */,
+				BB123ACB26C9EFD900419CDA /* LinuxTTY.c */,
+				BBEEA9E9277DAB400069495B /* LinuxPTY.c */,
+				BBEEA9E7277D25090069495B /* LinuxRoot.c */,
+				BB8C3AFD26B7B8AF00E38DDC /* fakefs.c */,
+			);
+			path = LinuxInterop;
+			sourceTree = "<group>";
+		};
+		A3595AB92AC616DA00E3763E /* Bar */ = {
+			isa = PBXGroup;
+			children = (
+				BB60F55021573FCA003A4E52 /* BarButton.h */,
+				BB60F55121573FCA003A4E52 /* BarButton.m */,
+				BBFB557E21587B6800DFE6DE /* ArrowBarButton.h */,
+				BBFB557F21587B6800DFE6DE /* ArrowBarButton.m */,
+			);
+			path = Bar;
+			sourceTree = "<group>";
+		};
+		A3595ABA2AC616F400E3763E /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A3D857402A3313B800165EA7 /* KeyboardBar.swift */,
+				A3D857472A334CC200165EA7 /* UIView+parentViewController.swift */,
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		A3595ABB2AC6171500E3763E /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				A3D857532A36FCC800165EA7 /* CodeViewController.swift */,
+				A311B7412ABF6C8C001AA7F7 /* CodeTextViewList.swift */,
+				A3C547F72A3B9C59003ABB2B /* CodeTextView.swift */,
+				A319A4122A6A5E3D00918762 /* CompletionBox.swift */,
+				A319A4152A6A833E00918762 /* CompletionButton.swift */,
+				A3595ABC2AC6173200E3763E /* LS */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		A3595ABC2AC6173200E3763E /* LS */ = {
+			isa = PBXGroup;
+			children = (
+				A3BF68EF2A82BF9D000CF705 /* LSInitializer.swift */,
+				A377B9972A457B07003A995B /* LSClient.swift */,
+				A3660AE72A46F41E00A755A4 /* LSClientConnector.h */,
+				A3660AE42A46D6C500A755A4 /* LSClientConnector.m */,
+				A3595ABD2AC6174800E3763E /* Protocols */,
+			);
+			path = LS;
+			sourceTree = "<group>";
+		};
+		A3595ABD2AC6174800E3763E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A319A3FE2A5D536000918762 /* LSMethod.swift */,
+				A3EE07E72AC188ED00731773 /* BasicJSONStructures.swift */,
+				A3595ABE2AC6176200E3763E /* LifeCycleMessages */,
+				A3595ABF2AC6177C00E3763E /* DocumentSynchronization */,
+				A3595AC02AC6179500E3763E /* LanguageFeatures */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A3595ABE2AC6176200E3763E /* LifeCycleMessages */ = {
+			isa = PBXGroup;
+			children = (
+				A311B7462AC1611D001AA7F7 /* Initialize.swift */,
+				A311B7482AC1620F001AA7F7 /* Initialized.swift */,
+			);
+			path = LifeCycleMessages;
+			sourceTree = "<group>";
+		};
+		A3595ABF2AC6177C00E3763E /* DocumentSynchronization */ = {
+			isa = PBXGroup;
+			children = (
+				A3EE07E52AC187DB00731773 /* TextDocumentDidOpen.swift */,
+				A3EE07E92AC1929F00731773 /* TextDocumentDidChange.swift */,
+			);
+			path = DocumentSynchronization;
+			sourceTree = "<group>";
+		};
+		A3595AC02AC6179500E3763E /* LanguageFeatures */ = {
+			isa = PBXGroup;
+			children = (
+				A3C19DA02AC19A6600CD6EFD /* TextDocumentCompletion.swift */,
+			);
+			path = LanguageFeatures;
+			sourceTree = "<group>";
+		};
+		A3595AC12AC617D900E3763E /* Terminal */ = {
+			isa = PBXGroup;
+			children = (
+				BB792B561F96D90D00FFB7A4 /* TerminalViewController.h */,
+				BB792B571F96D90D00FFB7A4 /* TerminalViewController.m */,
+				BB78AB291FAD22440013E782 /* TerminalView.h */,
+				BB78AB2A1FAD22440013E782 /* TerminalView.m */,
+				BB0FC5901F980A6B00803272 /* Terminal.h */,
+				BB0FC5911F980A6B00803272 /* Terminal.m */,
+				BB23F58B231E1D1400585522 /* ScrollbarView.h */,
+				BB23F58C231E1D1400585522 /* ScrollbarView.m */,
+			);
+			path = Terminal;
+			sourceTree = "<group>";
+		};
+		A3595AC22AC617FA00E3763E /* File */ = {
+			isa = PBXGroup;
+			children = (
+				A30C50202A0A28830047E87E /* FileViewController.swift */,
+				A3C53C592A0E0AC700736764 /* CreateFileViewController.swift */,
+				A30C502D2A0A3AF30047E87E /* FileManager.h */,
+				A30C502E2A0A3B090047E87E /* FileManager.m */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
+		BB10E5C1248DB961009C7A74 /* libarchive */ = {
+			isa = PBXGroup;
+			children = (
 				BB10E0C1248DA5B0009C7A74 /* libarchive.xcodeproj */,
 			);
-			name = Roots;
+			name = libarchive;
 			sourceTree = "<group>";
 		};
 		BB10E5C4248DBAA1009C7A74 /* Products */ = {
@@ -1195,20 +1333,6 @@
 				BB0F552D239F8A790032A2A1 /* Icons.plist */,
 			);
 			path = Icons;
-			sourceTree = "<group>";
-		};
-		BB235532235D472F00139E00 /* Devices */ = {
-			isa = PBXGroup;
-			children = (
-				650B337222EA235C00B4C03E /* PasteboardDevice.h */,
-				650B337322EA235C00B4C03E /* PasteboardDevice.m */,
-				BBBF9CBB27C217A6002A30F7 /* PasteboardDeviceLinux.c */,
-				BB235535235D489400139E00 /* LocationDevice.h */,
-				BB235533235D488400139E00 /* LocationDevice.m */,
-				408A263B23644102008A4E81 /* iOSFS.h */,
-				408A2639236440F8008A4E81 /* iOSFS.m */,
-			);
-			name = Devices;
 			sourceTree = "<group>";
 		};
 		BB2D71072354244700A10D1E /* platform */ = {
@@ -1250,7 +1374,7 @@
 			name = "most of the code";
 			sourceTree = "<group>";
 		};
-		BB4A53991FAA40FD00A72ACE /* terminal */ = {
+		BB4A53991FAA40FD00A72ACE /* JS */ = {
 			isa = PBXGroup;
 			children = (
 				BB4A53A91FAA496700A72ACE /* term.html */,
@@ -1258,7 +1382,7 @@
 				BB4A53AF1FAA787900A72ACE /* term.css */,
 				BB2B4DAB231D94C300CB578B /* hterm_all.js */,
 			);
-			path = terminal;
+			path = JS;
 			sourceTree = "<group>";
 		};
 		BB792B451F96D8E000FFB7A4 = {
@@ -1304,28 +1428,29 @@
 				BBCC9D952365430800424C83 /* SceneDelegate.m */,
 				BB792B591F96D90D00FFB7A4 /* Main.storyboard */,
 				A37EE49D2A0659C600049353 /* MainTabBarController.swift */,
-				A3BF68C72A740185000CF705 /* File */,
-				A3BF68C62A740135000CF705 /* Terminal */,
-				A3BF68C82A7401C1000CF705 /* Editor */,
-				A3D857432A3344FD00165EA7 /* Keyboard */,
-				BBFB557D21587B2B00DFE6DE /* Bar */,
-				BBECF39C2691312500DEC937 /* LinuxInterop */,
-				BB4A53991FAA40FD00A72ACE /* terminal */,
-				BB235532235D472F00139E00 /* Devices */,
-				BBFB557321586C7600DFE6DE /* About */,
-				BB10E5C1248DB961009C7A74 /* Roots */,
-				BBFB557221586C6600DFE6DE /* Utilities */,
+				A3595AC22AC617FA00E3763E /* File */,
+				A3595AC12AC617D900E3763E /* Terminal */,
+				A3595ABB2AC6171500E3763E /* Editor */,
+				A3595ABA2AC616F400E3763E /* Keyboard */,
+				A3595AB92AC616DA00E3763E /* Bar */,
+				A3595AB82AC616BF00E3763E /* LinuxInterop */,
+				BB4A53991FAA40FD00A72ACE /* JS */,
+				A3595AB72AC6169300E3763E /* Devices */,
+				A3595AB62AC6166800E3763E /* About */,
+				A3595AB32AC6156200E3763E /* Roots */,
+				BB10E5C1248DB961009C7A74 /* libarchive */,
+				A3595AB12AC6152900E3763E /* Utilities */,
+				BBFB557221586C6600DFE6DE /* mach_exc */,
 				BBBF7B5B2415CDBB00EC4C14 /* Settings.bundle */,
 				BB792B5C1F96D90D00FFB7A4 /* Assets.xcassets */,
 				BB1B9A4123A5E92A00414052 /* Icons */,
 				BB792B5E1F96D90D00FFB7A4 /* LaunchScreen.storyboard */,
 				BB792B611F96D90D00FFB7A4 /* Info.plist */,
 				BB792B621F96D90D00FFB7A4 /* main.m */,
-				BB0B848D2586A4B100208600 /* Configs */,
+				A3595AB52AC6160400E3763E /* Configs */,
 				BB88F4A4215476BA00A341FD /* iCode.entitlements */,
 				BB88F4912154760800A341FD /* FileProvider */,
 				BB41591D255EF9E300E0950C /* UITests */,
-				A37EE49C2A0659C500049353 /* libiCodeApp-Bridging-Header.h */,
 				A30C502B2A0A3A7D0047E87E /* iCode-Bridging-Header.h */,
 			);
 			path = app;
@@ -1523,84 +1648,12 @@
 			path = FileProvider;
 			sourceTree = "<group>";
 		};
-		BBECF39C2691312500DEC937 /* LinuxInterop */ = {
+		BBFB557221586C6600DFE6DE /* mach_exc */ = {
 			isa = PBXGroup;
 			children = (
-				BBECF39B2691311D00DEC937 /* LinuxInterop.h */,
-				BB123ACD26C9F13500419CDA /* IOSCalls.m */,
-				BBECF39D2691313B00DEC937 /* LinuxInterop.c */,
-				BB123ACB26C9EFD900419CDA /* LinuxTTY.c */,
-				BBEEA9E9277DAB400069495B /* LinuxPTY.c */,
-				BBEEA9E7277D25090069495B /* LinuxRoot.c */,
-				BB8C3AFD26B7B8AF00E38DDC /* fakefs.c */,
-			);
-			name = LinuxInterop;
-			sourceTree = "<group>";
-		};
-		BBFB557221586C6600DFE6DE /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				497A08BC2961168400B323CF /* AccessibilityFixes.m */,
-				BB9C7B86240A29DE00F5D4F0 /* AppGroup.h */,
-				BB9C7B84240A240E00F5D4F0 /* AppGroup.m */,
-				BB455E0F1FB37F6600AFB48B /* DelayedUITask.h */,
-				BB455E101FB37F6600AFB48B /* DelayedUITask.m */,
-				49FF844C2A0624AF00850B7A /* ExceptionExfiltrator.h */,
-				49FF844A2A06249F00850B7A /* ExceptionExfiltrator.m */,
-				49087C14295DF0490058075B /* hook.c */,
-				49087C13295DF0490058075B /* hook.h */,
 				49087C26295DF1350058075B /* mach_exc.defs */,
-				BBCED895255BB65A00CA0701 /* NSObject+SaneKVO.h */,
-				BBCED896255BB65A00CA0701 /* NSObject+SaneKVO.m */,
-				BB149E7E256DC97C00F57815 /* PassthroughView.h */,
-				BB149E7F256DC97C00F57815 /* PassthroughView.m */,
-				BBFB557A215878C600DFE6DE /* UIApplication+OpenURL.h */,
-				BBFB557B215878C600DFE6DE /* UIApplication+OpenURL.m */,
-				BBFB556F21586C4800DFE6DE /* UIViewController+Extras.h */,
-				BBFB557021586C4800DFE6DE /* UIViewController+Extras.m */,
 			);
-			name = Utilities;
-			sourceTree = "<group>";
-		};
-		BBFB557321586C7600DFE6DE /* About */ = {
-			isa = PBXGroup;
-			children = (
-				BBBCE7E521D2F02200CA00B3 /* About.storyboard */,
-				9A28E4E8219A8B670073D200 /* AboutAppearanceViewController.h */,
-				9A28E4E9219A8B670073D200 /* AboutAppearanceViewController.m */,
-				BB82A7FB21B4C2E8006AA5FD /* AboutExternalKeyboardViewController.h */,
-				BB82A7FC21B4C2E8006AA5FD /* AboutExternalKeyboardViewController.m */,
-				BB1D9D91234A8FE100F364E8 /* AboutNavigationController.h */,
-				BB1D9D92234A8FE100F364E8 /* AboutNavigationController.m */,
-				BBFB5577215876CD00DFE6DE /* AboutViewController.h */,
-				BBFB5578215876CD00DFE6DE /* AboutViewController.m */,
-				BB267FA423A48F1500ED7CAF /* AltIconViewController.h */,
-				BB267FA523A48F1500ED7CAF /* AltIconViewController.m */,
-				BB101B362364CF57000A93BC /* FontPickerViewController.h */,
-				BB101B372364CF57000A93BC /* FontPickerViewController.m */,
-				491C4C1D27C8FB65008B1DFA /* Theme.h */,
-				491C4C1E27C8FB65008B1DFA /* Theme.m */,
-				491C4C1527C8F84A008B1DFA /* ThemesViewController.h */,
-				491C4C1627C8F84A008B1DFA /* ThemesViewController.m */,
-				491B31E42883BF22008EEFB0 /* ThemeViewController.h */,
-				491B31E52883BF22008EEFB0 /* ThemeViewController.m */,
-				BBA5D87C27536E7600B39D77 /* UpgradeRootViewController.h */,
-				BBA5D87D27536E7600B39D77 /* UpgradeRootViewController.m */,
-				8632A7BD219A59FB00F02325 /* UserPreferences.h */,
-				8632A7BE219A59FB00F02325 /* UserPreferences.m */,
-			);
-			name = About;
-			sourceTree = "<group>";
-		};
-		BBFB557D21587B2B00DFE6DE /* Bar */ = {
-			isa = PBXGroup;
-			children = (
-				BB60F55021573FCA003A4E52 /* BarButton.h */,
-				BB60F55121573FCA003A4E52 /* BarButton.m */,
-				BBFB557E21587B6800DFE6DE /* ArrowBarButton.h */,
-				BBFB557F21587B6800DFE6DE /* ArrowBarButton.m */,
-			);
-			name = Bar;
+			name = mach_exc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1744,7 +1797,6 @@
 			);
 			name = iCode;
 			packageProductDependencies = (
-				A377B9932A3C898F003A995B /* Highlightr */,
 				A3563B6C2A880C0800BCFB8C /* Runestone */,
 				A3563B702A880F1500BCFB8C /* TreeSitterAstro */,
 				A3563B722A880F1500BCFB8C /* TreeSitterAstroQueries */,
@@ -1928,7 +1980,6 @@
 			);
 			name = libiCodeApp;
 			packageProductDependencies = (
-				A377B9922A3C8979003A995B /* Highlightr */,
 			);
 			productName = libiSH;
 			productReference = BBEF191E26806364001225BD /* libiCodeApp.a */;
@@ -2049,7 +2100,6 @@
 			);
 			mainGroup = BB792B451F96D8E000FFB7A4;
 			packageReferences = (
-				A377B9912A3C8979003A995B /* XCRemoteSwiftPackageReference "Highlightr" */,
 				A3563B6B2A880C0800BCFB8C /* XCRemoteSwiftPackageReference "Runestone" */,
 				A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */,
 			);
@@ -2441,19 +2491,24 @@
 				A319A4132A6A5E3D00918762 /* CompletionBox.swift in Sources */,
 				A3D857592A37015000165EA7 /* FileViewController.swift in Sources */,
 				BB28C7BB268975AE00BDC834 /* LocationDevice.m in Sources */,
+				A311B7422ABF6C8C001AA7F7 /* CodeTextViewList.swift in Sources */,
 				A319A4162A6A833E00918762 /* CompletionButton.swift in Sources */,
 				A3D8575E2A37016900165EA7 /* MainTabBarController.swift in Sources */,
+				A3C19DA12AC19A6600CD6EFD /* TextDocumentCompletion.swift in Sources */,
+				A3EE07EA2AC1929F00731773 /* TextDocumentDidChange.swift in Sources */,
+				A3EE07E62AC187DB00731773 /* TextDocumentDidOpen.swift in Sources */,
 				A3D8575A2A37015400165EA7 /* CreateFileViewController.swift in Sources */,
 				A3D8575D2A37016300165EA7 /* CodeViewController.swift in Sources */,
-				A319A4072A5FBF3D00918762 /* UITextViewExt.swift in Sources */,
+				A311B7492AC1620F001AA7F7 /* Initialized.swift in Sources */,
 				A3D8575B2A37015900165EA7 /* FileManager.m in Sources */,
 				A377B9982A457B07003A995B /* LSClient.swift in Sources */,
-				A3BF68F02A82BF9D000CF705 /* LSController.swift in Sources */,
+				A3BF68F02A82BF9D000CF705 /* LSInitializer.swift in Sources */,
 				A3D857412A3313B800165EA7 /* KeyboardBar.swift in Sources */,
+				A311B7472AC1611E001AA7F7 /* Initialize.swift in Sources */,
 				BB28C7BA268975AA00BDC834 /* iOSFS.m in Sources */,
-				A3660AE52A46D6C500A755A4 /* LSManager.m in Sources */,
+				A3660AE52A46D6C500A755A4 /* LSClientConnector.m in Sources */,
 				BB28C7BC268975B000BDC834 /* PasteboardDevice.m in Sources */,
-				A319A4022A5D5F7700918762 /* LSStruct.swift in Sources */,
+				A3EE07E82AC188ED00731773 /* BasicJSONStructures.swift in Sources */,
 				A3D857482A334CC200165EA7 /* UIView+parentViewController.swift in Sources */,
 				A3C547F82A3B9C5A003ABB2B /* CodeTextView.swift in Sources */,
 			);
@@ -3460,14 +3515,6 @@
 				minimumVersion = 0.1.7;
 			};
 		};
-		A377B9912A3C8979003A995B /* XCRemoteSwiftPackageReference "Highlightr" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/morinoyu8/Highlightr.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -4050,16 +4097,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A3563B6F2A880F1500BCFB8C /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
 			productName = TreeSitterYAMLRunestone;
-		};
-		A377B9922A3C8979003A995B /* Highlightr */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A377B9912A3C8979003A995B /* XCRemoteSwiftPackageReference "Highlightr" */;
-			productName = Highlightr;
-		};
-		A377B9932A3C898F003A995B /* Highlightr */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A377B9912A3C8979003A995B /* XCRemoteSwiftPackageReference "Highlightr" */;
-			productName = Highlightr;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

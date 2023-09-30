@@ -1,12 +1,12 @@
 //
-//  LSManager.m
+//  LSClientConnector.m
 //  iCode
 //
 //  Created by morinoyu8 on 06/24/23.
 //
 
 #import <Foundation/Foundation.h>
-#import "LSManager.h"
+#import "LSClientConnector.h"
 #import "FileManager.h"
 
 static struct fd *clangd_tty_fd;
