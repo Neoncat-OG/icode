@@ -185,6 +185,15 @@ class CodeViewController: UIViewController {
 
 extension CodeViewController: TextViewDelegate {
     
+    // Save file
+    func textViewDidChange(_ textView: TextView) {
+        do {
+            try textView.text.write(toFile: rootAllPath + currentFilePath, atomically: true, encoding: .utf8)
+        } catch {
+            print("Fail write file: \(currentFilePath)")
+        }
+    }
+    
     // Send message to language servers when text in textView is updated
     func textView(_ textView: TextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         guard let start = textView.textLocation(at: range.location) else { return true }
