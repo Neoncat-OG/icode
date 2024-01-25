@@ -151,6 +151,8 @@ bool (*remove_user_default)(const char *name);
             kPreferenceCapsLockMappingKey: @(CapsLockMapControl),
             kPreferenceOptionMappingKey: @(OptionMapNone),
             kPreferenceBacktickEscapeKey: @(NO),
+            kPreferenceHideExtraKeysWithExternalKeyboardKey: @(NO),
+            kPreferenceOverrideControlSpaceKey: @(NO),
             kPreferenceDisableDimmingKey: @(NO),
             kPreferenceLaunchCommandKey: @[@"/bin/login", @"-f", @"root"],
             kPreferenceBootCommandKey: @[@"/sbin/init"],
@@ -471,7 +473,7 @@ bool (*remove_user_default)(const char *name);
         return NO;
     }
     int _value = [(NSNumber *)(*value) intValue];
-    return _value >= __CursorStyleLast && value < __CursorStyleFirst;
+    return _value >= __CursorStyleFirst && _value < __CursorStyleLast;
 }
 
 - (NSString *)htermCursorShape {
@@ -528,7 +530,7 @@ bool (*remove_user_default)(const char *name);
         return NO;
     }
     int _value = [(NSNumber *)(*value) intValue];
-    return _value >= __ColorSchemeLast && value < __ColorSchemeFirst;
+    return _value >= __ColorSchemeFirst && _value < __ColorSchemeLast;
 }
 
 + (BOOL)systemThemeIsDark {

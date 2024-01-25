@@ -18,8 +18,11 @@ function sync_repo() {
 function update_repo() {
     version="$1"
     path="$2"
-    index_name_file="$3"
+    index_name_file="$3/$version/$path/index.txt"
     remote_path="$archive_remote/$version/$path"
+
+    mkdir -p "$(dirname "$index_name_file")"
+    touch "$index_name_file"
 
     old_index_name="$(cat "$index_name_file")"
     sync_repo "$version" "$path" "$index_name_file"
